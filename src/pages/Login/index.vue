@@ -85,9 +85,9 @@ export default {
       .loginUser(window, self.email, self.password )
       .then(function(result)
         {
-            console.log(result)
+            console.log(result);   
             if(result){
-                self.$router.go('/')
+                self.$router.push('/')
             }
         })
       .catch(function(err){
