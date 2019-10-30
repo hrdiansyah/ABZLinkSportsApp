@@ -1,18 +1,38 @@
 
 const routes = [
+  // admin
   {
-    path: '/',
-    component: () => import('layouts/MyLayout.vue'),
+    path: '/admin/',
+    component: () => import('layouts/admin.vue'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') },
-      //LOGIN
-      { path: '/login', component: () => import('pages/Login/Index.vue') }
-      
+      { path: 'dash', component: () => import('pages/admin/dash.vue') },
+      { path: 'table', component: () => import('pages/admin/table.vue') }
     ]
   },
+
+  // customer
   {
-    path:'/home',
-    component: () => import('pages/user/index.vue')
+    path: '/cust/',
+    component: () => import('layouts/customer.vue'),
+    children: [
+      { path: 'dash', component: () => import('pages/customer/dash.vue') },
+      { path: 'table', component: () => import('pages/customer/table.vue') }
+    ]
+  },
+
+  // owner
+  {
+    path: '/owner/',
+    component: () => import('layouts/owner.vue'),
+    children: [
+      { path: 'dash', component: () => import('pages/owner/dash.vue') },
+      { path: 'table', component: () => import('pages/owner/table.vue') }
+    ]
+  },
+
+  //LOGIN
+  { 
+    path: '/login', component: () => import('pages/Login/Index.vue') 
   }
 ]
 
