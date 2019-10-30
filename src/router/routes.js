@@ -1,5 +1,6 @@
 
 const routes = [
+  
   // admin
   {
     path: '/admin/',
@@ -33,6 +34,9 @@ const routes = [
   //LOGIN
   { 
     path: '/login', component: () => import('pages/Login/Index.vue') 
+  },
+  { 
+    path: '/landing', component: () => import('pages/landing/index.vue') 
   }
 ]
 

@@ -5,7 +5,7 @@ export default {
     loginUser(window, email, password) {
     // let self = this;
     return getApiNoAuth()
-      .post('/users')
+      .get('/users')
       .then(function(response) {
         console.log(response);
         return response.data;
