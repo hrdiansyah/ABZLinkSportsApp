@@ -28,11 +28,8 @@ const routes = [
   // owner
   {
     path: '/owner/',
-    component: () => import('layouts/owner.vue'),
-    children: [
-      { path: 'dash', component: () => import('pages/owner/dash.vue') },
-      { path: 'table', component: () => import('pages/owner/table.vue') }
-    ]
+    component: () => import('pages/owner/dash.vue')
+    
   },
 
   //LOGIN
@@ -42,16 +39,10 @@ const routes = [
   { 
     path: '/landing', component: () => import('pages/landing/index.vue') 
   },
-<<<<<<< HEAD
   { 
     path: '/user', component: () => import('pages/user/index.vue') 
-=======
-
-  //USER
-  {
-    path: '/user', component:() => import('pages/user/index.vue')
->>>>>>> 6da4b9cc80d9b7e220e52d09a3c1d67f3e7a4b77
   }
+  
   
 ]
 

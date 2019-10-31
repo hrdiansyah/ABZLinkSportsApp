@@ -1,6 +1,6 @@
 <template>
  <div class="q-pa-md">
-     <q-toolbar class="bg-purple text-white shadow-2 ">
+     <q-toolbar class="bg-grey-10 text-white shadow-2 ">
       <q-btn flat label="Homepage" />
       <q-space />
 
@@ -17,7 +17,7 @@
 
 
 
-      <q-toolbar class="bg-purple text-white shadow-2 ">
+      <q-toolbar class="bg-grey-10 text-white shadow-2 ">
       <q-tabs v-model="tab" shrink>
         <q-tab name="tab1" label="About" />
         <q-tab name="tab2" label="News" />
