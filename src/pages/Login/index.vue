@@ -79,7 +79,7 @@ export default {
   },
 
   methods : {
-    onSubmit(){
+    onSubmit() {
       let self = this;
       login
       .loginUser(window, self.email, self.password )
@@ -87,7 +87,7 @@ export default {
         {
             console.log(result);   
             if(result){
-                self.$router.push('/')
+                self.$router.push('/cust/dash')
             }
         })
       .catch(function(err){
