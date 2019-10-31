@@ -40,6 +40,9 @@ const routes = [
   },
   { 
     path: '/landing', component: () => import('pages/landing/index.vue') 
+  },
+  { 
+    path: '/user', component: () => import('pages/user/index.vue') 
   }
 ]
 
