@@ -334,63 +334,7 @@
           </div>  
 
       </div>
-    
-     <q-separator color="blue-grey-3" inset />
-     <div class="column">
-       <div class="column" style="height: 70px"/>
-         <div class="row" style="height: 200px">
-            <div class="col-1 q-gutter-xl"/>
-            <div class="col-3">
-              <div class="text-left text-overline">TENTANG KAMI</div>
-              <div class="text-left text-caption">
-              Kami merupakan Perusahaan yang bergerak dalam bidang sport, kami menjual berbagai macam kebutuhan olahraga seperti baju sport, sepatu sport maupun alat olahrga yang mayoritas yaitu olahraga sepakbola.</div>
-            </div>
-            <div class="col-2"/>
-            <div class="col-2">
-              <div class="text-left text-overline">Menu</div>
-              <div class="text-left text-caption">AllProduk</div>
-              <div class="text-left text-caption">About</div>
-              <div class="text-left text-caption">Contact Us</div>
-            </div>
-            <div class="col-1"/>
-            <div class="col-3 q-gutter-xs">
-              <div class="text-left text-overline">ANDA INGIN KELUAR ?
 
-              </div>
-              <q-btn style="background: #283b39; color: white" label="LOGOUT" />
-               
-            </div>
-         </div> 
-         <div class="row" style="height: 100px">
-          <div class="col-1 q-gutter-xl "/>
-          <div class="col-10">
-            <div class="column" style="100px">
-              <div class="col-1">
-                <div class="text-left text-overline">Kenali kami lebih baik dengan mengikuti pegangan media</div>
-                <div class="text-left text-overline">sosial kami!</div>
-              </div>
-              <q-item clickable tag="a" target="_blank" href="https://quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="school" />
-            </div> 
-         </div>
-        </div>
-
-          <div class="column" style="240px">
-            <div class="row">
-              <div class="col-1 q-gutter-xl "/>
-              <div class="col1">
-                <div class="text-left text-overline">@TGProject</div>
-              </div>
-              <div class="col-10"/>
-              <div class="col-auto justify-end">
-                <q-img src="./statics/master.png" style="width:30px"/>
-                <q-img src="./statics/visa.png" style="width:30px"/>
-              </div>
-            </div>
-          </div>
-
-         </div>
     
   </div>
  

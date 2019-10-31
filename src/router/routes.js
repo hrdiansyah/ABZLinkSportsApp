@@ -8,6 +8,7 @@ const routes = [
     children: [
       { path: 'dash', component: () => import('pages/admin/dash.vue') },
       { path: 'table', component: () => import('pages/admin/table.vue') }
+     
     ]
   },
 
@@ -37,7 +38,13 @@ const routes = [
   },
   { 
     path: '/landing', component: () => import('pages/landing/index.vue') 
+  },
+
+  //USER
+  {
+    path: '/user', component:() => import('pages/user/index.vue')
   }
+  
 ]
 
 // Always leave this as last one
