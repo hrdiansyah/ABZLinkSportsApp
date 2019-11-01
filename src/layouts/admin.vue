@@ -1,6 +1,7 @@
 <template>
   <q-layout view="hHh lpR fFf">
     <q-header elevated>
+      
       <q-toolbar>
         <q-btn
           flat
@@ -10,29 +11,48 @@
           icon="menu"
           aria-label="Menu"
         />
-
+        
         <q-toolbar-title>
           ABZLinkSport
         </q-toolbar-title>
+
           <div class="q-pa-md">
         <div class="q-gutter-y-md column" style="width: 250px; max-width: 80%">
+          <div class="col bg-white q-my-md q-mr-xs" style="max-width:1px"/>
+      <!-- GAMBAR -->
+      
           <q-toolbar class="bg-blue-2 text-white rounded-borders">
-            
-            <q-space />
-
-            <q-input dense standout v-model="text" input-class="text-left" class="q-ml-md">
+            <div class="row bg-red-10 text-white rounded" style="height:70px">
+        <div class="col bg-blue" >
+            <div class="col bg-red flex flex-center" style="max-width:80px">
+            <q-avatar>
+              <img src="https://cdn.quasar.dev/img/avatar.png">
+            </q-avatar>
+            </div>
+        </div>
+        <div class="col bg-green">
+          <q-input dense standout v-model="text" input-class="text-left" class="q-ml-md">
               <template v-slot:append>
                 <q-icon v-if="text === ''" name="search" />
                 <q-icon v-else name="clear" class="cursor-pointer" @click="text = ''" />
               </template>
             </q-input>
+        </div>
+        <div class="col bg-black">
+          
+        </div>
+      </div>
+            <q-space />
+            
+            
           </q-toolbar>
         </div>
       </div>
-
-
+      
+ 
       </q-toolbar>
     </q-header>
+   
 
     <q-drawer
       v-model="leftDrawerOpen"

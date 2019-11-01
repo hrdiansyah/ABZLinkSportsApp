@@ -2,7 +2,7 @@
   <div class="q-pa-sm">
     <div class="row bg-grey-10 text-white rounded" style="height:70px">
       <div class="col  q-my-lg q-ml-lg" style="max-width:40%">
-        <q-btn flat @click="drawer = !drawer" round dense icon="menu" class="q-mr-md"/>AbzLinkSport
+        <q-btn flat @click="drawer = !drawer" round dense icon="menu" class="q-mr-md"/>ABZLinkSport
       </div>
       <div class="col  q-my-lg q-ml-lg" style="max-width:55%">
         <button style="max-width:30%" class="float-right q-mr-md">Cari</button>
@@ -48,7 +48,7 @@
                     row-key="name"
                   />
                 </div>
-              
+
           </div>
         </div>
       </div>
