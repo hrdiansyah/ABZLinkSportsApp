@@ -27,17 +27,22 @@ const routes = [
 
   // owner
   {
-    path: '/owner/',
-    component: () => import('pages/owner/dash.vue')
-    
+    path: '/owners/',
+    component: () => import('pages/owner/dash.vue'),
   },
+
+  { 
+    path: '/own-index',
+    component: () => import('pages/owner/index.vue')
+  },
+  
 
   //LOGIN
   { 
     path: '/login', component: () => import('pages/Login/Index.vue') 
   },
   { 
-    path: '/landing', component: () => import('pages/landing/index.vue') 
+    path: '/', component: () => import('pages/landing/index.vue') 
   },
   { 
     path: '/user', component: () => import('pages/user/index.vue') 
