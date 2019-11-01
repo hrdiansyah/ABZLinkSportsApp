@@ -8,6 +8,7 @@ const routes = [
     children: [
       { path: 'dash', component: () => import('pages/admin/dash.vue') },
       { path: 'table', component: () => import('pages/admin/table.vue') }
+     
     ]
   },
 
@@ -17,18 +18,18 @@ const routes = [
     component: () => import('layouts/customer.vue'),
     children: [
       { path: 'dash', component: () => import('pages/customer/dash.vue') },
-      { path: 'table', component: () => import('pages/customer/table.vue') }
+      { path: 'table', component: () => import('pages/customer/table.vue') },
+      { path: 'reg', component: () => import('pages/customer/register.vue') },
+      { path: 'detail', component: () => import('pages/customer/detail.vue') },
+      { path: 'dialog', component: () => import('pages/customer/dialog.vue') }
     ]
   },
 
   // owner
   {
     path: '/owner/',
-    component: () => import('layouts/owner.vue'),
-    children: [
-      { path: 'dash', component: () => import('pages/owner/dash.vue') },
-      { path: 'table', component: () => import('pages/owner/table.vue') }
-    ]
+    component: () => import('pages/owner/dash.vue')
+    
   },
 
   //LOGIN
@@ -37,7 +38,12 @@ const routes = [
   },
   { 
     path: '/landing', component: () => import('pages/landing/index.vue') 
+  },
+  { 
+    path: '/user', component: () => import('pages/user/index.vue') 
   }
+  
+  
 ]
 
 // Always leave this as last one

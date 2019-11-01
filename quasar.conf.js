@@ -51,7 +51,8 @@ module.exports = function (ctx) {
       'QCardSection',
       'QCardActions',
       'QImg',
-      'QRating'
+      'QRating',
+      'QFooter'
       ],
       directives: [],
 
