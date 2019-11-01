@@ -40,7 +40,8 @@
         
       </q-input>
       <div class=" q-gutter-md bg-grey-10 text-white shadow-2 " style="font-size: 4em">
-      <q-icon  name="img: ./statics/toolbar/cart.png" />
+      
+      <q-btn round color="primary" icon="shopping_cart" />
       </div>
       
       <!--
@@ -70,77 +71,68 @@
       <q-carousel-slide 
         class="responsive"
         name="first" 
-        img-src="./statics/awe.jpg"
+        img-src="./statics/baju/madrid.jpg"
       >
         <div class="absolute-center custom-caption">
           <div class="text-center text-h1 text-white">
-            First stop</div>
+            First </div>
           <div class="text-center text-subtitle1 text-white">Animated</div>
         </div>
       </q-carousel-slide>
-      <q-carousel-slide class="responsive" name="second" img-src="./statics/5980.jpg">
+      <q-carousel-slide class="responsive" name="second" img-src="./statics/baju/juve2.jpg">
         <div class="absolute-center custom-caption">
-          <div class="text-center text-h1 text-white">Second stop</div>
+          <div class="text-center text-h1 text-white">Famous</div>
           <div class="text-center rtext-subtitle1 text-white">Famous City</div>
         </div>
       </q-carousel-slide> 
-      <q-carousel-slide class="responsive" name="third" img-src="./statics/46.jpg">
+      <q-carousel-slide class="responsive" name="third" img-src="./statics/baju/arsenal.jpg">
         <div class="absolute-center custom-caption">
-          <div class="text-center text-h1 text-white">Third stop</div>
+          <div class="text-center text-h1 text-white">Central</div>
           <div class="text-center text-subtitle1 text-white">Famous Bridge</div>
         </div>
       </q-carousel-slide>
     </q-carousel>
       <q-card class="my-card">
         <q-card-section>
-          <div class="text-h6">New Brand</div>
+          <div class="text-h6 text-center">New Brand</div>
            <div class="row">
-            <div id="padding" class="col-2">
+            <div id="padding" class="col-3">
               <q-img
-                src="./statics/Logo_Umbro.png"
+                src="./statics/puma.png"
               />
             </div>
-            <div id="padding" class="col-2">
+            <div id="padding" class="col-3">
               <q-img
-                src="./statics/mizuno.png"
+                src="./statics/adidas3.png"
               />
             </div>
-            <div id="padding" class="col-2">
+            <div id="padding" class="col-3">
               <q-img
-                src="./statics/reebok.png"
+                src="./statics/nike3.png"
               />
             </div>
-            <div id="padding" class="col-2">
+            <div id="padding" class="col-3">
               <q-img
-                src="./statics/UIHere (1).png"
+                src="./statics/nb2.jpg"
               />
             </div>
-            <div id="padding" class="col-2">
-              <q-img
-                src="./statics/asics.png"
-              />
-            </div>
-            <div id="padding" class="col-2">
-              <q-img
-                src="./statics/underarmour.png"
-              />
-           </div>
+            
           </div>
         </q-card-section>
       </q-card>
       
 
-      
+    
     <q-card class="my-card">
         <q-card-section>
           <div class="text-h6">New Products</div>
            <div class="row">
               <div id="padding" class="col-2 q-gutter-y-xs column">
                 <q-img
-                  src="./statics/persija.jpg"
+                  src="./statics/baju/madrid.jpg"
                 />
-                <div class="align text-body2"><b> Jersey Persija </b></div>
-                <div class="align text-caption"> Rp. 120.000,00 </div>
+                <div class="align text-body2"><b> Jersey Real Madrid </b></div>
+                <div class="align text-caption"> Rp. 450.000,00 </div>
                 <q-rating
                   class="q-mx-auto responsive"
                   v-model="ratingModel"
@@ -152,10 +144,10 @@
               </div>
             <div id="padding" class="col-2 q-gutter-y-xs column">
               <q-img
-                src="./statics/indonesia.jpg"
+                src="./statics/baju/juve2.jpg"
               />
-                <div class="align text-body2"><b> Jersey Indonesia </b></div>
-                <div class="align text-caption"> Rp. 150.000,00 </div>
+                <div class="align text-body2"><b> Jersey Juventus </b></div>
+                <div class="align text-caption"> Rp. 350.000,00 </div>
                 <q-rating
                   class="q-mx-auto responsive"
                   v-model="ratingModel1"
@@ -167,10 +159,10 @@
             </div>
             <div id="padding" class="col-2 q-gutter-y-xs column">
               <q-img
-                src="./statics/brazil.jpg"
+                src="./statics/baju/city.jpg"
               />
-              <div class="align text-body2"><b> Jersey Brazil </b></div>
-                <div class="align text-caption"> Rp. 130.000,00 </div>
+              <div class="align text-body2"><b> Jersey Manchester City </b></div>
+                <div class="align text-caption"> Rp. 260.000,00 </div>
                 <q-rating
                   class="q-mx-auto responsive"
                   v-model="ratingModel1"
@@ -182,10 +174,10 @@
             </div>
             <div id="padding" class="col-2 q-gutter-y-xs column">
               <q-img
-                src="./statics/inter.jpg"
+                src="./statics/baju/mcu.jpg"
               />
-              <div class="align text-body2"><b> Jersey Internazionale </b></div>
-                <div class="align text-caption"> Rp. 90.000,00 </div>
+              <div class="align text-body2"><b> Jersey Manchester United </b></div>
+                <div class="align text-caption"> Rp. 290.000,00 </div>
                 <q-rating
                   class="q-mx-auto responsive"
                   v-model="ratingModel"
@@ -197,10 +189,10 @@
             </div>
             <div id="padding" class="col-2 q-gutter-y-xs column">
               <q-img
-                src="./statics/madrid.jpg"
+                src="./statics/baju/liv.jpg"
               />
-              <div class="align text-body2"><b> Jersey Real Madrid </b></div>
-                <div class="align text-caption"> Rp. 150.000,00 </div>
+              <div class="align text-body2"><b> Jersey Liverpool </b></div>
+                <div class="align text-caption"> Rp. 290.000,00 </div>
                 <q-rating
                   class="q-mx-auto responsive"
                   v-model="ratingModel"
@@ -212,10 +204,108 @@
             </div>
             <div id="padding" class="col-2 q-gutter-y-xs column">
               <q-img
-                src="./statics/barcelona.jpg"
+                src="./statics/baju/tot.jpg"
               />
-              <div class="align text-body2"><b> Jersey Barcelona </b></div>
-                <div class="align text-caption"> Rp. 150.000,00 </div>
+              <div class="align text-body2"><b> Jersey Tottenham </b></div>
+                <div class="align text-caption"> Rp. 250.000,00 </div>
+                  <q-rating
+                      class="q-mx-auto responsive"
+                      v-model="ratingModel"
+                      size="1.5em"
+                      color="indigo-10"
+                      :max="5"
+                      readonly
+                  />
+                </div>
+              </div>
+          </q-card-section>
+      </q-card>
+
+
+      <q-card class="my-card">
+        <q-card-section>
+           <div class="row">
+              <div id="padding" class="col-2 q-gutter-y-xs column">
+                <q-img
+                  src="./statics/sepatu/adidas1.jpg"
+                />
+                <div class="align text-body2"><b> Sepatu Adidas Classic Lake </b></div>
+                <div class="align text-caption"> Rp. 2.450.000,00 </div>
+                <q-rating
+                  class="q-mx-auto responsive"
+                  v-model="ratingModel"
+                  size="1.5em"
+                  color="indigo-10"
+                  :max="5"
+                  readonly
+                />
+              </div>
+            <div id="padding" class="col-2 q-gutter-y-xs column">
+              <q-img
+                src="./statics/sepatu/nb2.jpg"
+              />
+                <div class="align text-body2"><b> Sepatu NewBalance Blue White </b></div>
+                <div class="align text-caption"> Rp. 1.650.000,00 </div>
+                <q-rating
+                  class="q-mx-auto responsive"
+                  v-model="ratingModel1"
+                  size="1.5em"
+                  color="indigo-10"
+                  :max="5"
+                  readonly
+                />
+            </div>
+            <div id="padding" class="col-2 q-gutter-y-xs column">
+              <q-img
+                src="./statics/sepatu/nike2.jpg"
+              />
+              <div class="align text-body2"><b> Sepatu Nike Vapor</b></div>
+                <div class="align text-caption"> Rp. 2.850.000,00 </div>
+                <q-rating
+                  class="q-mx-auto responsive"
+                  v-model="ratingModel1"
+                  size="1.5em"
+                  color="indigo-10"
+                  :max="5"
+                  readonly
+                />
+            </div>
+            <div id="padding" class="col-2 q-gutter-y-xs column">
+              <q-img
+                src="./statics/sepatu/puma.jpg"
+              />
+              <div class="align text-body2"><b> Sepatu Puma Evo Speed</b></div>
+                <div class="align text-caption"> Rp. 2.290.000,00 </div>
+                <q-rating
+                  class="q-mx-auto responsive"
+                  v-model="ratingModel"
+                  size="1.5em"
+                  color="indigo-10"
+                  :max="5"
+                  readonly
+                />
+            </div>
+            <div id="padding" class="col-2 q-gutter-y-xs column">
+              <q-img
+                src="./statics/sepatu/puma2.jpg"
+              />
+              <div class="align text-body2"><b> Sepatu Puma EvoPower </b></div>
+                <div class="align text-caption"> Rp. 2.500.000,00 </div>
+                <q-rating
+                  class="q-mx-auto responsive"
+                  v-model="ratingModel"
+                  size="1.5em"
+                  color="indigo-10"
+                  :max="5"
+                  readonly
+                />
+            </div>
+            <div id="padding" class="col-2 q-gutter-y-xs column">
+              <q-img
+                src="./statics/sepatu/adidas4.jpg"
+              />
+              <div class="align text-body2"><b> Sepatu Adidas Nemesis </b></div>
+                <div class="align text-caption"> Rp. 2.900.000,00 </div>
                   <q-rating
                       class="q-mx-auto responsive"
                       v-model="ratingModel"
@@ -232,16 +322,16 @@
 
                
       
-             <q-card class="my-card">
+        <q-card class="my-card">
         <q-card-section>
           <div class="text-h6">Discount</div>
            <div class="row">
               <div id="padding" class="col-2 q-gutter-y-xs column">
                 <q-img
-                  src="./statics/persija.jpg"
+                  src="./statics/baju/ac2.jpg"
                 />
-                <div class="align text-body2"><b> Jersey Persija </b></div>
-                <div class="align text-caption"> Rp. 120.000,00 </div>
+                <div class="align text-body2"><b> Jersey Ac Milan </b></div>
+                <div class="align text-caption"> Rp. 190.000,00 </div>
                 <q-rating
                   class="q-mx-auto responsive"
                   v-model="ratingModel"
@@ -253,10 +343,10 @@
               </div>
             <div id="padding" class="col-2 q-gutter-y-xs column">
               <q-img
-                src="./statics/indonesia.jpg"
+                src="./statics/baju/barca.jpg"
               />
-                <div class="align text-body2"><b> Jersey Indonesia </b></div>
-                <div class="align text-caption"> Rp. 150.000,00 </div>
+                <div class="align text-body2"><b> Jersey Barcelona </b></div>
+                <div class="align text-caption"> Rp. 120.000,00 </div>
                 <q-rating
                   class="q-mx-auto responsive"
                   v-model="ratingModel1"
@@ -268,10 +358,10 @@
             </div>
             <div id="padding" class="col-2 q-gutter-y-xs column">
               <q-img
-                src="./statics/brazil.jpg"
+                src="./statics/baju/porto.jpg"
               />
-              <div class="align text-body2"><b> Jersey Brazil </b></div>
-                <div class="align text-caption"> Rp. 130.000,00 </div>
+              <div class="align text-body2"><b> Jersey Fc Porto </b></div>
+                <div class="align text-caption"> Rp. 110.000,00 </div>
                 <q-rating
                   class="q-mx-auto responsive"
                   v-model="ratingModel1"
@@ -283,10 +373,10 @@
             </div>
             <div id="padding" class="col-2 q-gutter-y-xs column">
               <q-img
-                src="./statics/inter.jpg"
+                src="./statics/baju/inter.jpg"
               />
-              <div class="align text-body2"><b> Jersey Internazionale </b></div>
-                <div class="align text-caption"> Rp. 90.000,00 </div>
+              <div class="align text-body2"><b> Jersey Inter Milan </b></div>
+                <div class="align text-caption"> Rp. 190.000,00 </div>
                 <q-rating
                   class="q-mx-auto responsive"
                   v-model="ratingModel"
@@ -298,10 +388,10 @@
             </div>
             <div id="padding" class="col-2 q-gutter-y-xs column">
               <q-img
-                src="./statics/madrid.jpg"
+                src="./statics/baju/lei.jpg"
               />
-              <div class="align text-body2"><b> Jersey Real Madrid </b></div>
-                <div class="align text-caption"> Rp. 150.000,00 </div>
+              <div class="align text-body2"><b> Jersey Leicester City </b></div>
+                <div class="align text-caption"> Rp. 100.000,00 </div>
                 <q-rating
                   class="q-mx-auto responsive"
                   v-model="ratingModel"
@@ -313,10 +403,10 @@
             </div>
             <div id="padding" class="col-2 q-gutter-y-xs column">
               <q-img
-                src="./statics/barcelona.jpg"
+                src="./statics/baju/paris.jpg"
               />
-              <div class="align text-body2"><b> Jersey Barcelona </b></div>
-                <div class="align text-caption"> Rp. 150.000,00 </div>
+              <div class="align text-body2"><b> Jersey Paris Saint Germain </b></div>
+                <div class="align text-caption"> Rp. 170.000,00 </div>
                   <q-rating
                       class="q-mx-auto responsive"
                       v-model="ratingModel"
