@@ -53,7 +53,8 @@ module.exports = function (ctx) {
       'QImg',
       'QRating',
       'QFooter',
-      'QIcon'
+      'QIcon',
+      'QSeparator'
       ],
       directives: [],
 

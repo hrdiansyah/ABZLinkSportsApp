@@ -4,7 +4,7 @@ const routes = [
   // admin
   {
     path: '/admin/',
-    component: () => import('layouts/admin.vue'),
+    component: () => import('layouts/admins.vue'),
     children: [
       { path: 'dash', component: () => import('pages/admin/dash.vue') },
       { path: 'table', component: () => import('pages/admin/table.vue') }
