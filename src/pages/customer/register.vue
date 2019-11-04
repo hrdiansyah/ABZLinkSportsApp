@@ -9,18 +9,16 @@
                     <q-form @submit="onSubmit" @reset="onReset" class="q-pt-md">
                         <Div class="row bg-grey-3 rounded" >
                             <div class="col q-ma-sm">
-                                <q-input filled v-model="nama_depan" label="username *" class="text-white " lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']" />
-                                <q-input filled v-model="nama_belakang" label="Email *"  lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']" />
-                                <q-input filled v-model="alamat" label="Password *"  lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']" />
-                                <q-input filled v-model="no_Hp" label="konfirmasi Password. *"  lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']" />
-                                
+                                <q-input filled v-model="firstName" label="Nama Depan *"  lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']" />
+                                <q-input filled v-model="lastName" label="Nama Belakang *"  lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']" />
+                               
                             </div>
                             <div class="col q-ma-sm ">
-                                <q-input filled v-model="nama_depan" label="Nama Depan *"  lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']" />
-                                <q-input filled v-model="nama_belakang" label="nama Belakang *"  lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']" />
-                                <q-input filled v-model="alamat" label="alamat *"  lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']" />
-                                <q-input filled v-model="no_Hp" label="Telp. *"  lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']" />
-                                
+                                <q-input filled v-model="email" label="Email *"  lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']" />
+                                <q-input filled v-model="password" label="Password *"  lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']" />
+                                <q-input filled v-model="repassword" label="konfirmasi Password. *"  lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']" />
+
+
                             </div>
                         </Div>
                         
@@ -39,3 +37,36 @@
     </q-card>
 </div>
 </template>
+
+<script>
+export default {
+    data(){
+    return {
+      firstName : "",
+      lastName : "",
+      email : "",
+      password : "",
+      role : ""
+    }
+  },
+    methods : {
+    onSubmit(){
+      let self = this;
+      
+    axios.post('http://localhost:8080/api/users', {
+    firstName: self.firstName,
+    lastName: self.lastName,
+    email: self.email,
+    password: self.password,
+    role: self.role
+    })
+    .then(function (response) {
+      return self.$router.push('/table')
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    }
+  }
+}
+</script>
