@@ -30,6 +30,10 @@ const routes = [
     path: '/owners/',
     component: () => import('pages/owner/dash.vue'),
   },
+  {
+    path: '/commit/',
+    component: () => import('pages/contoh.vue'),
+  },
 
   { 
     path: '/own-index',
@@ -46,6 +50,9 @@ const routes = [
   },
   { 
     path: '/user', component: () => import('pages/user/index.vue') 
+  },
+  { 
+    path: '/transaksi', component: () => import('pages/transaksi/index.vue') 
   }
   
   

@@ -158,7 +158,7 @@
                 />
             </div>
             <div id="padding" class="col-2 q-gutter-y-xs column">
-              <q-img
+              <q-img  @click="beli()"
                 src="./statics/baju/city.jpg"
               />
               <div class="align text-body2"><b> Jersey Manchester City </b></div>
@@ -172,9 +172,10 @@
                   readonly
                 />
             </div>
+            
             <div id="padding" class="col-2 q-gutter-y-xs column">
               <q-img
-                src="./statics/baju/mcu.jpg"
+                src="./statics/baju/mcu.jpg" @click="beli()"
               />
               <div class="align text-body2"><b> Jersey Manchester United </b></div>
                 <div class="align text-caption"> Rp. 290.000,00 </div>
@@ -189,7 +190,7 @@
             </div>
             <div id="padding" class="col-2 q-gutter-y-xs column">
               <q-img
-                src="./statics/baju/liv.jpg"
+                src="./statics/baju/liv.jpg" @click="beli()"
               />
               <div class="align text-body2"><b> Jersey Liverpool </b></div>
                 <div class="align text-caption"> Rp. 290.000,00 </div>
@@ -242,7 +243,7 @@
               </div>
             <div id="padding" class="col-2 q-gutter-y-xs column">
               <q-img
-                src="./statics/sepatu/nb2.jpg"
+                src="./statics/sepatu/nb2.jpg" @click="beli()"
               />
                 <div class="align text-body2"><b> Sepatu NewBalance Blue White </b></div>
                 <div class="align text-caption"> Rp. 1.650.000,00 </div>
@@ -257,7 +258,7 @@
             </div>
             <div id="padding" class="col-2 q-gutter-y-xs column">
               <q-img
-                src="./statics/sepatu/nike2.jpg"
+                src="./statics/sepatu/nike2.jpg" @click="beli()"
               />
               <div class="align text-body2"><b> Sepatu Nike Vapor</b></div>
                 <div class="align text-caption"> Rp. 2.850.000,00 </div>
@@ -486,7 +487,15 @@
 export default {
   data () {
     return {
-      slide: 1
+      slide: 1,
+      alert: false,
+      batal(){
+        alert = false
+      },
+      beli(){
+        let self = this;
+        self.$router.push("../transaksi/")
+      }
     }
   }
 }
