@@ -53,7 +53,14 @@ const routes = [
   },
   { 
     path: '/transaksi', component: () => import('pages/transaksi/index.vue') 
+  },
+  { 
+    path: '/google', component: () => import('pages/Google/index.vue') 
+  },
+  { 
+    path: '/yt', component: () => import('pages/Google/tes.vue') 
   }
+
   
   
 ]

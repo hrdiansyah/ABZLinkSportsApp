@@ -8,11 +8,11 @@
         notice shrink property since we are placing it
         as child of QToolbar
       -->
-      <q-tabs v-model="tab" shrink>
+      <!-- <q-tabs v-model="tab" shrink>
         <q-tab name="Product" label="Product" />
         <q-tab name="How" label="How To Use" />
         <q-tab name="Pricing" label="Pricing" />
-      </q-tabs>
+      </q-tabs> -->
     </q-toolbar>
 
 
@@ -20,42 +20,31 @@
       <q-toolbar class="bg-grey-10 text-white shadow-2 ">
       <q-tabs v-model="tab" shrink>
         <q-tab name="tab1" label="About" />
-        <q-tab name="tab2" label="News" />
+        <q-tab name="tab2" label="Products" />
         <q-tab name="tab3" label="Men" />
         <q-tab name="tab4" label="Woman" />
         <q-tab name="tab4" label="Contact Us" />
       </q-tabs>
       <q-space />
       
-      <q-input
-        v-model="search"
-        debounce="500"
-        filled
-        placeholder="Search"
-
-      >
-      <template v-slot:append>
+      <q-input bottom-slots v-model="text" label="Type name of product" class="text-white" :dense="dense">
+        <template v-slot:append>
+          <q-icon v-if="text !== ''" name="close" @click="text = ''" class="cursor-pointer" />
           <q-icon name="search" />
         </template>
-        
+
       </q-input>
-      <div class=" q-gutter-md bg-grey-10 text-white shadow-2 " style="font-size: 4em">
-      <q-icon  name="img: ./statics/toolbar/cart.png" />
-      </div>
-      
       <!--
         notice shrink property since we are placing it
         as child of QToolbar
       -->
       <q-tabs v-model="tab" shrink>
-         <q-tab name="./statics/toolbar/gerigi.jpg" label="" />
+         <!-- <q-tab name="./statics/toolbar/gerigi.jpg" label="" /> -->
         <div class="q-pa-md q-gutter-sm">
         <q-btn label="Alert" color="primary" @click="alert" />
         <q-btn label="Confirm" color="primary" @click="confirm" />
         <q-btn label="Prompt" color="primary" @click="prompt" />
         </div>
-        <q-tab name="tab2" label="Tab 2" />
-        <q-tab name="tab3" label="Tab 3" />
       </q-tabs>
     </q-toolbar>
     <q-carousel
@@ -128,8 +117,6 @@
           </div>
         </q-card-section>
       </q-card>
-      
-
       
     <q-card class="my-card">
         <q-card-section>
@@ -229,10 +216,7 @@
           </q-card-section>
       </q-card>
 
-
-               
-      
-             <q-card class="my-card">
+      <q-card class="my-card">
         <q-card-section>
           <div class="text-h6">Discount</div>
            <div class="row">
@@ -363,7 +347,7 @@
                       <q-separator-vertical/>
                   </div>
 
-                  <div class="col flex flex-center " >
+                  <div class="col flex flex-center"  >
                     Logout
                   </div>
                 </div>

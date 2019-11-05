@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:8888/api/v9';
+const API_URL = 'http://localhost:8080/api/v9';
 const API_URL_LB= 'http://localhost:3000/api/';
 
 export function getApiNoAuth(){
@@ -9,7 +9,7 @@ export function getApiNoAuth(){
         timeout: 10000,
         withCredentials: false,
         headers: {
-            'Access-Control-Allow-Origin': 'http://localhost:8888',
+            'Access-Control-Allow-Origin': 'http://localhost:8080',
             'Content-Type': 'application/json'
         }
     })

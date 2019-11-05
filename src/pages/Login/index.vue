@@ -1,6 +1,7 @@
 
 <template>
 <q-card class="my-card text-white m" style="background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)">
+   <!-- {{userNoww}} -->
   <div class="row">
     <div id="form" class="q-mx-auto " style="max-width: 400px">
       <q-card style="width :350px" >
@@ -40,9 +41,25 @@
                   color="primary"
                   label="Login"
                   class ="full-width"
-                  size="lg"
+                  size="md"
                   type="submit"
               />
+              <!-- <q-btn 
+              push
+              :loading="loading4" 
+              color="primary" 
+              @click="simulateProgress(4)" 
+              style="width: 150px"
+              class="full-width"
+              size="lg"
+              type="submit"
+              > -->
+                  <!-- Login
+                  <template v-slot:loading>
+                    <q-spinner-hourglass class="on-left" />
+                    Loading...
+                  </template>
+              </q-btn> -->
           </q-card-section>
         </q-form>
       </q-card>
@@ -72,13 +89,18 @@ import login from '../../api/Login/index';
 export default {
 
   data() {
-    return{
+    return {
+      // userNow:"",
       email : "",
-      password : ""
+      password : "",
+      loading4: false,
     }
   },
-
-
+  // computed:{
+  //   userNoww(){
+  //           this.$ls.get("userNow");
+  //   }
+  // },
   methods : {
     onSubmit() {
       let self = this;
@@ -87,14 +109,22 @@ export default {
       .then(function(result)
         {
             console.log(result);   
-            if(result){
-                self.$router.push('/cust/dash')
+            if(!result){
+                
+            } else {
+              // self.$ls.set("userNow", result.firstName);
+              // console.log("id nya dia = ", self.$ls.get("userNow"))
+              self.$router.push('/cust/dash')
             }
         })
       .catch(function(err){
         console.log(err);
       });
+    },
+      onReset() {
+      this.email = null;
+      this.password = null;
+      }
     }
   }
-}
 </script>
