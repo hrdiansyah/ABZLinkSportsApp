@@ -454,7 +454,7 @@
                       <q-separator-vertical/>
                   </div>
 
-                  <div class="col flex flex-center " >
+                  <div class="col flex flex-center " @click="beli1()" >
                     Logout
                   </div>
                 </div>
@@ -495,6 +495,10 @@ export default {
       beli(){
         let self = this;
         self.$router.push("../transaksi/")
+      },
+       beli1(){
+        let self = this;
+        self.$router.push("../login/")
       }
     }
   }
