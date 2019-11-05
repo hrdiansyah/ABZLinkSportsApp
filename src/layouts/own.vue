@@ -89,3 +89,24 @@
       </div>
   </q-layout>
 </template>
+
+<script>
+export default{
+  data(){
+    return{
+
+    }
+  },
+  async  mounted(){
+    let getRole = await localStorage.getItem('role');
+    if(getRole !='owner' || getRole ==='admin'){
+         this.$router.push('/admin/')
+      }
+      else if(getRole !='owner' || getRole ==='customer'){
+         this.$router.push('/cust/dash')
+      } else {
+        alert('anda login sebagai owner')
+      } 
+    } 
+  }
+</script>

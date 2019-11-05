@@ -1,3 +1,41 @@
+const requireAuth = (to, from, next) => {
+
+  let getRole= localStorage.getItem('role')
+  if (getRole === null) { 
+      alert('maaf anda belum login')
+    next({
+      
+      path: '/login'
+      
+    })
+  } 
+   else {
+    next()
+  }
+}
+
+// const requireAuth = (to, from, next) => {
+
+//   let getRole= localStorage.getItem('role')
+//   let isLogin = localStorage.getItem('email')
+//   if (isLogin === null) { 
+//     next({
+//       path: '/login'
+//     })
+// //   // } if (isLogin && getRole === 'admin') {
+// //   //   next({
+// //   //     path: '/admin'
+// //   //   })
+// //   // } if (isLogin && getRole === 'customer') {
+// //   //   next({
+// //   //     path: '/cust/dash'
+// //   //   })
+//   } else {
+//     next()
+//   }
+// }
+
+
 
 const routes = [
   
@@ -5,6 +43,7 @@ const routes = [
     {
       path: '/admin/',
       component: () => import('layouts/admin.vue'),
+      beforeEnter: requireAuth,
       children: [
         { path: '', component: () => import('pages/admin/dash.vue') },
         { path: 'barang', component: () => import('pages/admin/barang.vue') },
@@ -17,6 +56,7 @@ const routes = [
   {
     path: '/owner/',
     component: () => import('layouts/own.vue'),
+    beforeEnter: requireAuth,
     children: [
     {path: '',component: () => import('pages/owner/dashboard.vue')},
     {path: 'barang',component: () => import('pages/owner/barang.vue')},
@@ -28,6 +68,7 @@ const routes = [
     {
       path: '/cust/',
       component: () => import('layouts/customer.vue'),
+      beforeEnter: requireAuth,
       children: [
         { path: 'dash', component: () => import('pages/customer/dash.vue') },
         { path: 'table', component: () => import('pages/customer/table.vue') },
@@ -56,11 +97,10 @@ const routes = [
     },
     { 
       path: '/transaksi', component: () => import('pages/transaksi/index.vue') 
-    }
-    
-    
+    },
   ]
-  
+
+   
   // Always leave this as last one
   if (process.env.MODE !== 'ssr') {
     routes.push({
@@ -69,5 +109,5 @@ const routes = [
     })
   }
   
-  export default routes
   
+  export default routes 

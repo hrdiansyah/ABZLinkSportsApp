@@ -32,6 +32,7 @@
               :rules="[
                 val =>!!val || 'password di perlukan'
             ]"/>
+
           </q-card-section>
 
           <q-card-section>
@@ -80,15 +81,27 @@ export default {
 
 
   methods : {
+    
+
     onSubmit() {
+      
       let self = this;
+      
       login
       .loginUser(window, self.email, self.password )
       .then(function(result)
         {
-            console.log(result);   
+            console.log(result); 
             if(result){
+              localStorage.setItem('email', result.email)
+              localStorage.setItem('role', result.role)
+              if(result.role=='admin'){
+                self.$router.push('/admin/')
+              } else if (result.role=='owner'){
+                self.$router.push('/owner/')
+              } else {
                 self.$router.push('/cust/dash')
+              }
             }
         })
       .catch(function(err){
