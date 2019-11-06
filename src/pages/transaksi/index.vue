@@ -132,9 +132,7 @@
                 <div class="flex flex-center">
                     <q-btn  label="Batal" color="grey-6" @click="batal()" />
                 </div>
-                <div class="flex flex-center">
-                    <q-btn  id="padding" label="Batal" color="grey-6" @click="batal()" />
-                </div>
+               
                 </q-card-section>
               </q-form>
           </div>
