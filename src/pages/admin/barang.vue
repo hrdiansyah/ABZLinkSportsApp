@@ -274,37 +274,35 @@ export default {
     },
 
     edit(product){
-       if (confirm('Anda akan di alihkan ke halaman Edit data, Tekan OK untuk lanjut atau Batal untuk kembali')){
-        try {
+       try {
             this.dialog=true
             this.updateSubmit= true
             this.form.id=product.id
-            this.form.productname=product.productname
+            this.form.productname=product.product_name
             this.form.harga=product.harga
             this.form.kuantity=product.kuantity
-            this.form.productkategory=product.productkategory
-            this.form.productdesc=product.productdesc
+            this.form.productkategory=product.product_kategory
+            this.form.productdesc=product.product_desc
         } catch (error) {
             console.log(error.message)
         }
-       }
-      
     },
-    batal(){
-      if (confirm('Apakah Anda yakin ingin keluar proses ini !!!')){
+    batal()
+    {
       this.dialog=false
-      }
     },
     update(id) {
+        if (confirm('Anda akan di alihkan ke halaman Edit data, Tekan OK untuk lanjut atau Batal untuk kembali')){
         const self=this 
         products.putproject(window, self.form.id, self.form.productname, self.form.harga,
         self.form.kuantity, self.form.productkategory, self.form.productdesc)
         .then(function(result) {
-            self.$router.go('/')
+            self.$router.go('/admin/barang')
         })
         .catch(function(err) {
             console.log(err);
         }); 
+      }
     }
   }
 }

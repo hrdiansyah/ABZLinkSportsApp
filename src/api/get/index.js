@@ -26,4 +26,4 @@ function gettingSSK(formData) {
   }
 
 
-export {getting, gettingSSK }
+export { getting, gettingSSK }

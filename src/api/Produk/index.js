@@ -13,15 +13,15 @@ export default {
         })
     },
     
-    postproduct(window, productname, harga,
-        kuantity, productkategory, productdesc){
+    postproduct(window, product_name, harga,
+        kuantity, product_kategory, product_desc){
         return getApiNoAuthLB()
         .post('/Products/' ,{
-            productname : productname,
+            product_name : product_name,
             harga : harga,
             kuantity : kuantity,
-            productkategory : productkategory,
-            productdesc : productdesc
+            product_kategory : product_kategory,
+            product_desc : product_desc
         })
         .then(function(response){
         console.log(response)
@@ -42,14 +42,14 @@ export default {
         console.log(err)
         })
     },
-    putproduct(window, id, productname, harga, kuantity, productkategory, productdesc){
+    putproduct(window, id, product_name, harga, kuantity, product_kategory, product_desc){
         return getApiNoAuthLB()
         .put('/Products/'+id,{
-            productname: productname,
+            product_name: product_name,
             harga: harga,
             kuantity : kuantity,
-            productkategory : productkategory,
-            productdesc : productdesc
+            product_kategory : product_kategory,
+            product_desc : product_desc
 
         })
         .then (function(response){
