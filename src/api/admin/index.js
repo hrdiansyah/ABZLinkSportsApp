@@ -13,20 +13,21 @@ export default {
         })
     },
     postowner(window, Nama, JenisKelamin,
-        TanggalLahir, NoTelepon, Email){
-return getApiNoAuthLB()
-.post('/owners/' ,{
-Nama : Nama,
-JenisKelamin : JenisKelamin,
-TanggalLahir : TanggalLahir,
-NoTelepon : NoTelepon,
-Email : Email
-})
+        TanggalLahir, NoTelepon, Email)
+        {
+            return getApiNoAuthLB()
+            .post('/owners/' ,{
+            Nama : Nama,
+            JenisKelamin : JenisKelamin,
+            TanggalLahir : TanggalLahir,
+            NoTelepon : NoTelepon,
+            Email : Email
+            })
 .then(function(response){
 console.log(response)
 return response.data
 }).catch(function(err){
-console.log(err)
+console.log(err) 
 })
 },
 

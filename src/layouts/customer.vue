@@ -18,9 +18,18 @@ export default{
     if(getRole !='customer' || getRole ==='owner'){
          this.$router.push('/owner/')
       }
-      else if(getRole !='customer' || getRole ==='admin'){
+       else if(getRole !='customer' || getRole ==='admin'){
          this.$router.push('/admin')
-      }  
+      } else {
+        alert(' anda login sebagai customer')
+      } 
+    },
+    methods :{
+      logout(){
+        localStorage.removeItem('role');
+        localStorage.removeItem('email');
+        this.$router.push('/login');
+      }
     }
   }
 </script>

@@ -64,10 +64,7 @@ const routes = [
     ]
   },
 
-  {
-    path: '/upload', component: () => import('pages/upload/upload.vue')
-
-  },
+  
   
     // customer
     {
@@ -81,6 +78,10 @@ const routes = [
         { path: 'detail', component: () => import('pages/customer/detail.vue') },
         { path: 'dialog', component: () => import('pages/customer/dialog.vue') }
       ]
+    },
+    {
+      path: '/upload', component: () => import('pages/upload/upload.vue')
+  
     },
   
     

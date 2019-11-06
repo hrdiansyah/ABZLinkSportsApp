@@ -364,14 +364,20 @@
                   </div>
 
                   <div class="col flex flex-center " >
-                    Logout
+                    <q-btn @click='logout()' flat >
+                        <q-item-section avatar>
+                          <q-icon name="logout" />
+                        </q-item-section>
+                        <q-item-section>
+                          <q-item-label >Logout</q-item-label>
+                        </q-item-section>
+                    </q-btn>
                   </div>
                 </div>
               </q-card-section> 
             </q-card >
             <!-- Akhir Footer -->
-  </div>
- 
+        </div>
   </template>
 
 
@@ -398,6 +404,13 @@ export default {
     return {
       slide: 1
     }
-  }
+  },
+  methods :{
+      logout(){
+        localStorage.removeItem('role');
+        localStorage.removeItem('email');
+        this.$router.push('/login');
+      }
+    }
 }
 </script>
