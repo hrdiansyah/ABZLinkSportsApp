@@ -49,7 +49,7 @@ const routes = [
         { path: 'barang', component: () => import('pages/admin/barang.vue') },
         { path: 'penjualan', component: () => import('pages/admin/penjualan.vue') },
         { path: 'konfirmasi', component: () => import('pages/admin/konfirmasi.vue') }
-       
+        
       ]
     },
     // owner
@@ -62,6 +62,11 @@ const routes = [
     {path: 'barang',component: () => import('pages/owner/barang.vue')},
     {path: 'penjualan',component: () => import('pages/owner/penjualan.vue')}
     ]
+  },
+
+  {
+    path: '/upload', component: () => import('pages/upload/upload.vue')
+
   },
   
 
