@@ -12,16 +12,24 @@ export default {
             console.log(err)
         })
     },
+    
     postowner(window, Nama, JenisKelamin,
+<<<<<<< HEAD
         TanggalLahir, NoTelepon, Email)
         {
             return getApiNoAuthLB()
             .post('/owners/' ,{
+=======
+        TanggalLahir, NoTelepon, Email){
+        return getApiNoAuthLB()
+        .post('/owners/' ,{
+>>>>>>> 76fb07f6348568d17a1e7241fb3945a9ddddad11
             Nama : Nama,
             JenisKelamin : JenisKelamin,
             TanggalLahir : TanggalLahir,
             NoTelepon : NoTelepon,
             Email : Email
+<<<<<<< HEAD
             })
 .then(function(response){
 console.log(response)
@@ -30,6 +38,16 @@ return response.data
 console.log(err) 
 })
 },
+=======
+        })
+        .then(function(response){
+        console.log(response)
+        return response.data
+        }).catch(function(err){
+        console.log(err)
+        })
+    },
+>>>>>>> 76fb07f6348568d17a1e7241fb3945a9ddddad11
 
 deleteowner(window, id){
 return getApiNoAuthLB()

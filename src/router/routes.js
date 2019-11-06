@@ -66,6 +66,27 @@ const routes = [
 
   
   
+
+  //LOGIN
+  { 
+    path: '/login', component: () => import('pages/Login/Index.vue') 
+  },
+  { 
+    path: '/', component: () => import('pages/landing/index.vue') 
+  },
+  { 
+    path: '/user', component: () => import('pages/user/index.vue') 
+  },
+  { 
+    path: '/transaksi', component: () => import('pages/transaksi/index.vue') 
+  },
+  { 
+    path: '/google', component: () => import('pages/Google/index.vue') 
+  },
+  { 
+    path: '/yt', component: () => import('pages/Google/tes.vue') 
+  },
+
     // customer
     {
       path: '/cust/',
@@ -76,13 +97,19 @@ const routes = [
         { path: 'table', component: () => import('pages/customer/table.vue') },
         { path: 'reg', component: () => import('pages/customer/register.vue') },
         { path: 'detail', component: () => import('pages/customer/detail.vue') },
-        { path: 'dialog', component: () => import('pages/customer/dialog.vue') }
+        { path: 'dialog', component: () => import('pages/customer/dialog.vue') },
+        { path: 'header', component: () => import('pages/customer/header.vue') }
       ]
     },
+<<<<<<< HEAD
     {
       path: '/upload', component: () => import('pages/upload/upload.vue')
   
     },
+=======
+
+
+>>>>>>> 76fb07f6348568d17a1e7241fb3945a9ddddad11
   
     
     
