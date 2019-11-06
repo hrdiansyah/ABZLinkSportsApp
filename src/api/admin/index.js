@@ -12,23 +12,24 @@ export default {
             console.log(err)
         })
     },
+    
     postowner(window, Nama, JenisKelamin,
         TanggalLahir, NoTelepon, Email){
-return getApiNoAuthLB()
-.post('/owners/' ,{
-Nama : Nama,
-JenisKelamin : JenisKelamin,
-TanggalLahir : TanggalLahir,
-NoTelepon : NoTelepon,
-Email : Email
-})
-.then(function(response){
-console.log(response)
-return response.data
-}).catch(function(err){
-console.log(err)
-})
-},
+        return getApiNoAuthLB()
+        .post('/owners/' ,{
+            Nama : Nama,
+            JenisKelamin : JenisKelamin,
+            TanggalLahir : TanggalLahir,
+            NoTelepon : NoTelepon,
+            Email : Email
+        })
+        .then(function(response){
+        console.log(response)
+        return response.data
+        }).catch(function(err){
+        console.log(err)
+        })
+    },
 
 deleteowner(window, id){
 return getApiNoAuthLB()
