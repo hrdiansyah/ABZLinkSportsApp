@@ -347,7 +347,7 @@
                       <q-separator-vertical/>
                   </div>
 
-                  <div class="col flex flex-center"  >
+                  <div class="col flex flex-center cursor-pointer">
                     Logout
                   </div>
                 </div>

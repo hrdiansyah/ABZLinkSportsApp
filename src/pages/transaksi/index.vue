@@ -1,26 +1,86 @@
 <template>
 <div class="q-pa-md">
     <div class="q-col-gutter-md row items-start">
-        <div class="col-5">
-        <q-carousel
-        swipeable
-        animated
-        v-model="slide"
-        thumbnails
-        infinite
-        >
-        <q-carousel-slide :name="1" img-src="./statics/baju/ac.jpg" />
-        <q-carousel-slide :name="2" img-src="./statics/baju/juve2.jpg"  />
-        <q-carousel-slide :name="3" img-src="./statics/baju/arsenal.jpg"  />
-        <q-carousel-slide :name="4" img-src="./statics/baju/madrid.jpg"  />
-        </q-carousel>
-        <q-card-section class="bg-white">
-        <div class="flex flex-center text-h5">Rp. 350.000,00</div>
-        <div class="flex flex-center text-h6">Jersey Juventus</div>
-        <div class="flex flex-center text-h6">
-         <q-btn color="grey-6" label="Beli" @click="alert = true"/>
-        </div>
-        </q-card-section>
+        <q-toolbar class="bg-grey-10 text-white shadow-2 ">
+      <q-btn flat label="Homepage" />
+      <q-space />
+
+      <!--
+        notice shrink property since we are placing it
+        as child of QToolbar
+      -->
+      <q-tabs v-model="tab" shrink>
+        <q-tab name="Product" label="Product" />
+        <q-tab name="How" label="How To Use" />
+        <q-tab name="Pricing" label="Pricing" />
+      </q-tabs>
+    </q-toolbar>
+      <q-toolbar class="bg-grey-10 text-white shadow-2 ">
+      <q-tabs v-model="tab" shrink>
+        <q-tab name="tab1" label="About" />
+        <q-tab name="tab2" label="News" />
+        <q-tab name="tab3" label="Men" />
+        <q-tab name="tab4" label="Woman" />
+        <q-tab name="tab4" label="Contact Us" />
+      </q-tabs>
+      <q-space />
+      
+      <q-input
+        v-model="search"
+        debounce="500"
+        filled
+        placeholder="Search"
+
+      >
+      <template v-slot:append>
+          <q-icon name="search" />
+        </template>
+        
+      </q-input>
+      <div class=" q-gutter-md bg-grey-10 text-white shadow-2 " style="font-size: 4em">
+      
+      <q-btn round color="primary" icon="shopping_cart" />
+      </div>
+      </q-toolbar>
+
+      
+        <div class="col-6">
+        <q-card>
+            <q-card-section>
+            <div class="text-h4 flex flex-center" style= "color : black" >Detail Pembeli</div>
+            </q-card-section>
+            <q-separator white inset />
+            <q-card-section>
+            </q-card-section>
+            <q-card-section class="text-h6 text-center" style= "color : black">
+                  Nama  :
+            </q-card-section>
+            <q-card-section class="text-h6 text-center" style= "color : black">
+              HARDIANSYAH BIN SUKIMAN
+            </q-card-section>
+            <q-card-section class="text-h6 text-center" style= "color : black">
+                 Alamat  :
+            </q-card-section>
+            <q-card-section class="text-h6 text-center" style= "color : black">
+              MAMPANG CITY OF DOWNTOWN
+            </q-card-section>
+            <q-card-section class="text-h6 text-center" style= "color : black">
+              No Telepon  :
+            </q-card-section>
+            <q-card-section class="text-h6 text-center" style= "color : black">
+            0811111999
+            </q-card-section>
+            <q-card-section class="text-h6 text-center" style= "color : black">
+            NAMA BANK
+            </q-card-section>
+            
+            <q-card-section class="text-h6 text-center" style= "color : black">
+               Nomor Rekening :
+            </q-card-section>
+            <q-card-section class="text-h6 text-center" style= "color : black">
+            70581818
+            </q-card-section>
+        </q-card>
       </div>
     <q-dialog v-model="alert">
       <q-card style="width:500px">
@@ -72,115 +132,147 @@
                 <div class="flex flex-center">
                     <q-btn  label="Batal" color="grey-6" @click="batal()" />
                 </div>
+                <div class="flex flex-center">
+                    <q-btn  id="padding" label="Batal" color="grey-6" @click="batal()" />
+                </div>
                 </q-card-section>
               </q-form>
           </div>
         </q-card-section>
       </q-card>
     </q-dialog>
-      <div class="col-7">
+    
+        
+      <div class="col-6">
         <q-card dark bordered class="bg-white my-card">
             <q-card-section>
             <div class="text-h4 flex flex-center" style= "color : black" >Deskripsi</div>
             </q-card-section>
             <q-separator white inset />
-            <q-card-section class="text-h6" style= "color : black">
+            
+            
+            <div class="col-6">
+             <q-carousel
+        swipeable
+        animated
+        v-model="slide"
+        thumbnails
+        infinite        
+        id="coba"
+        class="responsive"
+        >
+        <q-carousel-slide :name="1" img-src="./statics/baju/ac.jpg" />
+        <q-carousel-slide :name="2" img-src="./statics/baju/juve2.jpg"  />
+        <q-carousel-slide :name="3" img-src="./statics/baju/arsenal.jpg"  />
+        <q-carousel-slide :name="4" img-src="./statics/baju/madrid.jpg"  />
+        </q-carousel>
+            </div>
+            <div class="col-6">
+                <q-card-section>
+            </q-card-section>
+            <q-card-section id="coba1" class="text-h6 " style= "color : black">
             Nama Barang 
             </q-card-section>
             <q-card-section>
              
             </q-card-section>
-            <q-card-section class="text-h6" style= "color : black">
+            <q-card-section id="coba1" class="text-h6" style= "color : black">
             Kondisi
             </q-card-section>
             <q-card-section>
              
             </q-card-section>
-            <q-card-section class="text-h6" style= "color : black">
+            <q-card-section id="coba1" class="text-h6" style= "color : black">
             Harga
             </q-card-section>
             <q-card-section>
              
             </q-card-section>            
-            <q-card-section class="text-h6" style= "color : black">
+            <q-card-section id="coba1" class="text-h6" style= "color : black">
             Keterangan
             </q-card-section>
-            <q-card-section>
-             
+            <q-card-section id="coba1">
+             <q-btn label="Pesan Sekarang" color="grey-6" @click="alert=true" />
             </q-card-section>
+            
+            </div>            
+             
         </q-card>
         </div>
     </div>
+    <div id="margin">
         <q-card dark bordered class="bg-white">
             <q-card-section>
             <div class="text-h4 flex flex-center" style= "color : black" >Produk Lainnya</div>
             </q-card-section>
         </q-card>
-    <q-card dark bordered class="bg-white">
-    <div class="q-col-gutter-md row items-start">
-      <div class="col-3">
-        <q-card-section class="a bg-white">
-        <q-img
-          src="../statics/baju/mcu.jpg"
-          style="width: 100%"
-        >
-          <div class="absolute-bottom text-subtitle1 text-center q-pa-xs">
-            Rp 200.000
-          </div>
-        </q-img>
-        </q-card-section>
-        <q-card-section class="a bg-white">
-        <div class="flex flex-center text-h6" style= "color : black">Jersey Manchester United</div>
-        </q-card-section>
-      </div>
-      <div class="col-3">
-        <q-card-section class="a bg-white">
-        <q-img
-          src="../statics/baju/madrid.jpg"
-          style="width: 100%"
-        >
-          <div class="absolute-bottom text-subtitle1 text-center q-pa-xs">
-            Rp 320.000
-          </div>
-        </q-img>
-        </q-card-section>
-        <q-card-section class="a bg-white">
-        <div class="flex flex-center text-h6" style= "color : black">Jersey Real Madrid</div>
-        </q-card-section>
-      </div>
-      <div class="col-3">
-        <q-card-section class="a bg-white">
-        <q-img
-          src="../statics/baju/liv.jpg"
-          style="width: 100%"
-        >
-          <div class="absolute-bottom text-subtitle1 text-center q-pa-xs">
-            Rp 250.000
-          </div>
-        </q-img>
-        </q-card-section>
-        <q-card-section class="a bg-white">
-        <div class="flex flex-center text-h6" style= "color : black">Jersey Liverpool</div>
-        </q-card-section>
-      </div>
-      
-      <div class="col-3">
-        <q-card-section class="a bg-white">
-        <q-img
-          src="../statics/baju/tot.jpg"
-          style="width: 100%"
-        >
-          <div class="absolute-bottom text-subtitle1 text-center q-pa-xs">
-            Rp.195.000
-          </div>
-        </q-img>
-        </q-card-section>
-        <q-card-section class="a bg-white">
-        <div class="flex flex-center text-h6" style= "color : black">Jersey Tottenham</div>
-        </q-card-section>
-      </div>
+            <q-card dark bordered class="bg-white">
+            <div class="q-col-gutter-md row items-start">
+            <div class="col-3">
+                <q-card-section class="a bg-white">
+                <q-img
+                src="../statics/baju/mcu.jpg"
+                style="width: 100%"
+                >
+                <div class="absolute-bottom text-subtitle1 text-center q-pa-xs">
+                    Rp 200.000
+                </div>
+                </q-img>
+                </q-card-section>
+                <q-card-section class="a bg-white">
+                <div class="flex flex-center text-h6" style= "color : black">Jersey Manchester United</div>
+                </q-card-section>
+            </div>
+            
+            <div class="col-3">
+                <q-card-section class="a bg-white">
+                <q-img
+                src="../statics/baju/madrid.jpg"
+                style="width: 100%"
+                >
+                <div class="absolute-bottom text-subtitle1 text-center q-pa-xs">
+                    Rp 320.000
+                </div>
+                </q-img>
+                </q-card-section>
+                <q-card-section class="a bg-white">
+                <div class="flex flex-center text-h6" style= "color : black">Jersey Real Madrid</div>
+                </q-card-section>
+            </div>
+            <div class="col-3">
+                <q-card-section class="a bg-white">
+                <q-img
+                src="../statics/baju/liv.jpg"
+                style="width: 100%"
+                >
+                <div class="absolute-bottom text-subtitle1 text-center q-pa-xs">
+                    Rp 250.000
+                </div>
+                </q-img>
+                </q-card-section>
+                <q-card-section class="a bg-white">
+                <div class="flex flex-center text-h6" style= "color : black">Jersey Liverpool</div>
+                </q-card-section>
+            </div>
+            
+            <div class="col-3">
+                <q-card-section class="a bg-white">
+                <q-img
+                src="../statics/baju/tot.jpg"
+                style="width: 100%"
+                >
+                <div class="absolute-bottom text-subtitle1 text-center q-pa-xs">
+                    Rp.195.000
+                </div>
+                </q-img>
+                </q-card-section>
+                <q-card-section class="a bg-white">
+                <div class="flex flex-center text-h6" style= "color : black">Jersey Tottenham</div>
+                </q-card-section>
+            </div>
+            </div>
+            </q-card>
     </div>
-    </q-card>
 </div>
 </template>
 
@@ -199,6 +291,26 @@
     .a {
             border:1px solid grey;
     }
+     #padding {
+    padding:10px;
+  }
+
+      #margin{
+        margin-top:20px;
+      }
+  #coba{
+      height: 250px;
+      width: 250px;
+  }
+   #coba1{
+    left: 250px;
+    bottom:  250px;
+  }
+  #center{
+      text-align: center;
+      
+  }
+ 
 </style>
 
 <script>
