@@ -63,13 +63,15 @@
                                       </q-item-section>
                                     </q-item>
 
-                                    <q-item clickable tag="a" href="/#/logout/index">
-                                      <q-item-section avatar>
-                                        <q-icon name="logout" />
-                                      </q-item-section>
-                                      <q-item-section>
-                                        <q-item-label>Logout</q-item-label>
-                                      </q-item-section>
+                                    <q-item  clickable >
+                                      <q-btn @click='logout()' flat >
+                                          <q-item-section avatar>
+                                            <q-icon name="logout" />
+                                          </q-item-section>
+                                          <q-item-section>
+                                            <q-item-label >Logout</q-item-label>
+                                          </q-item-section>
+                                      </q-btn>
                                     </q-item>
                                   </q-list>
                               </q-card-section>
@@ -97,16 +99,23 @@ export default{
 
     }
   },
-  async  mounted(){
-    let getRole = await localStorage.getItem('role');
-    if(getRole !='owner' || getRole ==='admin'){
-         this.$router.push('/admin/')
-      }
-      else if(getRole !='owner' || getRole ==='customer'){
-         this.$router.push('/cust/dash')
-      } else {
-        alert('anda login sebagai owner')
-      } 
-    } 
+  // async  mounted(){
+  //   let getRole = await localStorage.getItem('role');
+  //   if(getRole !='owner' || getRole ==='admin'){
+  //        this.$router.push('/admin/')
+  //     }
+  //     else if(getRole !='owner' || getRole ==='customer'){
+  //        this.$router.push('/cust/dash')
+  //     } else {
+  //       alert('anda login sebagai owner')
+  //     } 
+  //   },
+  //   methods :{
+  //     logout(){
+  //       localStorage.removeItem('role');
+  //       localStorage.removeItem('email');
+  //       this.$router.push('/login');
+  //     }
+  //   }
   }
 </script>

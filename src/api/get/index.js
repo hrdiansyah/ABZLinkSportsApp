@@ -25,18 +25,18 @@ export default {
     },
 
     postcontainer(window, container,name){
-return getApiNoAuthLB()
-.post('/container/images/files/' ,{
-Nama : name,
-Container : container
-})
-.then(function(response){
-console.log(response)
-return response.data
-}).catch(function(err){
-console.log(err)
-})
-},
+        return getApiNoAuthLB()
+            .post('/container/images/files/' ,{
+                Nama : name,
+                Container : container
+            })
+            .then(function(response){
+                console.log(response)
+                return response.data
+            }).catch(function(err){
+                console.log(err)
+            })
+        },
 
     deletecontainer(window, name){
         return getApiNoAuthLB()

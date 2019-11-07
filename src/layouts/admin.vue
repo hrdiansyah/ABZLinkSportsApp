@@ -72,14 +72,16 @@
                                         <q-item-label caption>Hal. konfirmasi</q-item-label>
                                       </q-item-section>
                                     </q-item>
-
-                                    <q-item @click='logout()'>
-                                      <q-item-section avatar>
-                                        <q-icon name="logout" />
-                                      </q-item-section>
-                                      <q-item-section>
-                                        <q-item-label >Logout</q-item-label>
-                                      </q-item-section>
+                                  
+                                    <q-item  clickable >
+                                      <q-btn @click='logout()' flat >
+                                          <q-item-section avatar>
+                                            <q-icon name="logout" />
+                                          </q-item-section>
+                                          <q-item-section>
+                                            <q-item-label >Logout</q-item-label>
+                                          </q-item-section>
+                                      </q-btn>
                                     </q-item>
                                   </q-list>
                               </q-card-section>
@@ -108,17 +110,25 @@ export default{
     }
   },
   
-  async  mounted(){
-    let getRole = await localStorage.getItem('role');
-    if(getRole !='admin' || getRole ==='owner'){
-         this.$router.push('/owner/')
-      }
-      else if(getRole !='admin' || getRole ==='customer'){
-         this.$router.push('/cust/dash')
-      } else {
-        alert('anda login sebagai admin')
-      }  
-    }
+  
+  // async  mounted(){
+  //   let getRole = await localStorage.getItem('role');
+  //   if(getRole !='admin' || getRole ==='owner'){
+  //        this.$router.push('/owner/')
+  //     }
+  //      if(getRole !='admin' || getRole ==='customer'){
+  //        this.$router.push('/cust/dash')
+  //     } else {
+  //       alert('anda login sebagai admin')
+  //     }  
+  //   },
+  //   methods :{
+  //     logout(){
+  //       localStorage.removeItem('role');
+  //       localStorage.removeItem('email');
+  //       this.$router.push('/login');
+  //     }
+  //   }
   }
   
       

@@ -1,47 +1,7 @@
 <template>
 <div class="q-pa-md">
     <div class="q-col-gutter-md row items-start">
-        <q-toolbar class="bg-grey-10 text-white shadow-2 ">
-      <q-btn flat label="Homepage" />
-      <q-space />
-
-      <!--
-        notice shrink property since we are placing it
-        as child of QToolbar
-      -->
-      <q-tabs v-model="tab" shrink>
-        <q-tab name="Product" label="Product" />
-        <q-tab name="How" label="How To Use" />
-        <q-tab name="Pricing" label="Pricing" />
-      </q-tabs>
-    </q-toolbar>
-      <q-toolbar class="bg-grey-10 text-white shadow-2 ">
-      <q-tabs v-model="tab" shrink>
-        <q-tab name="tab1" label="About" />
-        <q-tab name="tab2" label="News" />
-        <q-tab name="tab3" label="Men" />
-        <q-tab name="tab4" label="Woman" />
-        <q-tab name="tab4" label="Contact Us" />
-      </q-tabs>
-      <q-space />
-      
-      <q-input
-        v-model="search"
-        debounce="500"
-        filled
-        placeholder="Search"
-
-      >
-      <template v-slot:append>
-          <q-icon name="search" />
-        </template>
         
-      </q-input>
-      <div class=" q-gutter-md bg-grey-10 text-white shadow-2 " style="font-size: 4em">
-      
-      <q-btn round color="primary" icon="shopping_cart" />
-      </div>
-      </q-toolbar>
 
       
         <div class="col-6">
