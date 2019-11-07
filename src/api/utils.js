@@ -19,9 +19,9 @@ export function getApiNoAuthLB(){
     return axios.create({
         baseURL: API_URL_LB,
         timeout: 10000,
-        withCredentials: false,
+        withCredentials: true,
         headers: {
-            'Access-Control-Allow-Origin': 'http://localhost:3000',
+            'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json'
         }
     })

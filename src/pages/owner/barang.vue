@@ -8,9 +8,6 @@
         <q-separator spaced class="q-mb-none"/>
         <q-separator spaced  class="q-mt-none"/>
         <q-item>
-            <q-item-section avatar top>
-            <q-icon name="fab fa-github" color="black" size="34px" />
-            </q-item-section>
 
             <q-item-section top class="col gt-sm " style="max-width:35px">
             <q-item-label class="q-mt-sm text-weight-medium">No</q-item-label>
@@ -40,72 +37,65 @@
 
         <q-separator spaced />
         <!-- Awal Data Barang -->
-            <q-item>
-                <q-item-section avatar top>
-                <q-icon name="fab fa-github" color="black" size="34px" />
-                </q-item-section>
-
+            <q-item class="bg-grey-2 col-2 text-black" v-for="(product, index ) in Pro" :key="product.id">
                 <q-item-section top class="col gt-sm " style="max-width:35px">
-                <q-item-label class="q-mt-sm">1</q-item-label>
+                <q-item-label class="q-mt-sm col-0">{{index+1}}</q-item-label>
                 </q-item-section>
 
-                <q-item-section top class="col-2 gt-sm">
-                <q-item-label class="q-mt-sm">Jersey ManUtd</q-item-label>
+                <q-item-section top class="col-2 gt-sm text-weight-medium">
+                <q-item-label class="q-mt-sm">{{product.product_name}}</q-item-label>
                 </q-item-section>
 
-                <q-item-section top class="col-2 gt-sm gt-sm ">
-                <q-item-label class="q-mt-sm">Rp. 120000</q-item-label>
+                <q-item-section top class="col-2 gt-sm text-weight-medium">
+                <q-item-label lines="1">
+                    <span class="text-weight-medium">{{product.harga}}</span>
+                </q-item-label>
                 </q-item-section>
 
-                <q-item-section top class="col gt-sm">
-                <q-item-label class="q-mt-sm">45</q-item-label>
+                <q-item-section top class="col-2 gt-sm text-weight-medium">
+                <q-item-label lines="1">
+                    <span class="text-weight-medium">{{product.kuantity}}</span>
+                </q-item-label>
                 </q-item-section>
 
-                <q-item-section top class="col-2 gt-sm">
-                <q-item-label class="q-mt-sm q-ml-md">Jersey</q-item-label>
+                <q-item-section top class="col-2 gt-sm text-weight-medium">
+                <q-item-label lines="1">
+                    <span class="text-weight-medium">{{product.product_kategory}}</span>
+                </q-item-label>
                 </q-item-section>
 
-                <q-item-section top class="col-2 gt-sm">
-                    <q-item-label class="q-mt-sm">
-                        Bahan Katun, Kualtas baik, produk Eropa
-                        Bahan Katun, Kualtas baik, produk Eropa
-                    </q-item-label>
-                </q-item-section>
-            </q-item>
-
-            <q-item>
-                <q-item-section avatar top>
-                <q-icon name="fab fa-github" color="black" size="34px" />
-                </q-item-section>
-
-                <q-item-section top class="col gt-sm " style="max-width:35px">
-                <q-item-label class="q-mt-sm">2</q-item-label>
-                </q-item-section>
-
-                <q-item-section top class="col-2 gt-sm">
-                <q-item-label class="q-mt-sm">Jersey Chalsea</q-item-label>
-                </q-item-section>
-
-                <q-item-section top class="col-2 gt-sm gt-sm ">
-                <q-item-label class="q-mt-sm">Rp. 150000</q-item-label>
-                </q-item-section>
-
-                <q-item-section top class="col gt-sm">
-                <q-item-label class="q-mt-sm">20</q-item-label>
-                </q-item-section>
-
-                <q-item-section top class="col-2 gt-sm">
-                <q-item-label class="q-mt-sm q-ml-md">Jersey</q-item-label>
-                </q-item-section>
-
-                <q-item-section top class="col-2 gt-sm">
-                    <q-item-label class="q-mt-sm">
-                        Bahan Katun, Kualtas baik, produk Belanda
-                    </q-item-label>
+                <q-item-section top class="col-2 gt-sm text-weight-medium">
+                <q-item-label lines="1">
+                    <span class="text-weight-medium">{{product.product_desc}}</span>
+                </q-item-label>
                 </q-item-section>
             </q-item>
         </q-list>
     </div>
 </template>
 
+<script>
 
+import products from '../../api/Produk/index';
+
+export default {
+  data () {
+    return {
+      Pro: [
+        { 
+
+        }
+      ]
+    }
+  },
+
+  // Get data dari Api
+  async mounted(){
+    const response = await 
+    products.getproduct(window)
+        {
+          this.Pro=response
+        }
+   }
+}
+</script>

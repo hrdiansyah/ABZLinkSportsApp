@@ -113,7 +113,7 @@ export default {
       .loginUser(window, self.email, self.password )
       .then(function(result)
         {
-            console.log(result); 
+             
             if(result){
               localStorage.setItem('email', result.email)
               localStorage.setItem('role', result.role)

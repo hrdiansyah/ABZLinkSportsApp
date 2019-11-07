@@ -274,7 +274,8 @@ export default {
     },
 
     edit(product){
-       try {
+      if (confirm('Anda akan di alihkan ke halaman Edit data, Tekan OK untuk lanjut atau Batal untuk kembali')){
+        try {
             this.dialog=true
             this.updateSubmit= true
             this.form.id=product.id
@@ -286,13 +287,14 @@ export default {
         } catch (error) {
             console.log(error.message)
         }
+      }
     },
     batal()
     {
       this.dialog=false
     },
     update(id) {
-        if (confirm('Anda akan di alihkan ke halaman Edit data, Tekan OK untuk lanjut atau Batal untuk kembali')){
+      
         const self=this 
         products.putproduct(window, self.form.id, self.form.productname, self.form.harga,
         self.form.kuantity, self.form.productkategory, self.form.productdesc)
@@ -304,7 +306,6 @@ export default {
         }); 
       }
     }
-  }
 }
 </script>
 
