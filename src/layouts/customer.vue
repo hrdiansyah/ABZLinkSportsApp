@@ -1,6 +1,6 @@
 <template>
   <q-layout view="hHh Lpr fFf" class="bg-grey-3">
-    <div class="q-pa-xs">
+    <div class="q-pa-xs ">
       <div class="row">
         <div class="col bg-grey-10 hide" >
           <q-toolbar class=" text-white  " >
@@ -68,18 +68,17 @@
           
       </div>
 
+      <!-- garis horizontal -->
+      <div class="row bg-grey-10">
+          <div class="col">
+              <hr class="text-white">
+          </div>
+      </div>
 
-      <!-- <div class="row bg-grey-10">
-              <div class="col">
-                  <hr class="text-white">
-              </div>
-          </div> -->
     <!-- awal Drawer -->
       <q-drawer
         class="show"
         v-model="drawerLeft"
-        show-if-above
-        :width="250"
         
         
         content-class="bg-grey-10 text-white"
@@ -171,9 +170,57 @@
       </q-drawer>
     <!-- awal Drawer -->
 
-      <q-page-container>
+      <q-page-container class="q-mx-none">
         <router-view />
       </q-page-container>
+
+    <!-- Awal Footer -->
+      <q-card class="my-card bg-grey-10">
+      <q-card-section>
+        <div class="row q-ma-md text-white"  >
+          <div class="col " style="max-width:30%">
+            <h6 class="q-ma-none q-mb-sm">Service</h6>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+            Lorem Ipsum has been  
+          </div>
+
+          <div class="col bg-white q-ma-sm" style="max-width:1px ">
+              <q-separator-vertical/>
+          </div>
+
+          <div class="col " style="max-width:30%">
+              <div class="q-mx-sm">
+                  <h6 class="q-ma-none ">Categories</h6>
+                  <p class="q-ma-none">Product <br>About Us <br>Testimoni <br>Price Tables <br> Crew <br> Portofolio
+                  </p>
+              </div>
+          </div>
+
+          <div class="col " style="max-width:30%">
+              <h6 class="q-my-none q-mb-sm q-ml-lg" >Partner</h6>
+              <div class="q-ml-lg">
+              Product <br>About Us <br>Testimoni <br>Price Tables <br> Crew <br> Portofolio
+              </div>
+          </div>
+
+          <div class="col bg-white q-ma-sm" style="max-width:1px ">
+              <q-separator-vertical/>
+          </div>
+
+          <div class="col flex flex-center " >
+            <q-btn @click='logout()' flat >
+                <q-item-section avatar>
+                  <q-icon name="logout" />
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label >Logout</q-item-label>
+                </q-item-section>
+            </q-btn>
+          </div>
+        </div>
+      </q-card-section> 
+    </q-card >
+    <!-- Akhir Footer -->
     </div>
   </q-layout>
 </template>
