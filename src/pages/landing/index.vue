@@ -10,20 +10,23 @@
       transition-next="slide-left"
     >
       <q-carousel-slide 
-        class="responsive"
+        class="responsive trans"
         name="first" 
-        img-src="./statics/awe.jpg"
+        img-src="./statics/5980.jpg"
       >
         <div class="absolute-center custom-caption">
           <div class="text-center text-h1 text-white">
-            First stop</div>
-          <div class="text-center text-subtitle1 text-white">Animated</div>
+            <br>First stop
+            </div>
+          <div class="text-center text-subtitle2 text-white">
+           <q-btn class="btn-fixed-width" outline style="color: black;" label="Login/Register Now" />
+          </div>
         </div>
       </q-carousel-slide>
-      <q-carousel-slide class="responsive" name="second" img-src="./statics/5980.jpg">
+      <q-carousel-slide class="responsive" name="second" img-src="./statics/awe.jpg">
         <div class="absolute-center custom-caption">
           <div class="text-center text-h1 text-white">Second stop</div>
-          <div class="text-center rtext-subtitle1 text-white">Famous City</div>
+          <div class="text-center rtext-subtitle1 text-white"> Famous City </div>
         </div>
       </q-carousel-slide> 
       <q-carousel-slide class="responsive" name="third" img-src="./statics/46.jpg">
@@ -235,7 +238,7 @@
     width: 60px;
   }
   .trans {
-    opacity : 0.5;
+    opacity : 0.8;
   }
   #padding {
     padding:10px;
