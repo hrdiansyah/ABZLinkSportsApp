@@ -71,22 +71,17 @@ const routes = [
   { 
     path: '/login', component: () => import('pages/Login/Index.vue') 
   },
-  { 
-    path: '/', component: () => import('pages/landing/index.vue') 
-  },
-  { 
-    path: '/user', component: () => import('pages/user/index.vue') 
-  },
-  // { 
-  //   path: '/transaksi', component: () => import('pages/transaksi/index.vue') 
-  // },
-  { 
-    path: '/google', component: () => import('pages/Google/index.vue') 
-  },
-  { 
-    path: '/yt', component: () => import('pages/Google/tes.vue') 
-  },
+  
+  {
+  path: '/get', component: () => import('pages/get/get.vue')
 
+  },
+  {
+    path: '/transaksi', component: () => import('pages/transaksi/index.vue')
+  
+    },
+  
+  
     // customer
     {
       path: '/cust/',

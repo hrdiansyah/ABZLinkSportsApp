@@ -78,7 +78,7 @@
       <q-drawer
         class="show"
         v-model="drawerLeft"
-        show-if-above
+        
         :width="250"
         
         

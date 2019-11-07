@@ -1,5 +1,6 @@
 <template>
 
+
     <div class="flex flex-center">
       <div class="q-pa-md" style="max-width: 500px; width:100%">
         <h4 style="text-align:center;">Upload Dokumen KSSK</h4>
@@ -8,8 +9,39 @@
           <q-input
             filled
             v-model="nameFile"
-            label="Nama File"
-            hint="Contoh: 2016-12-01 Rapat Stabilitas Sistem Keuangan Triwulan IV - 2016"
+            label="Nama Product"
+            lazy-rules
+            :rules="[ val => val && val.length > 0 || 'Please type something']"
+          />
+
+          <q-input
+            filled
+            v-model="qty"
+            label="Qty"
+            lazy-rules
+            :rules="[ val => val && val.length > 0 || 'Please type something']"
+          />
+
+          <q-input
+            filled
+            v-model="category"
+            label="Product Category"
+            lazy-rules
+            :rules="[ val => val && val.length > 0 || 'Please type something']"
+          />
+
+          <q-input
+            filled
+            v-model="harga"
+            label="Harga"
+            lazy-rules
+            :rules="[ val => val && val.length > 0 || 'Please type something']"
+          />
+
+          <q-input
+            filled
+            v-model="desc"
+            label="Product Deskripsi"
             lazy-rules
             :rules="[ val => val && val.length > 0 || 'Please type something']"
           />
@@ -221,7 +253,8 @@
 </style>
 
 <script>
-import {uploadKSSK}  from '../../api/upload/index';
+import {uploadKSSK, upload}  from '../../api/upload/index';
+import product from '../../api/Produk/index';
 const STATUS_INITIAL = 0, STATUS_SAVING = 1, STATUS_SUCCESS = 2, STATUS_FAILED = 3;
 
 export default {
@@ -242,7 +275,14 @@ export default {
       waitedFormData: '',
       waitedFormDataPdf: '',
       filesImage: '',
-      filesPdf: ''
+      filesPdf: '',
+      productName: '',
+      qty: '',
+      category: '',
+      desc: '',
+      harga: '',
+      imgurl: '',
+      img: ''
 
 
     };
@@ -271,6 +311,20 @@ export default {
       }
     },
     methods: {
+
+      postProduct() {
+
+          product
+          .postproduct(window, this.nameFile, this.harga, this.qty, this.category, this.desc, this.nameFile+'.jpg' )
+          .then(function(result) {
+            return result;
+          })
+          .catch(function(err) {
+            console.log(err);
+          });
+
+      },
+
         reset() {
         // reset form to initial state
         this.currentStatus = STATUS_INITIAL;
@@ -323,6 +377,7 @@ export default {
       submit(waitedFormData) {
         
         this.save(waitedFormData);
+        this.postProduct();
       }
     },
     mounted() {
