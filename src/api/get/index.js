@@ -1,29 +1,69 @@
+import { getApiNoAuth,getApiNoAuthLB } from "../utils"
 
-import * as axios from 'axios';
+export default {
+    getcontainerS(window){
+        return getApiNoAuthLB()
+        .get('container/images/files')
+        .then(function(response){
+            console.log(response)
+            return response.data
+        })
+        .catch (function(err){
+            console.log(err)
+        })
+    },
+    getcontainer(window, file, container){
+        return getApiNoAuthLB()
+        .get('container/'+container+'/files/'+file)
+        .then(function(response){
+            console.log(response)
+            return response.data
+        })
+        .catch (function(err){
+            console.log(err)
+        })
+    },
 
-const BASE_URL_KSSK = 'http://localhost:3000/api/container';
-const BASE_URL = 'http://localhost:3000/api/container';
+    postcontainer(window, container,name){
+return getApiNoAuthLB()
+.post('/container/images/files/' ,{
+Nama : name,
+Container : container
+})
+.then(function(response){
+console.log(response)
+return response.data
+}).catch(function(err){
+console.log(err)
+})
+},
 
-function getting(formData,id) {
-  const url = `${BASE_URL}/${id}/upload`;
-  const containerUrl = `${BASE_URL}`;
-    return axios.get(containerUrl, { name : id } )
-    .then(function (res) {
-      return axios.get(url, formData)
-    }).then(x => x.data)
-    // add url field
-    .then(x => x.map(img => Object.assign({},
-      img, { url: `${BASE_URL}/images/${img.id}` })));
+    deletecontainer(window, name){
+        return getApiNoAuthLB()
+        .delete('/container/images/files/'.concat(name))
+            .then (function(response) {
+                console.log(response)
+                return response.data
+            })
+            .catch (function(err){
+                console.log(err)
+            })
+        
+    },
+    putcontainer(window,id,Name, Container){
+        return getApiNoAuthLB()
+        .put('/employees/'+id,{
+            Nama: Name,
+            Container: Container
+
+        })
+        .then (function(response){
+            console.log(response);
+            
+        })
+        .catch (function(err){
+            console.log(err);
+            
+        })
+    }
 }
-
-function gettingSSK(formData) {
-    const url = `${BASE_URL_KSSK}/images/upload`;
-    return axios.get(url, formData)
-      .then(x => x.data)
-      // add url field
-      .then(x => x.map(img => Object.assign({},
-        img, { url: `${BASE_URL_KSSK}/images/${img.id}` })));
-  }
-
-
-export {getting, gettingSSK }

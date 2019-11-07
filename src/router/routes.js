@@ -69,6 +69,16 @@ const routes = [
 
   },
   
+  {
+  path: '/get', component: () => import('pages/get/get.vue')
+
+  },
+  {
+    path: '/transaksi', component: () => import('pages/transaksi/index.vue')
+  
+    },
+  
+  
     // customer
     {
       path: '/cust/',

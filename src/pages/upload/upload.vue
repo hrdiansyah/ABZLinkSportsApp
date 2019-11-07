@@ -1,5 +1,6 @@
 <template>
 
+
     <div class="flex flex-center">
       <div class="q-pa-md" style="max-width: 500px; width:100%">
         <h4 style="text-align:center;">Upload Dokumen KSSK</h4>
@@ -7,9 +8,40 @@
   
           <q-input
             filled
-            v-model="nameFile"
-            label="Nama File"
-            hint="Contoh: 2016-12-01 Rapat Stabilitas Sistem Keuangan Triwulan IV - 2016"
+            v-model="productName"
+            label="Nama Product"
+            lazy-rules
+            :rules="[ val => val && val.length > 0 || 'Please type something']"
+          />
+
+          <q-input
+            filled
+            v-model="qty"
+            label="Qty"
+            lazy-rules
+            :rules="[ val => val && val.length > 0 || 'Please type something']"
+          />
+
+          <q-input
+            filled
+            v-model="category"
+            label="Product Category"
+            lazy-rules
+            :rules="[ val => val && val.length > 0 || 'Please type something']"
+          />
+
+          <q-input
+            filled
+            v-model="harga"
+            label="Harga"
+            lazy-rules
+            :rules="[ val => val && val.length > 0 || 'Please type something']"
+          />
+
+          <q-input
+            filled
+            v-model="desc"
+            label="Product Deskripsi"
             lazy-rules
             :rules="[ val => val && val.length > 0 || 'Please type something']"
           />
@@ -242,7 +274,13 @@ export default {
       waitedFormData: '',
       waitedFormDataPdf: '',
       filesImage: '',
-      filesPdf: ''
+      filesPdf: '',
+      productName: '',
+      qty: '',
+      category: '',
+      desc: '',
+      harga: '',
+      imgurl: ''
 
 
     };
