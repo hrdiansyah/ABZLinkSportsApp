@@ -8,7 +8,7 @@
   
           <q-input
             filled
-            v-model="productName"
+            v-model="nameFile"
             label="Nama Product"
             lazy-rules
             :rules="[ val => val && val.length > 0 || 'Please type something']"
@@ -253,7 +253,8 @@
 </style>
 
 <script>
-import {uploadKSSK}  from '../../api/upload/index';
+import {uploadKSSK, upload}  from '../../api/upload/index';
+import product from '../../api/Produk/index';
 const STATUS_INITIAL = 0, STATUS_SAVING = 1, STATUS_SUCCESS = 2, STATUS_FAILED = 3;
 
 export default {
@@ -280,7 +281,8 @@ export default {
       category: '',
       desc: '',
       harga: '',
-      imgurl: ''
+      imgurl: '',
+      img: ''
 
 
     };
@@ -309,6 +311,20 @@ export default {
       }
     },
     methods: {
+
+      postProduct() {
+
+          product
+          .postproduct(window, this.nameFile, this.harga, this.qty, this.category, this.desc, this.nameFile+'.jpg' )
+          .then(function(result) {
+            return result;
+          })
+          .catch(function(err) {
+            console.log(err);
+          });
+
+      },
+
         reset() {
         // reset form to initial state
         this.currentStatus = STATUS_INITIAL;
@@ -361,6 +377,7 @@ export default {
       submit(waitedFormData) {
         
         this.save(waitedFormData);
+        this.postProduct();
       }
     },
     mounted() {

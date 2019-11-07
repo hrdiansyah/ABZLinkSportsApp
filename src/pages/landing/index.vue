@@ -74,12 +74,12 @@
         <q-card-section >
           <div class="text-h6">New Products</div>
            <div class="row">
-              <div id="padding" class="col-2 q-gutter-y-xs column" v-for="item in images" v-bind:key="item">
+              <div id="padding" class="col-2 q-gutter-y-xs column" v-for="item in images">
                 <q-img
-                  src="./statics/persija.jpg"
+                  :src="item.imgurl"
                 />
-                <div class="align text-body2"><b> {{item.name}}</b></div>
-                <div class="align text-caption"> Rp. 120.000,00 </div>
+                <div class="align text-body2"><b> {{item.product_name}}</b></div>
+                <div class="align text-caption">Rp.  {{item.harga}} </div>
                 <q-rating
                   class="q-mx-auto responsive"
                   v-model="ratingModel"
@@ -122,7 +122,6 @@
                   </div>
 
                   <div class="col bg-white q-ma-sm" style="max-width:1px ">
-                      <q-separator-vertical/>
                   </div>
 
                   <div class="col " style="max-width:30%">
@@ -141,7 +140,6 @@
                   </div>
 
                   <div class="col bg-white q-ma-sm" style="max-width:1px ">
-                      <q-separator-vertical/>
                   </div>
 
                   <div class="col flex flex-center " >
@@ -172,18 +170,28 @@
 
 <script>
 import containeer from '../../api/get/index';
+import {downloadImage} from '../../api/upload/index';
+import product from '../../api/Produk/index'
 export default {
   data () {
     return {
       slide: 'first',
       ratingModel: 5,
       ratingModel1: 4,
-      images:[]
+      images:[],
+      img: './statics/supersale2.jpg'
       }
   },
+
+  computed: {
+    getImgs() {
+      this.getImg()
+    }
+  },
+
   beforeCreate() {
          let self=this;
-    containeer.getcontainerS(window )
+    product.getproduct(window )
                 .then(function (result) {
                     console.log(result);
                     self.images= result;
