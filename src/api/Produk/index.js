@@ -44,7 +44,7 @@ export default {
     },
     putproduct(window, id, product_name, harga, kuantity, product_kategory, product_desc){
         return getApiNoAuthLB()
-        .put('/Products/'+id,{
+        .put('/Products/' + id ,{
             product_name: product_name,
             harga: harga,
             kuantity : kuantity,

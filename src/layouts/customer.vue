@@ -1,8 +1,180 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-page-container>
-      <router-view />
-    </q-page-container>
+  <q-layout view="hHh Lpr fFf" class="bg-grey-3">
+    <div class="q-pa-xs">
+      <div class="row">
+        <div class="col bg-grey-10 hide" >
+          <q-toolbar class=" text-white  " >
+            <q-btn flat label="Homepage" />
+            <q-space />
+          </q-toolbar>
+
+          <q-toolbar class=" text-white ">
+            <q-tabs v-model="tab" shrink  style="min-width:480px">
+              <q-tab name="tab1" label="About" />
+              <q-tab name="tab2" label="Products" />
+              <q-tab name="tab3" label="Men" />
+              <q-tab name="tab4" label="Woman" />
+              <q-tab name="tab4" label="Contact Us" />
+            </q-tabs>
+            <q-space />
+          </q-toolbar>
+        </div>
+        
+        <!-- button hide -->
+        <div class="col bg-grey-10 show height" >
+          <q-btn flat @click="drawerLeft = !drawerLeft"  dense icon="menu"  class=" text-white header_left_show q-ml-lg" size="lg"/>
+        </div>
+
+        <!-- awal account -->
+        <div class="col bg-grey-10 " style="min-width:400px">
+          <q-btn color="white" class="text-white float-right q-mr-lg transparent account hide q-ml-md" flat round>
+            <q-icon name="account_circle" size="md"/>
+            <q-menu>
+              <div class="row no-wrap q-pa-md">
+                <div class="column">
+                  <div class="text-h6 q-mb-md">Settings</div>
+                  <hr/>
+                  <div class="q-mb-md">Transaksi</div>
+                  <div class="q-mb-md">Tagihan</div>
+
+                </div>
+
+                <q-separator vertical inset class="q-mx-lg" />
+
+                <div class="column items-center">
+                  <q-avatar size="72px">
+                    <img src="https://cdn.quasar.dev/img/avatar4.jpg">
+                  </q-avatar>
+
+                  <div class="text-subtitle1 q-mt-md q-mb-xs">John Doe</div>
+
+                  <q-btn
+                    color="primary"
+                    label="Logout"
+                    push
+                    size="sm"
+                    @click="logout()"
+                  />
+                </div>
+              </div>
+            </q-menu>
+          </q-btn>
+          <!-- akhir account -->
+
+          <q-icon name="add_shopping_cart" class="text-white float-right   cart hide" size="md"/>
+          <q-btn class="bg-white float-right mr q-mx-md" size="sm" >Cari</q-btn>
+          <q-input type="text" placeholder="Search......!" class="bg-white float-right  mr" style="max-width:200px;max-height:25px" />
+        </div>
+          
+      </div>
+
+
+      <!-- <div class="row bg-grey-10">
+              <div class="col">
+                  <hr class="text-white">
+              </div>
+          </div> -->
+    <!-- awal Drawer -->
+      <q-drawer
+        class="show"
+        v-model="drawerLeft"
+        show-if-above
+        :width="250"
+        
+        
+        content-class="bg-grey-10 text-white"
+      >
+        <q-scroll-area class="fit">
+          <div class="q-pa-xs">
+            <q-card class="my-card bg-grey-10" flat tyle="max-height:100%">
+                <q-card-section>
+                    <q-list>
+                      <q-item-label header class="text-white text-center " size="md"> Welcome Admin </q-item-label>
+                      <hr class="text-white"/>
+                      <q-item clickable tag="a" href="/#/admin">
+                        <q-item-section avatar>
+                          <q-icon name="brightness_auto" />
+                        </q-item-section>
+                        <q-item-section>
+                          <q-item-label>About</q-item-label>
+                        </q-item-section>
+                      </q-item>
+
+                      <q-item clickable tag="a" href="/#/admin/barang">
+                        <q-item-section avatar>
+                          <q-icon name="school" />
+                        </q-item-section>
+                        <q-item-section>
+                          <q-item-label>Product</q-item-label>
+                        </q-item-section>
+                      </q-item>
+
+                      <q-item clickable tag="a" href="/#/admin/penjualan">
+                        <q-item-section avatar>
+                          <q-icon name="school" />
+                        </q-item-section>
+                        <q-item-section>
+                          <q-item-label>Men</q-item-label>
+                        </q-item-section>
+                      </q-item>
+
+                      <q-item clickable tag="a" href="/#/admin/konfirmasi">
+                        <q-item-section avatar>
+                          <q-icon name="school" />
+                        </q-item-section>
+                        <q-item-section>
+                          <q-item-label>Women</q-item-label>
+                        </q-item-section>
+                      </q-item>
+
+                      <q-item clickable tag="a" href="/#/admin/konfirmasi">
+                        <q-item-section avatar>
+                          <q-icon name="add_shopping_cart" />
+                        </q-item-section>
+                        <q-item-section>
+                          <q-item-label>Keranjang</q-item-label>
+                        </q-item-section>
+                      </q-item>
+
+                      <q-item clickable tag="a" href="/#/admin/konfirmasi">
+                        <q-item-section avatar>
+                          <q-icon name="menu_book" />
+                        </q-item-section>
+                        <q-item-section>
+                          <q-item-label>Tagihan</q-item-label>
+                        </q-item-section>
+                      </q-item>
+
+                      <q-item clickable tag="a" href="/#/admin/konfirmasi">
+                        <q-item-section avatar>
+                          <q-icon name="drive_eta" />
+                        </q-item-section>
+                        <q-item-section>
+                          <q-item-label>R. Pengiriman</q-item-label>
+                        </q-item-section>
+                      </q-item>
+
+                      <q-item clickable tag="a" href="/#/admin/konfirmasi">
+                        <q-item-section avatar>
+                          <q-icon name="account_circle" />
+                        </q-item-section>
+                        <q-item-section>
+                          <q-item-label>Profil</q-item-label>
+                        </q-item-section>
+                      </q-item>
+
+                    </q-list>
+                </q-card-section>
+            </q-card>
+          </div>
+        </q-scroll-area>
+      </q-drawer>
+    <!-- awal Drawer -->
+
+      <q-page-container>
+        <router-view />
+      </q-page-container>
+    </div>
   </q-layout>
 </template>
 
@@ -10,26 +182,26 @@
 export default{
   data(){
     return{
-
+      drawerLeft: false,
     }
   },
-  async  mounted(){
-    let getRole = await localStorage.getItem('role');
-    if(getRole !='customer' || getRole ==='owner'){
-         this.$router.push('/owner/')
-      }
-       else if(getRole !='customer' || getRole ==='admin'){
-         this.$router.push('/admin')
-      } else {
-        alert(' anda login sebagai customer')
-      } 
-    },
-    methods :{
-      logout(){
-        localStorage.removeItem('role');
-        localStorage.removeItem('email');
-        this.$router.push('/login');
-      }
-    }
+  // async  mounted(){
+  //   let getRole = await localStorage.getItem('role');
+  //   if(getRole !='customer' || getRole ==='owner'){
+  //        this.$router.push('/owner/')
+  //     }
+  //      else if(getRole !='customer' || getRole ==='admin'){
+  //        this.$router.push('/admin')
+  //     } else {
+  //       alert(' anda login sebagai customer')
+  //     } 
+  //   },
+  //   methods :{
+  //     logout(){
+  //       localStorage.removeItem('role');
+  //       localStorage.removeItem('email');
+  //       this.$router.push('/login');
+  //     }
+  //   }
   }
 </script>

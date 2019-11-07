@@ -1,18 +1,18 @@
-const requireAuth = (to, from, next) => {
+// const requireAuth = (to, from, next) => {
 
-  let getRole= localStorage.getItem('role')
-  if (getRole === null) { 
-      alert('maaf anda belum login')
-    next({
+//   let getRole= localStorage.getItem('role')
+//   if (getRole === null) { 
+//       alert('maaf anda belum login')
+//     next({
       
-      path: '/login'
+//       path: '/login'
       
-    })
-  } 
-   else {
-    next()
-  }
-}
+//     })
+//   } 
+//    else {
+//     next()
+//   }
+// }
 
 // const requireAuth = (to, from, next) => {
 
@@ -43,7 +43,7 @@ const routes = [
     {
       path: '/admin/',
       component: () => import('layouts/admin.vue'),
-      beforeEnter: requireAuth,
+      // beforeEnter: requireAuth,
       children: [
         { path: '', component: () => import('pages/admin/dash.vue') },
         { path: 'barang', component: () => import('pages/admin/barang.vue') },
@@ -56,7 +56,7 @@ const routes = [
   {
     path: '/owner/',
     component: () => import('layouts/own.vue'),
-    beforeEnter: requireAuth,
+    // beforeEnter: requireAuth,
     children: [
     {path: '',component: () => import('pages/owner/dashboard.vue')},
     {path: 'barang',component: () => import('pages/owner/barang.vue')},
@@ -77,9 +77,9 @@ const routes = [
   { 
     path: '/user', component: () => import('pages/user/index.vue') 
   },
-  { 
-    path: '/transaksi', component: () => import('pages/transaksi/index.vue') 
-  },
+  // { 
+  //   path: '/transaksi', component: () => import('pages/transaksi/index.vue') 
+  // },
   { 
     path: '/google', component: () => import('pages/Google/index.vue') 
   },
@@ -91,25 +91,22 @@ const routes = [
     {
       path: '/cust/',
       component: () => import('layouts/customer.vue'),
-      beforeEnter: requireAuth,
+      // beforeEnter: requireAuth,
       children: [
         { path: 'dash', component: () => import('pages/customer/dash.vue') },
         { path: 'table', component: () => import('pages/customer/table.vue') },
         { path: 'reg', component: () => import('pages/customer/register.vue') },
         { path: 'detail', component: () => import('pages/customer/detail.vue') },
         { path: 'dialog', component: () => import('pages/customer/dialog.vue') },
-        { path: 'header', component: () => import('pages/customer/header.vue') }
+        { path: 'header', component: () => import('pages/customer/header.vue') },
+        { path: 'transaksi', component: () => import('pages/transaksi/index.vue')},
+        { path: 'pembayaran', component: () => import('pages/customer/pembayaran.vue')},
       ]
     },
-<<<<<<< HEAD
     {
       path: '/upload', component: () => import('pages/upload/upload.vue')
   
     },
-=======
-
-
->>>>>>> 76fb07f6348568d17a1e7241fb3945a9ddddad11
   
     
     
@@ -128,9 +125,9 @@ const routes = [
     { 
       path: '/user', component: () => import('pages/user/index.vue') 
     },
-    { 
-      path: '/transaksi', component: () => import('pages/transaksi/index.vue') 
-    },
+    // { 
+    //   path: '/transaksi', component: () => import('pages/transaksi/index.vue') 
+    // },
   ]
 
    

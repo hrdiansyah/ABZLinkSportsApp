@@ -1,53 +1,6 @@
 <template>
- <div class="q-pa-md">
-     <q-toolbar class="bg-grey-10 text-white shadow-2 ">
-      <q-btn flat label="Homepage" />
-      <q-space />
-
-      <!--
-        notice shrink property since we are placing it
-        as child of QToolbar
-      -->
-      <!-- <q-tabs v-model="tab" shrink>
-        <q-tab name="Product" label="Product" />
-        <q-tab name="How" label="How To Use" />
-        <q-tab name="Pricing" label="Pricing" />
-      </q-tabs> -->
-    </q-toolbar>
-
-
-
-      <q-toolbar class="bg-grey-10 text-white shadow-2 ">
-      <q-tabs v-model="tab" shrink>
-        <q-tab name="tab1" label="About" />
-        <q-tab name="tab2" label="Products" />
-        <q-tab name="tab3" label="Men" />
-        <q-tab name="tab4" label="Woman" />
-        <q-tab name="tab4" label="Contact Us" />
-      </q-tabs>
-      <q-space />
-      
-      <q-input bottom-slots v-model="text" label="Type name of product" class="text-white" :dense="dense">
-        <template v-slot:append>
-          <q-icon v-if="text !== ''" name="close" @click="text = ''" class="cursor-pointer" />
-          <q-icon name="search" />
-        </template>
-
-      </q-input>
-      <!--
-        notice shrink property since we are placing it
-        as child of QToolbar
-      -->
-      <q-tabs v-model="tab" shrink>
-         <!-- <q-tab name="./statics/toolbar/gerigi.jpg" label="" /> -->
-        <div class="q-pa-md q-gutter-sm">
-        <q-btn label="Alert" color="primary" @click="alert" />
-        <q-btn label="Confirm" color="primary" @click="confirm" />
-        <q-btn label="Prompt" color="primary" @click="prompt" />
-        </div>
-      </q-tabs>
-    </q-toolbar>
-    <q-carousel
+ <div class="q-px-none q-py-sm" >
+    <q-carousel 
       animated
       v-model="slide"
       navigation
@@ -80,7 +33,7 @@
         </div>
       </q-carousel-slide>
     </q-carousel>
-      <q-card class="my-card">
+      <q-card class="my-card q-my-sm">
         <q-card-section>
           <div class="text-h6">New Brand</div>
            <div class="row">
@@ -216,7 +169,7 @@
           </q-card-section>
       </q-card>
 
-      <q-card class="my-card">
+      <q-card class="my-card q-my-sm">
         <q-card-section>
           <div class="text-h6">Discount</div>
            <div class="row">
@@ -347,7 +300,6 @@
                       <q-separator-vertical/>
                   </div>
 
-<<<<<<< HEAD
                   <div class="col flex flex-center " >
                     <q-btn @click='logout()' flat >
                         <q-item-section avatar>
@@ -357,10 +309,6 @@
                           <q-item-label >Logout</q-item-label>
                         </q-item-section>
                     </q-btn>
-=======
-                  <div class="col flex flex-center cursor-pointer">
-                    Logout
->>>>>>> 76fb07f6348568d17a1e7241fb3945a9ddddad11
                   </div>
                 </div>
               </q-card-section> 
