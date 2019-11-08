@@ -9,7 +9,7 @@
       >
       <q-item-label header>
         
-        <q-btn color="blue" icon="add_box"  label="product" class="sp" size="md" @click="add()"/>
+        <q-btn color="blue" icon="add_box"  label="product" class="sp" size="md" to="/upload"/>
         
       </q-item-label>
         
@@ -80,6 +80,11 @@
         <q-item-section top class="col-2 gt-sm flex flex-center">
           <q-item-label lines="1">
             <span class="text-weight-medium">{{product.product_desc}}</span>
+          </q-item-label>
+        </q-item-section>
+         <q-item-section top class="col-2 gt-sm flex flex-center">
+          <q-item-label lines="1">
+            <span class="text-weight-medium">{{product.imgurl}}</span>
           </q-item-label>
         </q-item-section>
 
@@ -179,6 +184,18 @@
                     val => val !== null && val !== '' || '',
                   ]"
                 />
+
+                <q-input
+                  filled
+                  v-model="form.imgurl"
+                  label="Upload Ulang Gambar"
+                  type="textarea"
+                  lazy-rules
+                  :rules="[
+                    val => val !== null && val !== '' || '',
+                  ]"
+                />
+
             <div>
               <q-btn flat label="Add" type="submit" color="primary" v-close-popup v-show="!updateSubmit"/>
               <q-btn flat label="Update" type="button" color="primary" v-close-popup v-show="updateSubmit" @click="update(form)"/>
@@ -199,7 +216,7 @@
 <script>
 
 import products from '../../api/Produk/index';
-
+import akuaja from '../../api/upload/index';
 export default {
   data () {
     return {
@@ -217,7 +234,8 @@ export default {
         harga : '',
         kuantity : '',
         productkategory : '',
-        productdesc : ''
+        productdesc : '',
+        imgurl: ''
       }
     }
   },
@@ -284,6 +302,8 @@ export default {
             this.form.kuantity=product.kuantity
             this.form.productkategory=product.product_kategory
             this.form.productdesc=product.product_desc
+            this.form.imgurl=product.imgurl
+
         } catch (error) {
             console.log(error.message)
         }

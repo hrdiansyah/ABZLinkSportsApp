@@ -43,7 +43,7 @@ export default {
         console.log(err)
         })
     },
-    putproduct(window, id, product_name, harga, kuantity, product_kategory, product_desc){
+    putproduct(window, id, product_name, harga, kuantity, product_kategory, product_desc,imgurl){
         return getApiNoAuthLB()
         .put('/Products/' + id ,{
             product_name: product_name,
