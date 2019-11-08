@@ -1,10 +1,10 @@
 import {
-    Bar
+    Pie
   }
   from 'vue-chartjs'
   
   export default {
-    extends: Bar,
+    extends: Pie,
     props: ['data'],
     mounted: function () {
       this.renderChart(this.data, this.options)
@@ -14,7 +14,7 @@ import {
         options: {
           title: {
             display: true,
-            text: 'some title'
+            text: 'Grafik Pengunjung'
           }
         }
       }
