@@ -19,7 +19,8 @@
             <br>First stop
             </div>
           <div class="text-center text-subtitle2 text-white">
-           <q-btn class="btn-fixed-width" outline style="color: black;" label="Login/Register Now" />
+           <!-- <q-btn class="btn-fixed-width" outline style="color: white;" label="Login/Register Now" /> -->
+           <q-btn push color="white" text-color="primary" label="Login/Register Now" />
           </div>
         </div>
       </q-carousel-slide>

@@ -336,10 +336,6 @@ export default {
       save(formData) {
         // upload data to the server
         this.currentStatus = STATUS_SAVING;
-
-       
-
-
         uploadKSSK(formData)
           .then(x => {
             this.uploadedFiles = [].concat(x);
