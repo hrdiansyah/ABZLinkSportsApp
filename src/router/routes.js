@@ -13,30 +13,6 @@
 //     next()
 //   }
 // }
-
-// const requireAuth = (to, from, next) => {
-
-//   let getRole= localStorage.getItem('role')
-//   let isLogin = localStorage.getItem('email')
-//   if (isLogin === null) { 
-//     next({
-//       path: '/login'
-//     })
-// //   // } if (isLogin && getRole === 'admin') {
-// //   //   next({
-// //   //     path: '/admin'
-// //   //   })
-// //   // } if (isLogin && getRole === 'customer') {
-// //   //   next({
-// //   //     path: '/cust/dash'
-// //   //   })
-//   } else {
-//     next()
-//   }
-// }
-
-
-
 const routes = [
   
     // admin
@@ -96,6 +72,7 @@ const routes = [
         { path: 'header', component: () => import('pages/customer/header.vue') },
         { path: 'transaksi', component: () => import('pages/transaksi/index.vue')},
         { path: 'pembayaran', component: () => import('pages/customer/pembayaran.vue')},
+        { path: 'catalog', component: () => import('pages/customer/catalog.vue')}
       ]
     },
     {
@@ -132,7 +109,7 @@ const routes = [
       path: '*',
       component: () => import('pages/Error404.vue')
     })
-  }
+  }  
   
   
   export default routes 

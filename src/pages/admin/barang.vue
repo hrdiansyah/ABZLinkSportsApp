@@ -79,7 +79,7 @@
 
         <q-item-section top class="col-2 gt-sm flex flex-center">
           <q-item-label lines="1">
-            <span class="text-weight-medium">{{product.product_desc}}</span>
+            <span class="text-weight-medium">{{product.imgurl}}</span>
           </q-item-label>
         </q-item-section>
 
@@ -171,8 +171,8 @@
 
                 <q-input
                   filled
-                  v-model="form.productdesc"
-                  label="Deskripsi produk "
+                  v-model="form.url"
+                  label="url "
                   type="textarea"
                   lazy-rules
                   :rules="[
@@ -217,7 +217,7 @@ export default {
         harga : '',
         kuantity : '',
         productkategory : '',
-        productdesc : ''
+        url : ''
       }
     }
   },
@@ -283,7 +283,7 @@ export default {
             this.form.harga=product.harga
             this.form.kuantity=product.kuantity
             this.form.productkategory=product.product_kategory
-            this.form.productdesc=product.product_desc
+            this.form.url=product.imgurl
         } catch (error) {
             console.log(error.message)
         }

@@ -43,7 +43,7 @@ export default {
         console.log(err)
         })
     },
-    putproduct(window, id, product_name, harga, kuantity, product_kategory, product_desc){
+    putproduct(window, id, product_name, harga, kuantity, product_kategory, product_desc, imgurl){
         return getApiNoAuthLB()
         .put('/Products/' + id ,{
             product_name: product_name,
@@ -62,5 +62,16 @@ export default {
             console.log(err);
             
         })
-    }
+    },
+
+    downloadImage(window, file){
+        return getApiNoAuthLB()
+        .get('container/images/download/'+file)
+        .then(function(response){
+            return response.config
+        })
+        .catch (function(err){
+            console.log(err)
+        })
+      }
 }
