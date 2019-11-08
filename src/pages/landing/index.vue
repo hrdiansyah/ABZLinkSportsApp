@@ -98,13 +98,13 @@
           <div class="text-h6">New Products</div>
            <div class="row " >
                 
-              <div id="padding" class="col q-mx-auto  column q-ma-xs" v-for="item in images" :key="item.id" style="min-width:200px; max-width:250px">
+              <q-btn id="padding" class="col q-mx-auto  column q-ma-xs" flat v-for="item in images" :key="item.id" style="min-width:200px; max-width:250px" @click="show(item)">
                 
                     <q-img style="width:200px; height:250px " class="q-mx-auto"
                       :src="item.imgurl"
                     />
-                    <div class="align text-body2 q-mt-sm"><b> {{item.product_name}}</b></div>
-                    <div class="align text-caption">Rp.  {{item.harga}} </div>
+                    <div class="align text-body2 q-mt-sm"><b> {{item.product_name}}</b></div><p>
+                    <div class="align text-caption"> Rp.  {{item.harga}} </div>
                     <q-rating
                       class="q-mx-auto responsive"
                       v-model="ratingModel"
@@ -113,7 +113,7 @@
                       :max="5"
                       readonly
                     />
-              </div>
+              </q-btn>
            </div>
           </q-card-section>
       </q-card>
@@ -225,6 +225,22 @@ export default {
                 .catch(function (err) {
                     console.log(err);
                 });
-     }
+     },
+     methods :{
+
+       show(item){
+       console.log(item.id)
+       if (item.id===this.images.id){
+         this.$router.go('/cust/detail')
+       } else {
+         this.$router.go('/')
+       }
+      }
+
+     },
+     components:{
+    'item': require ('../customer/detail.vue').default
+  }
+     
 }
 </script>

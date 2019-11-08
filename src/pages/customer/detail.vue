@@ -48,7 +48,7 @@
                                     <div class="row">
                                         <div class="col q-ma-xs text-black ">
                                             <hr>
-                                           <label ><b class="text-center"> Nama Product</b></label><br>
+                                           <label ><b class="text-center"> {{item.product_name}}</b></label><br>
                                            <label> Rp. 100.000</label>
                                             
                                         </div>
@@ -100,3 +100,10 @@
     </q-card>
 </div>
 </template>
+
+<script>
+
+    export default{
+        props: ['item']
+    }
+</script>
