@@ -37,32 +37,32 @@
         <q-card-section>
           <div class="text-h6">New Brand</div>
            <div class="row">
-            <div id="padding" class="col-2">
+            <div id="padding" class="col-2 q-mx-sm q-mx-auto q-mt-sm" style="min-width:150px; max-width:200px">
               <q-img
                 src="./statics/Logo_Umbro.png"
               />
             </div>
-            <div id="padding" class="col-2">
+            <div id="padding" class="col-2 q-mx-sm q-mx-auto q-mt-sm" style="min-width:150px; max-width:200px">
               <q-img
                 src="./statics/mizuno.png"
               />
             </div>
-            <div id="padding" class="col-2">
+            <div id="padding" class="col-2 q-mx-sm q-mx-auto q-mt-sm" style="min-width:150px; max-width:200px">
               <q-img
                 src="./statics/reebok.png"
               />
             </div>
-            <div id="padding" class="col-2">
+            <div id="padding" class="col-2 q-mx-auto q-mx-sm q-mt-sm" style="min-width:150px; max-width:200px">
               <q-img
                 src="./statics/UIHere (1).png"
               />
             </div>
-            <div id="padding" class="col-2">
+            <div id="padding" class="col-2 q-mx-sm q-mx-auto q-mt-sm" style="min-width:150px; max-width:200px">
               <q-img
                 src="./statics/asics.png"
               />
             </div>
-            <div id="padding" class="col-2">
+            <div id="padding" class="col-2 q-mx-sm q-mx-auto q-mt-sm" style="min-width:150px; max-width:200px">
               <q-img
                 src="./statics/underarmour.png"
               />
@@ -71,100 +71,27 @@
         </q-card-section>
       </q-card>
     <q-card class="my-card">
-        <q-card-section>
+        <q-card-section >
           <div class="text-h6">New Products</div>
-           <div class="row">
-              <div id="padding" class="col-2 q-gutter-y-xs column">
-                <q-img
-                  src="./statics/persija.jpg"
-                />
-                <div class="align text-body2"><b> Jersey Persija </b></div>
-                <div class="align text-caption"> Rp. 120.000,00 </div>
-                <q-rating
-                  class="q-mx-auto responsive"
-                  v-model="ratingModel"
-                  size="1.5em"
-                  color="indigo-10"
-                  :max="5"
-                  readonly
-                />
-              </div>
-            <div id="padding" class="col-2 q-gutter-y-xs column">
-              <q-img
-                src="./statics/indonesia.jpg"
-              />
-                <div class="align text-body2"><b> Jersey Indonesia </b></div>
-                <div class="align text-caption"> Rp. 150.000,00 </div>
-                <q-rating
-                  class="q-mx-auto responsive"
-                  v-model="ratingModel1"
-                  size="1.5em"
-                  color="indigo-10"
-                  :max="5"
-                  readonly
-                />
-            </div>
-            <div id="padding" class="col-2 q-gutter-y-xs column">
-              <q-img
-                src="./statics/brazil.jpg"
-              />
-              <div class="align text-body2"><b> Jersey Brazil </b></div>
-                <div class="align text-caption"> Rp. 130.000,00 </div>
-                <q-rating
-                  class="q-mx-auto responsive"
-                  v-model="ratingModel1"
-                  size="1.5em"
-                  color="indigo-10"
-                  :max="5"
-                  readonly
-                />
-            </div>
-            <div id="padding" class="col-2 q-gutter-y-xs column">
-              <q-img
-                src="./statics/inter.jpg"
-              />
-              <div class="align text-body2"><b> Jersey Internazionale </b></div>
-                <div class="align text-caption"> Rp. 90.000,00 </div>
-                <q-rating
-                  class="q-mx-auto responsive"
-                  v-model="ratingModel"
-                  size="1.5em"
-                  color="indigo-10"
-                  :max="5"
-                  readonly
-                />
-            </div>
-            <div id="padding" class="col-2 q-gutter-y-xs column">
-              <q-img
-                src="./statics/madrid.jpg"
-              />
-              <div class="align text-body2"><b> Jersey Real Madrid </b></div>
-                <div class="align text-caption"> Rp. 150.000,00 </div>
-                <q-rating
-                  class="q-mx-auto responsive"
-                  v-model="ratingModel"
-                  size="1.5em"
-                  color="indigo-10"
-                  :max="5"
-                  readonly
-                />
-            </div>
-            <div id="padding" class="col-2 q-gutter-y-xs column">
-              <q-img
-                src="./statics/barcelona.jpg"
-              />
-              <div class="align text-body2"><b> Jersey Barcelona </b></div>
-                <div class="align text-caption"> Rp. 150.000,00 </div>
-                  <q-rating
+           <div class="row " >
+                
+              <div id="padding" class="col q-mx-auto  column q-ma-xs" v-for="item in images" :key="item.id" style="min-width:200px; max-width:250px">
+                
+                    <q-img style="width:200px; height:250px " class="q-mx-auto"
+                      :src="item.imgurl"
+                    />
+                    <div class="align text-body2 q-mt-sm"><b> {{item.product_name}}</b></div>
+                    <div class="align text-caption">Rp.  {{item.harga}} </div>
+                    <q-rating
                       class="q-mx-auto responsive"
                       v-model="ratingModel"
                       size="1.5em"
                       color="indigo-10"
                       :max="5"
                       readonly
-                  />
-                </div>
+                    />
               </div>
+           </div>
           </q-card-section>
       </q-card>
            <div class="row">
@@ -197,7 +124,6 @@
                   </div>
 
                   <div class="col bg-white q-ma-sm" style="max-width:1px ">
-                      <q-separator-vertical/>
                   </div>
 
                   <div class="col " style="max-width:30%">
@@ -216,7 +142,6 @@
                   </div>
 
                   <div class="col bg-white q-ma-sm" style="max-width:1px ">
-                      <q-separator-vertical/>
                   </div>
 
                   <div class="col flex flex-center " >
@@ -246,13 +171,36 @@
 </style>
 
 <script>
+import containeer from '../../api/get/index';
+import {downloadImage} from '../../api/upload/index';
+import product from '../../api/Produk/index'
 export default {
   data () {
     return {
       slide: 'first',
       ratingModel: 5,
-      ratingModel1: 4
+      ratingModel1: 4,
+      images:[],
+      img: './statics/supersale2.jpg'
       }
-  }
+  },
+
+  computed: {
+    getImgs() {
+      this.getImg()
+    }
+  },
+
+  beforeCreate() {
+         let self=this;
+    product.getproduct(window )
+                .then(function (result) {
+                    console.log(result);
+                    self.images= result;
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
+     }
 }
 </script>

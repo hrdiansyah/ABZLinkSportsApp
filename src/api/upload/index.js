@@ -1,5 +1,7 @@
 
 import * as axios from 'axios';
+import { getApiNoAuthLB } from "../utils"
+
 
 
 const BASE_URL_KSSK = 'http://localhost:3000/api/container';
@@ -26,6 +28,15 @@ function uploadKSSK(formData) {
         img, { url: `${BASE_URL_KSSK}/images/${img.id}` })));
   }
 
-  
-  
-export {upload, uploadKSSK }
+ function downloadImage(window, file){
+  return getApiNoAuthLB()
+  .get('container/images/download/'+file)
+  .then(function(response){
+      return response.config
+  })
+  .catch (function(err){
+      console.log(err)
+  })
+}
+
+export {upload, uploadKSSK, downloadImage }

@@ -79,8 +79,7 @@
       <q-drawer
         class="show"
         v-model="drawerLeft"
-        
-        
+        :width="250"
         content-class="bg-grey-10 text-white"
       >
         <q-scroll-area class="fit">

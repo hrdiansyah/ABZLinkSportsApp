@@ -14,14 +14,17 @@ export default {
     },
     
     postproduct(window, product_name, harga,
-        kuantity, product_kategory, product_desc){
+        kuantity, product_kategory, product_desc, imgurl){
         return getApiNoAuthLB()
         .post('/Products/' ,{
             product_name : product_name,
             harga : harga,
             kuantity : kuantity,
             product_kategory : product_kategory,
-            product_desc : product_desc
+            product_desc : product_desc,
+            imgurl: 'http://localhost:3000/api/container/images/download/'+ product_name+ '.jpg'
+            
+            
         })
         .then(function(response){
         console.log(response)
@@ -42,14 +45,15 @@ export default {
         console.log(err)
         })
     },
-    putproduct(window, id, product_name, harga, kuantity, product_kategory, product_desc){
+    putproduct(window, id, product_name, harga, kuantity, product_kategory, product_desc, imgurl){
         return getApiNoAuthLB()
         .put('/Products/' + id ,{
             product_name: product_name,
             harga: harga,
             kuantity : kuantity,
             product_kategory : product_kategory,
-            product_desc : product_desc
+            product_desc : product_desc,
+            imgurl: imgurl
 
         })
         .then (function(response){
@@ -60,5 +64,16 @@ export default {
             console.log(err);
             
         })
-    }
+    },
+
+    downloadImage(window, file){
+        return getApiNoAuthLB()
+        .get('container/images/download/'+file)
+        .then(function(response){
+            return response.config
+        })
+        .catch (function(err){
+            console.log(err)
+        })
+      }
 }
