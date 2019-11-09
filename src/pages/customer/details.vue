@@ -9,11 +9,16 @@
                    <div class="row">
                        <div class="col q-ma-xs" style="width: 900px">
                             <q-card class="my-card" >
-                                <q-card-section >
-                                    <q-img style="width:200px; height:250px " class="q-mx-auto"
-                                    :src="images.imgurl"
-                                    />
-                                     
+                                <q-card-section>
+                                    <q-img
+                                    src="./statics/11.jpg"
+                                    style="width: 100%"
+                                    >
+                                        <div class="absolute-bottom text-subtitle1 text-center q-pa-xs">
+                                            Caption
+                                        </div>
+                                    </q-img>
+
                                     <!-- awal gambar kecil -->
                                     <div class="row">
                                         
@@ -118,10 +123,8 @@ export default {
   },
 
   beforeCreate() {
-        let getId= localStorage.getItem('id');
-        console.log(getId)
          let self=this;
-    product.getproductbyId(window, getId )
+    product.getproduct(window )
                 .then(function (result) {
                     console.log(result);
                     self.images= result;
@@ -130,6 +133,5 @@ export default {
                     console.log(err);
                 });
      }
-     
 }
 </script>

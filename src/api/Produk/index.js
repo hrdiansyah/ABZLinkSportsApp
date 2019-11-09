@@ -75,5 +75,16 @@ export default {
         .catch (function(err){
             console.log(err)
         })
-      }
+    },
+    getproductbyId(window, id){
+        
+        return getApiNoAuthLB()
+        .get('Products/' + id )
+        .then(function(response){
+            return response.data
+        })
+        .catch (function(err){
+            console.log(err)
+        })
+    },
 }
