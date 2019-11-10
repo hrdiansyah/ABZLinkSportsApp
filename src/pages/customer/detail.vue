@@ -48,7 +48,7 @@
                                     <div class="row">
                                         <div class="col q-ma-xs text-black ">
                                             <hr>
-                                           <label ><b class="text-center"> {{item.product_name}}</b></label><br>
+                                           <label ><b class="text-center"> Kaos Kaki </b></label><br>
                                            <label> Rp. 100.000</label>
                                             
                                         </div>
@@ -102,8 +102,13 @@
 </template>
 
 <script>
-
-    export default{
+import DetailProduct from '../../pages/landing/index.vue';
+    export default {
+         data () {
+    return {
+      DetailProduk: []
+      }
+    },
         props: ['item']
     }
 </script>

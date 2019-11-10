@@ -230,11 +230,11 @@ export default {
 
        show(item){
        console.log(item.id)
-       if (item.id===this.images.id){
-         this.$router.go('/cust/detail')
-       } else {
-         this.$router.go('/')
-       }
+      //  if (item.id===this.images.id){
+      //    this.$router.go('/cust/detail')
+      //  } else {
+      //    this.$router.go('/')
+      //  }
       }
 
      },
