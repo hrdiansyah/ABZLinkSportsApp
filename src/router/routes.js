@@ -99,7 +99,8 @@ const routes = [
         { path: 'header', component: () => import('pages/customer/header.vue') },
         { path: 'transaksi', component: () => import('pages/transaksi/index.vue')},
         { path: 'pembayaran', component: () => import('pages/customer/pembayaran.vue')},
-        { path: 'catalog', component: () => import('pages/customer/catalog.vue')}
+        { path: 'catalog', component: () => import('pages/customer/catalog.vue')},
+        { path: 'cart', component: () => import('pages/customer/cart.vue')}
       ]
     },
     {
