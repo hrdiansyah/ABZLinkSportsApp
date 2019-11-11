@@ -139,7 +139,9 @@ export default {
             .then(function(result)
                 {
                     if(result){
+                        localStorage.setItem("id_cart", result.id)
                         self.$router.push('/cust/transaksi');
+                        console.log(result.id);
                     } 
                 })
             .catch(function(err){

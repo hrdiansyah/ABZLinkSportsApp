@@ -106,4 +106,14 @@ export default {
         console.log(err)
         })
     },
+    getProductByName(window, product_name){
+        return getApiNoAuthLB()
+        .get('/Products/getProductByName?product_name='+product_name)
+        .then(function(response){
+            console.log(response)
+            return response
+        }).catch(function(err){
+            console.log(err)
+        })
+    }
 }
