@@ -115,14 +115,22 @@ export default {
         {
              
             if(result){
+              localStorage.setItem('id', result.id)
               localStorage.setItem('email', result.email)
               localStorage.setItem('role', result.role)
-              if(result.role=='admin'){
+              
+
+              if(result.role=='admin' ){
                 self.$router.push('/admin/')
               } else if (result.role=='owner'){
                 self.$router.push('/owner/')
               } else {
-                self.$router.push('/cust/dash')
+                if(result.role=='customer' && localStorage.getItem('id_product') != null){
+                    self.$router.push('/cust/detail')
+                } else {
+                    self.$router.push('/cust/dash')
+                }
+                
               }
             }
         })
