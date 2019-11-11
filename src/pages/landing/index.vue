@@ -76,20 +76,35 @@
            <div class="row " >
                 
               <q-btn id="padding" class="col q-mx-auto  column q-ma-xs" flat v-for="item in images" :key="item.id" style="min-width:200px; max-width:250px" @click="show(item)">
-                
-                    <q-img style="width:200px; height:250px " class="q-mx-auto"
-                      :src="item.imgurl"
-                    />
-                    <div class="align text-body2 q-mt-sm"><b> {{item.product_name}}</b></div><p>
-                    <div class="align text-caption"> Rp.  {{item.harga}} </div>
-                    <q-rating
-                      class="q-mx-auto responsive"
-                      v-model="ratingModel"
-                      size="1.5em"
-                      color="indigo-10"
-                      :max="5"
-                      readonly
-                    />
+                    <div class="row">
+                      <div class="col">
+                          <q-img style="width:200px; height:250px " class="q-mx-auto"
+                          :src="item.imgurl"
+                          />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="align text-body2 q-mt-sm"><b> {{item.product_name}}</b></div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="align text-caption"> Rp.  {{item.harga}} </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col ">
+                        <q-rating
+                          class="q-mx-auto responsive"
+                          v-model="ratingModel"
+                          size="1em"
+                          color="indigo-10"
+                          :max="5"
+                          readonly
+                        />
+                      </div>
+                    </div>
               </q-btn>
            </div>
           </q-card-section>
@@ -181,13 +196,19 @@ export default {
       ratingModel: 5,
       ratingModel1: 4,
       images:[],
-      img: './statics/supersale2.jpg'
+      img: './statics/supersale2.jpg',
+      kuantity:''
       }
   },
 
   computed: {
     getImgs() {
       this.getImg()
+    },
+    cek(){
+      if(this.images.kuantity<1){
+        return this.kuantity='Stok habis';
+      }
     }
   },
 
@@ -205,7 +226,8 @@ export default {
      methods :{
 
        show(item){
-       localStorage.setItem('id', item.id)
+       localStorage.setItem('id_product', item.id)
+       localStorage.setItem('imgurl',item.imgurl)
        this.$router.push('/cust/detail')
       }
      },

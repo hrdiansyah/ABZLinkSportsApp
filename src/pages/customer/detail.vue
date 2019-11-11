@@ -43,8 +43,8 @@
                                     <div class="row">
                                         <div class="col q-ma-xs text-black ">
                                             <hr>
-                                           <label ><b class="text-center"> Product</b></label><br>
-                                           <label> Rp. 100.000</label>
+                                           <label ><b class="text-center"> {{images.product_name}}</b></label><br>
+                                           <label> Rp. {{images.harga}}</label>
                                             
                                         </div>
                                     </div>
@@ -53,7 +53,7 @@
                                     <!-- awal tombol -->
                                     <div class="row">
                                         <div class="col q-ma-xs text-black  ">
-                                            <q-btn class="float-right q-mx-md" color="red" >Beli</q-btn>
+                                            <q-btn class="float-right q-mx-md" color="red" @click="add()">Order</q-btn>
                                         </div>
                                         <div class="col q-ma-xs text-black " >
                                             <q-btn color="red" class="q-mx-md">Batal</q-btn>
@@ -68,7 +68,7 @@
                           <q-card class="my-card">
                                 <q-card-section class="text-red">
                                     <Label ><u><b>Descripsi</b></u></Label><br>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                    {{images.product_desc}}
                                 </q-card-section>
                             </q-card>
                        </div>
@@ -78,20 +78,15 @@
                    <div class="row q-mx-xs q-mt-sm">
                        <div class="col text-black">
                            <q-card class="my-card text-center">
-                                <!-- <q-card-section class="text-black">
+                                <q-card-section class="text-black">
                                 <label >Ulasan</label>
                                 <hr>
                                   Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                                </q-card-section> -->
-
-                                test
-                                {{images.product_name}}
+                                </q-card-section>
                             </q-card>
                        </div>
                    </div>
                    <!-- akhir ulasan -->
-
-                   
                 </div>
             </template>
         </q-card-section>
@@ -102,7 +97,8 @@
 <script>
 import containeer from '../../api/get/index';
 import {downloadImage} from '../../api/upload/index';
-import product from '../../api/Produk/index'
+import product from '../../api/Produk/index';
+import cart from '../../api/cart/index';
 export default {
   data () {
     return {
@@ -118,7 +114,7 @@ export default {
   },
 
   beforeCreate() {
-        let getId= localStorage.getItem('id');
+        let getId= localStorage.getItem('id_product');
         console.log(getId)
          let self=this;
     product.getproductbyId(window, getId )
@@ -129,6 +125,28 @@ export default {
                 .catch(function (err) {
                     console.log(err);
                 });
+     },
+
+    methods : {
+
+       add(){
+            let getIdProduct= localStorage.getItem('id_product');
+            let getIdCustomer= localStorage.getItem('id');
+            let getimgurl =localStorage.getItem('imgurl')
+            let self=this;
+            
+
+            cart.postCart(window, getIdProduct, getIdCustomer,getimgurl)
+            .then(function(result)
+                {
+                    if(result){
+                        self.$router.push('/cust/transaksi');
+                    } 
+                })
+            .catch(function(err){
+                console.log(err);
+            });
+        }
      }
      
 }

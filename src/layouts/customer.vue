@@ -9,7 +9,7 @@
           </q-toolbar>
 
           <q-toolbar class=" text-white ">
-            <q-tabs v-model="tab" shrink  style="min-width:480px">
+            <q-tabs  shrink  style="min-width:480px">
               <q-tab name="tab1" label="About" />
               <q-tab name="tab2" label="Products" />
               <q-tab name="tab3" label="Men" />
@@ -39,7 +39,7 @@
 
                 </div>
 
-                <q-separator vertical inset class="q-mx-lg" />
+              
 
                 <div class="column items-center">
                   <q-avatar size="72px">
@@ -186,7 +186,7 @@
           </div>
 
           <div class="col bg-white q-ma-sm" style="max-width:1px ">
-              <q-separator-vertical/>
+              
           </div>
 
           <div class="col " style="max-width:30%">
@@ -205,7 +205,7 @@
           </div>
 
           <div class="col bg-white q-ma-sm" style="max-width:1px ">
-              <q-separator-vertical/>
+            
           </div>
 
           <div class="col flex flex-center " >
@@ -239,7 +239,7 @@ export default{
       beli(){
         let self = this;
         self.$router.push("/cust/cart/")
-      }
+      },
   // async  mounted(){
   //   let getRole = await localStorage.getItem('role');
   //   if(getRole !='customer' || getRole ==='owner'){
@@ -251,12 +251,12 @@ export default{
   //       alert(' anda login sebagai customer')
   //     } 
   //   },
-  //   methods :{
-  //     logout(){
-  //       localStorage.removeItem('role');
-  //       localStorage.removeItem('email');
-  //       this.$router.push('/login');
-  //     }
-  //   }
+    methods :{
+      logout(){
+        localStorage.removeItem('role');
+        localStorage.removeItem('email');
+        this.$router.push('/login');
+      }
+    }
   }
 </script>

@@ -110,12 +110,12 @@ export default{
   //       alert('anda login sebagai owner')
   //     } 
   //   },
-  //   methods :{
-  //     logout(){
-  //       localStorage.removeItem('role');
-  //       localStorage.removeItem('email');
-  //       this.$router.push('/login');
-  //     }
-  //   }
+    methods :{
+      logout(){
+        localStorage.removeItem('role');
+        localStorage.removeItem('email');
+        this.$router.push('/login');
+      }
+    }
   }
 </script>
