@@ -205,18 +205,10 @@ export default {
      methods :{
 
        show(item){
-       console.log(item.id)
-       if (item.id===this.images.id){
-         this.$router.go('/cust/detail')
-       } else {
-         this.$router.go('/')
-       }
+       localStorage.setItem('id', item.id)
+       this.$router.push('/cust/detail')
       }
-
      },
-     components:{
-    'item': require ('../customer/detail.vue').default
-  }
      
 }
 </script>
