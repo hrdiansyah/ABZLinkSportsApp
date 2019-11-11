@@ -111,7 +111,7 @@ const routes = [
     
     {
       path: '/commit/',
-      component: () => import('pages/contoh.vue'),
+      component: () => import('pages/chart/index.vue'),
     },
   
     //LOGIN
