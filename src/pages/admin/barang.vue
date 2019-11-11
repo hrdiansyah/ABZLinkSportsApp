@@ -149,16 +149,6 @@
                 val => val !== null && val !== '' || 'Please enter your product qty',
               ]"
             />
-                <!-- <q-input filled v-model="form.tanggalProject" mask="date" :rules="['date']">
-                <template v-slot:append>
-                    <q-icon name="event" class="cursor-pointer">
-                    <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
-                        <q-date v-model="form.tanggalProject" @input="() => $refs.qDateProxy.hide()" />
-                    </q-popup-proxy>
-                    </q-icon>
-                </template>
-                </q-input> -->
-            
                 <q-input
                   filled
                   v-model="form.productkategory"

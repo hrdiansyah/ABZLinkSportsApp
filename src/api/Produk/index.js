@@ -87,4 +87,23 @@ export default {
             console.log(err)
         })
     },
+    postchart(window, id_product, id_customer, catatan,
+        kuantity, diskon, kurir, total){
+        return getApiNoAuthLB()
+        .post('/charts/' ,{
+            id_product : id_product,
+            id_customer : id_customer,
+            catatan : catatan,
+            kuantity : kuantity,
+            diskon : diskon,
+            kurir : kurir,
+            total : total
+        })
+        .then(function(response){
+        console.log(response)
+        return response.data
+        }).catch(function(err){
+        console.log(err)
+        })
+    },
 }

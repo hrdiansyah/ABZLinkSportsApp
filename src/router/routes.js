@@ -94,9 +94,10 @@ const routes = [
         { path: 'detail', component: () => import('pages/customer/detail.vue') },
         { path: 'dialog', component: () => import('pages/customer/dialog.vue') },
         { path: 'header', component: () => import('pages/customer/header.vue') },
-        { path: 'transaksi', component: () => import('pages/transaksi/index.vue')},
+        { path: 'detail_transaksi', component: () => import('pages/transaksi/index.vue')},
         { path: 'pembayaran', component: () => import('pages/customer/pembayaran.vue')},
-        { path: 'catalog', component: () => import('pages/customer/catalog.vue')}
+        { path: 'catalog', component: () => import('pages/customer/catalog.vue')},
+        { path: 'transaksi', component: () => import('pages/customer/transaksi.vue')}
       ]
     },
     {

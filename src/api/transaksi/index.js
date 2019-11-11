@@ -1,58 +1,24 @@
-import { getApiNoAuth } from '../utils'
+import { getApiNoAuthLB } from "../utils"
 
 export default {
-    getAdmin(window){
-        return getApiNoAuth()
-        .get('/admins')
-        .then(function(response){
-            console.log(response)
-            return response.data
-        }).catch(function(err){
-            console.log(err)
-        })
-    },
-    postAdmin(window, username, password){
-        return getApiNoAuth()
-        .post('/admins/' ,{
-            username : username,
-            password : password
-        })
-        .then(function(response){
-            console.log(response)
-            return response.data
-        }).catch(function(err){
-            console.log(err)
-        })
-    },
-    deleteAdmin(window, id){
-        return getApiNoAuth()
-        .delete('/admins/'.concat(id))
-        .then(function(response){
-            console.log(response)
-            return response.data
-        }).catch(function(err){
-            console.log(err)
-        })
-    },
-    putAdmin(window, id, username, password){
-        return getApiNoAuth()
-        .put('/admins/'+id ,{
-            username : username,
-            password : password
+        postTransaksi(window, id_product, id_customer, catatan,
+            kuantity, diskon, kurir, total, metode_bayar, status){
+            console.log(id_product, id_customer, catatan, kuantity, diskon, kurir, total, status )
+        return getApiNoAuthLB()
+        .post('/transaksis/' ,{
+            id_product : id_product,
+            id_customer : id_customer,
+            catatan : catatan,
+            kuantity : kuantity,
+            diskon : diskon,
+            kurir : kurir,
+            total : total,
+            metode_bayar : metode_bayar,
+            status : status
         })
         .then(function(response){
             console.log(response)
             return response.data
-        }).catch(function(err){
-            console.log(err)
-        })
-    },
-    getAdminByName(window, username){
-        return getApiNoAuth()
-        .get('admins/getAdminByName?username='+username)
-        .then(function(response){
-            // console.log(response)
-            return response
         }).catch(function(err){
             console.log(err)
         })
