@@ -94,7 +94,8 @@
 <script>
 import containeer from '../../api/get/index';
 import {downloadImage} from '../../api/upload/index';
-import product from '../../api/Produk/index'
+import product from '../../api/Produk/index';
+
 export default {
   data () {
     return {
@@ -106,7 +107,8 @@ export default {
       greenModel: 42,
       redModel: true,
       images:[],
-      img: './statics/supersale2.jpg'
+      img: './statics/supersale2.jpg',
+      DetailProduk: []
       }
   },
 

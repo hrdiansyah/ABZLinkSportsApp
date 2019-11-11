@@ -1,5 +1,24 @@
 <template>
  <div class="q-pa-md q-gutter-md">
+    <q-layout class="shadow-2 rounded-borders"> 
+     <q-header elevated class="bg-black">
+        <q-toolbar>
+          <q-btn flat round dense icon="assignment_ind" />
+
+          <q-space />
+
+          <q-btn flat round dense icon="sim_card" class="q-mr-xs" />
+          <q-btn flat round dense icon="gamepad" />
+        </q-toolbar>
+
+        <!-- <q-toolbar inset>
+          <q-breadcrumbs active-color="white" style="font-size: 16px">
+            <q-breadcrumbs-el label="Home" icon="home" />
+            <q-breadcrumbs-el label="Components" icon="widgets" />
+            <q-breadcrumbs-el label="Toolbar" />
+          </q-breadcrumbs>
+        </q-toolbar> -->
+      </q-header>
     <q-carousel
       animated
       v-model="slide"
@@ -10,20 +29,24 @@
       transition-next="slide-left"
     >
       <q-carousel-slide 
-        class="responsive"
+        class="responsive trans"
         name="first" 
-        img-src="./statics/awe.jpg"
+        img-src="./statics/5980.jpg"
       >
         <div class="absolute-center custom-caption">
           <div class="text-center text-h1 text-white">
-            First stop</div>
-          <div class="text-center text-subtitle1 text-white">Animated</div>
+            <br>First stop
+            </div>
+          <div class="text-center text-subtitle2 text-white">
+           <!-- <q-btn class="btn-fixed-width" outline style="color: white;" label="Login/Register Now" /> -->
+           <q-btn push color="white" text-color="primary" label="Login/Register Now" />
+          </div>
         </div>
       </q-carousel-slide>
-      <q-carousel-slide class="responsive" name="second" img-src="./statics/5980.jpg">
+      <q-carousel-slide class="responsive" name="second" img-src="./statics/awe.jpg">
         <div class="absolute-center custom-caption">
           <div class="text-center text-h1 text-white">Second stop</div>
-          <div class="text-center rtext-subtitle1 text-white">Famous City</div>
+          <div class="text-center rtext-subtitle1 text-white"> Famous City </div>
         </div>
       </q-carousel-slide> 
       <q-carousel-slide class="responsive" name="third" img-src="./statics/46.jpg">
@@ -128,6 +151,7 @@
                 />  
               </div>
              </div>
+            </q-layout>
             <!-- Awal Footer -->
              <q-card class="my-card bg-grey-10">
               <q-card-section>
@@ -175,7 +199,7 @@
     width: 60px;
   }
   .trans {
-    opacity : 0.5;
+    opacity : 0.8;
   }
   #padding {
     padding:10px;

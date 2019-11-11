@@ -13,30 +13,6 @@
 //     next()
 //   }
 // }
-
-// const requireAuth = (to, from, next) => {
-
-//   let getRole= localStorage.getItem('role')
-//   let isLogin = localStorage.getItem('email')
-//   if (isLogin === null) { 
-//     next({
-//       path: '/login'
-//     })
-// //   // } if (isLogin && getRole === 'admin') {
-// //   //   next({
-// //   //     path: '/admin'
-// //   //   })
-// //   // } if (isLogin && getRole === 'customer') {
-// //   //   next({
-// //   //     path: '/cust/dash'
-// //   //   })
-//   } else {
-//     next()
-//   }
-// }
-
-
-
 const routes = [
   
     // admin
@@ -93,7 +69,6 @@ const routes = [
       children: [
         { path: 'dash', component: () => import('pages/customer/dash.vue') },
         { path: 'table', component: () => import('pages/customer/table.vue') },
-        { path: 'reg', component: () => import('pages/customer/register.vue') },
         { path: 'detail', component: () => import('pages/customer/detail.vue') },
         { path: 'dialog', component: () => import('pages/customer/dialog.vue') },
         { path: 'header', component: () => import('pages/customer/header.vue') },
@@ -110,6 +85,7 @@ const routes = [
     },
   
     
+    { path: '/reg', component: () => import('pages/customer/register.vue') },
     
     {
       path: '/commit/',
@@ -138,7 +114,7 @@ const routes = [
       path: '*',
       component: () => import('pages/Error404.vue')
     })
-  }
+  }  
   
   
   export default routes 

@@ -3,7 +3,7 @@
 
     <div class="flex flex-center">
       <div class="q-pa-md" style="max-width: 500px; width:100%">
-        <h4 style="text-align:center;">Upload Dokumen KSSK</h4>
+        <h4 style="text-align:center;">Upload Product Details</h4>
         <q-form class="q-gutter-md">
   
           <q-input
@@ -163,10 +163,6 @@ export default {
       save(formData) {
         // upload data to the server
         this.currentStatus = STATUS_SAVING;
-
-       
-
-
         uploadKSSK(formData)
           .then(x => {
             this.uploadedFiles = [].concat(x);
