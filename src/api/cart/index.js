@@ -1,3 +1,4 @@
+
 import { getApiNoAuthLB } from '../utils'
 
 export default {
@@ -11,11 +12,37 @@ export default {
     //         console.log(err)
     //     })
     // },
-    postCart(window, id_product, id_customer){
+    
+    getCartsbyId(window, id){
+        
+        return getApiNoAuthLB()
+        .get('carts/' + id )
+        .then(function(response){
+            return response.data
+        })
+        .catch (function(err){
+            console.log(err)
+        })
+    },
+    
+    getCartByCustomer(window, id_customer){
+        return getApiNoAuthLB()
+            .get('/carts/getcartById_customer?id_customer='+id_customer)
+                .then(function(response){
+                    return response.data
+                })
+                .catch (function(err){
+                    console.log(err)
+                })
+        
+    },
+    postCart(window, id_product, id_customer, imgurl){
         return getApiNoAuthLB()
         .post('/carts/' ,{
             id_product : id_product,
-            id_customer : id_customer
+            id_customer : id_customer,
+            imgurl : imgurl
+            
         })
         .then(function(response){
             console.log(response)
@@ -57,15 +84,5 @@ export default {
     //         console.log(err)
     //     })
     // }
-    getCartbyId(window, id){
-        
-        return getApiNoAuthLB()
-        .get('/carts/' + id )
-        .then(function(response){
-            return response.data
-        })
-        .catch (function(err){
-            console.log(err)
-        })
-    },
+    
 }

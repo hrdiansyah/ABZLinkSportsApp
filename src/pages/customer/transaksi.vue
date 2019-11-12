@@ -131,7 +131,7 @@ export default {
     // let getIdproducts= localStorage.getItem('id_products');
     let self=this;
     
-    cart.getCartbyId(window, getIdcart )
+    cart.getCartsbyId(window, getIdcart )
         .then(function (result) {
             if(result){
                 // localStorage.setItem('id_products', result.id_product)

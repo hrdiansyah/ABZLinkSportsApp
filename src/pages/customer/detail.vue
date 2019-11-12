@@ -132,10 +132,11 @@ export default {
        add(){
             let getIdProduct= localStorage.getItem('id_product');
             let getIdCustomer= localStorage.getItem('id');
+            let getimgurl =localStorage.getItem('imgurl')
             let self=this;
             
 
-            cart.postCart(window, getIdProduct, getIdCustomer)
+            cart.postCart(window, getIdProduct, getIdCustomer,getimgurl)
             .then(function(result)
                 {
                     if(result){
