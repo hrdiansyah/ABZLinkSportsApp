@@ -1,5 +1,10 @@
 <template>
  <div class="q-pa-md q-gutter-md">
+   <div>
+    <input type="text" v-model="find_name">
+    <q-btn color="blue" icon="search" label="search" class="sp" size="sm" @click="findByName()" />
+   </div>
+  
     <q-layout class="shadow-2 rounded-borders"> 
      <q-header elevated class="bg-black">
         <q-toolbar>
@@ -221,7 +226,8 @@ export default {
       ratingModel1: 4,
       images:[],
       img: './statics/supersale2.jpg',
-      kuantity:''
+      kuantity:'',
+      find_name:''
       }
   },
 
@@ -241,19 +247,34 @@ export default {
     product.getproduct(window )
                 .then(function (result) {
                     console.log(result);
-                    self.images= result;
+                    for (let i = 0; i < 3; i++) {
+                      self.images.push(result[i])
+                    }
                 })
                 .catch(function (err) {
                     console.log(err);
                 });
      },
+
      methods :{
 
        show(item){
        localStorage.setItem('id_product', item.id)
        localStorage.setItem('imgurl',item.imgurl)
        this.$router.push('/cust/detail')
-      }
+      },
+      findByName(find_name) {
+          console.log(this.find_name)
+            try {
+                const self = this
+                product.getProductByName(window, self.find_name )
+                .then(function (result){
+                return  self.images=result.data
+            })
+            } catch (error) {
+                console.log(error.message);
+            }
+        }
      },
      
 }

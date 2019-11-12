@@ -88,11 +88,13 @@ import product from '../../api/Produk/index';
 import transaksi from '../../api/transaksi/index';
 import kurir from '../../api/kurir/index';
 import diskon from '../../api/diskon/index';
+import cart from '../../api/cart/index';
 export default {
   data () {
     return {
         status : 'menunggu',
         images:[],
+        cart :[],
         img: './statics/supersale2.jpg',
         form: [
             {
@@ -119,24 +121,44 @@ export default {
     total:function() {
         return ((parseInt(this.images.harga) * parseInt(this.form.kuantity))-parseInt(this.form.diskon))+parseInt(this.form.kurir)
     },
-    diskon:function(){
-        
+    id_pr:function(){
+        return cart.id_product
     }
-    
   },
 
   beforeCreate() {
-    let getIdProduct= localStorage.getItem('id_product');
+    let getIdcart= localStorage.getItem('id_cart');
+    // let getIdproducts= localStorage.getItem('id_products');
     let self=this;
-    // get Product
-    product.getproductbyId(window, getIdProduct )
+    
+    cart.getCartsbyId(window, getIdcart )
         .then(function (result) {
-            console.log(result);
-            self.images= result;
+            if(result){
+                // localStorage.setItem('id_products', result.id_product)
+                self.cart=result;
+                product.getproductbyId(window, result.id_product )
+                        .then(function (result) {
+                            self.images= result;
+                        })
+                        .catch(function (err) {
+                            console.log(err);
+                        });
+            }
         })
         .catch(function (err) {
             console.log(err);
         });
+
+    // get Product
+    // product.getproductbyId(window, getIdproducts )
+    //     .then(function (result) {
+    //         console.log(cart.id_product);
+    //         self.images= result;
+    //     })
+    //     .catch(function (err) {
+    //         console.log(err);
+    //     });
+    
 
 // diskon
     
@@ -157,14 +179,21 @@ export default {
             let getIdProduct= localStorage.getItem('id_product');
             let getIdCustomer= localStorage.getItem('id');
             let self=this;
-            
 
             transaksi.postTransaksi(window, getIdProduct, getIdCustomer, self.form.catatan, 
             self.form.kuantity, self.form.diskon, self.form.kurir, self.total, self.form.metode_bayar, self.status)
             .then(function(result)
                 {
                     if(result){
-                        self.$router.push('/cust/detail_transaksi');
+                        cart.deleteCart(window, self.cart.id).then(function(res)
+                            {
+                                localStorage.removeItem('id_cart')
+                                self.$router.push('/cust/detail_transaksi');
+                            })
+                            .catch(function(err){
+                                console.log(err);
+                            });
+
                     } else {
                         alert('Mohon Lengkapi Form');
                     }
@@ -173,6 +202,15 @@ export default {
             .catch(function(err){
                 console.log(err);
             });
+
+            // cart.deleteCart(window, self.cart.id).then(function(res)
+            //     {
+            //         localStorage.removeItem('id_cart')
+            //         self.$router.push('/cust/detail_transaksi');
+            //     })
+            // .catch(function(err){
+            //     console.log(err);
+            // });
         },
         cekDiskon(){
             

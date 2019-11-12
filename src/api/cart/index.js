@@ -25,18 +25,15 @@ export default {
         })
     },
     
-    getCart(window, id_customer){
+    getCartByCustomer(window, id_customer){
         return getApiNoAuthLB()
-            .get('carts',{
-                id_customer : id_customer
-            })
-            .then(function(response){
-                console.log(response)
-                return response.data
-            })
-            .catch (function(err){
-                console.log(err)
-            })
+            .get('/carts/getcartById_customer?id_customer='+id_customer)
+                .then(function(response){
+                    return response.data
+                })
+                .catch (function(err){
+                    console.log(err)
+                })
         
     },
     postCart(window, id_product, id_customer, imgurl){
@@ -44,7 +41,8 @@ export default {
         .post('/carts/' ,{
             id_product : id_product,
             id_customer : id_customer,
-            imgurl :imgurl
+            imgurl : imgurl
+            
         })
         .then(function(response){
             console.log(response)
@@ -54,39 +52,15 @@ export default {
         })
     },
     deleteCart(window, id){
-    return getApiNoAuthLB()
-    .delete('/carts/' .concat(id))
-    .then (function(response){
-        console.log(response)
-        return response.data
-    })
-    .catch (function(err){
-        console.log(err)
-    })
-    },
-    putCart(window, id,id_product,id_customer){
         return getApiNoAuthLB()
-        .put('/carts/' +id,{
-            id_product: id_product,
-            id_customer:id_customer
-        })
+        .delete('/carts/'.concat(id))
         .then(function(response){
             console.log(response)
-        })
-        .catch(function(err){
+            return response.data
+        }).catch(function(err){
             console.log(err)
         })
-    }
-    // deleteAdmin(window, id){
-    //     return getApiNoAuth()
-    //     .delete('/admins/'.concat(id))
-    //     .then(function(response){
-    //         console.log(response)
-    //         return response.data
-    //     }).catch(function(err){
-    //         console.log(err)
-    //     })
-    // },
+    },
     // putAdmin(window, id, username, password){
     //     return getApiNoAuth()
     //     .put('/admins/'+id ,{
@@ -110,4 +84,5 @@ export default {
     //         console.log(err)
     //     })
     // }
+    
 }
