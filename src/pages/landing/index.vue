@@ -232,7 +232,7 @@ export default {
   },
 
   computed: {
-    getImgs() {
+    getImg() {
       this.getImg()
     },
     cek(){

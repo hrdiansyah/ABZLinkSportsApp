@@ -10,9 +10,6 @@
         <pie-chart :data="getData"></pie-chart>
         </q-card-section>
 
- <q-card-section>
-        <pie-chart :data="contoh"></pie-chart>
-        </q-card-section>
     </q-card>
 
 
@@ -35,26 +32,6 @@ import {downloadImage} from '../../api/upload/index';
 import product from '../../api/Produk/index';
 import ApexCharts from 'apexcharts';
 import VueApexCharts from 'vue-apexcharts';
-Vue.component('apexchart', VueApexCharts)
-var app = new Vue({
-  el: '#appl',
-  data: function() {
-    return {
-      options: {
-        chart: {
-          id: 'vuechart-example'
-        },
-        xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
-        }
-      },
-      series: [{
-        name: 'series-1',
-        data: [30, 40, 45, 50, 49, 60, 70, 91]
-      }]
-    }
-  }
-});
 export default {
   components:{
     CommitChart,
@@ -62,26 +39,7 @@ export default {
     PieChart,
   },
 
-  contoh(){
-    
-    
-    var options = {
-  chart: {
-    type: 'line'
-  },
-  series: [{
-    name: 'sales',
-    data: [30,40,35,50,49,60,70,91,125]
-  }],
-  xaxis: {
-    categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
-  }
-}
-
-var chart = new ApexCharts(document.querySelector("#chart"), options);
-
-chart.render();
-  },
+  
    
   data(){
     return{

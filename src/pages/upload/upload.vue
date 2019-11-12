@@ -46,13 +46,7 @@
             :rules="[ val => val && val.length > 0 || 'Please type something']"
           />
 
-          <q-input
-            filled
-            v-model="berat"
-            label="Product Deskripsi"
-            lazy-rules
-            :rules="[ val => val && val.length > 0 || 'Please type something']"
-          />
+          
            
           <div class="modal-body">
                 <!--UPLOAD-->
