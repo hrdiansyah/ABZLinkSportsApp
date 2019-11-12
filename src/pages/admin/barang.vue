@@ -179,7 +179,7 @@
                   filled
                   v-model="form.imgurl"
                   label="Upload Ulang Gambar"
-                  type="textarea"
+                  type="image"
                   lazy-rules
                   :rules="[
                     val => val !== null && val !== '' || '',
