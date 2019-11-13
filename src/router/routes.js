@@ -91,7 +91,10 @@ const routes = [
       path: '/commit/',
       component: () => import('pages/chart/visualization.vue'),
     },
-   
+    {
+      path: '/get/',
+      component: () => import('pages/get/get.vue'),
+    },
     //LOGIN
     { 
       path: '/login', component: () => import('pages/Login/Index.vue') 
