@@ -208,8 +208,5 @@ export default {
     mounted() {
       this.reset();
     },
-
-
-
 };
 </script>

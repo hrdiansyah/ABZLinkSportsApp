@@ -1,11 +1,9 @@
 <template>
     <div class="flex flex-center">
       <div class="q-pa-md" style="max-width: 500px; width:100%">
-          <q-img
-                  src="./statics/logo.png"
-           />  
+          <img src="/statics/logo.png" style="height: 150px; width: 250px; margin-left: 95px">  
         <h6 style="text-align:center;">Daftar Akun Baru</h6>
-        <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
+        <q-form @submit="onSubmit()" @reset="onReset()" class="q-gutter-md">
   
           <q-input
             filled
@@ -23,10 +21,13 @@
             :rules="[ val => val && val.length > 0 || 'Nama terakhir harus diisi']"
           />
 
-          <q-radio v-model="jenisKelamin" val="laki-laki" label="Laki-laki" />
-          <q-radio v-model="jenisKelamin" val="Perempuan" label="Perempuan" />
+          <q-radio v-model="jenisKelamin" val="Laki-laki" label="Laki-laki" color="cyan-8" />
+          <q-radio v-model="jenisKelamin" val="Perempuan" label="Perempuan" color="cyan-8"/>
+          <!-- <div class="q-px-sm q-mt-sm">
+            Jenis Kelamin : <strong>{{ jenisKelamin }}</strong>
+          </div> -->
 
-          <q-input standout v-model="email" type="email" prefix="Email:" suffix="@gmail.com">
+          <q-input standout v-model="email" type="email" prefix="Email:" >
             <template v-slot:prepend>
                 <q-icon name="mail" />
             </template>
@@ -42,7 +43,7 @@
             </template>
           </q-input>
 
-          <q-input v-model="konfirm_password" filled :type="isP ? 'password' : 'text'" hint="Masukkan ulang password anda">
+          <!-- <q-input v-model="konfirm_password" filled :type="isP ? 'password' : 'text'" hint="Masukkan ulang password anda">
             <template v-slot:append>
                 <q-icon
                     :name="isP ? 'visibility_off' : 'visibility'"
@@ -50,7 +51,7 @@
                     @click="isP = !isP"
                 />
             </template>
-          </q-input>
+          </q-input> -->
 
           <q-input
             filled
@@ -69,61 +70,24 @@
             :rules="[ val => val && val.length > 0 || 'No. HP harus diisi']"
           />
 
+           <!-- <q-input
+            filled
+            v-model="jenisKelamin"
+            label="Jenis Kelamin "
+            lazy-rules
+            :rules="[ val => val && val.length > 0 || 'Jenis Kelamin  harus diisi']"
+          /> -->
+
           <div>
             <q-btn label="Registration" type="submit" color="black" class ="full-width" size="lg" />
             </div>
             <div>
-            <q-btn label="Reset" type="reset" color="grey-2" class= "full-width" size="lg" />
+            <q-btn label="Reset" type="reset" color="grey-7 text-black" class= "full-width" size="lg" />
           </div>
         </q-form>
       </div>
     </div>
-<!-- <div class="q-pa-md row items-start q-gutter-md">
-    <q-card class="my-card q-mx-auto bg-light-blue-9" >
-        <q-card-section>
-            <template>
-                <div class="q-pa-md" style="max-width: 400px">
-                    <label class="text-white"><H4 class="text-center q-mt-none q-mb-md"> <q-icon  name="record_voice_over" class="q-mr-md"/>Form Register</H4></label>
-                    <hr >
-                    <q-form @submit="onSubmit" @reset="onReset" class="q-pt-md">
-                        <Div class="row bg-grey-3 rounded" >
-                            <div class="col q-ma-sm">
-                                <q-input filled v-model="firstName" label="Nama Depan *"  lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']" />
-                                <q-input filled v-model="lastName" label="Nama Belakang *"  lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']" />
-                               
-                            </div>
-                            <div class="col q-ma-sm ">
-                                <q-input filled v-model="email" label="Email *"  lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']" />
-                                <q-input filled v-model="password" label="Password *"  lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']" />
-                                <q-input filled v-model="konfirm_password" label="konfirmasi Password. *"  lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']" />
 
-
-                            </div>
-                        </Div>
-                        
-                        <div class="row q-mt-md">
-                            <div class="col">
-                                <q-btn label="Regist" type="Register" color="red-7" class="q-mr-md float-right"/>
-                            </div>
-                            <div class="col">
-                                <q-btn label="Reset" type="reset" color="red-7"  class=" q-ml-md" />
-                            </div>
-                        </div>
-                    </q-form>
-                     <br>
-                    <br>
-                    <router-link to="/login">
-                        <center>Already Have an Account?</center>
-                    </router-link>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                </div>
-            </template>
-        </q-card-section>
-    </q-card>
-</div> -->
 </template>
 
 <script>
@@ -137,12 +101,10 @@ export default {
       lastName: "",
       email: "",
       password: "",
-      jenisKelamin: "Laki-laki",
       alamat: "",
       telp:"",
-      konfirm_password: "",
-      isPwd: true,
-      isP: true
+      jenisKelamin: "",
+      isPwd: true
       }
     },
     methods: {
@@ -152,22 +114,22 @@ export default {
           lastName: this.lastName,
           email: this.email,
           password: this.password,
-          konfirm_password: this.konfirm_password,
           alamat: this.alamat,
           telp: this.telp,
           jenisKelamin: this.jenisKelamin
         };
         const self = this;
         register
-          .postUser(credentials, window)
+          .postUser(credentials, window, self.firstName, self.lastName, self.email,
+          self.password, self.alamat, self.telp, self.jenisKelamin)
           .then(function(result) {
             return result;
           })
           .catch(function(err) {
             console.log(err);
           });
-        alert('Sukses')
-        self.$router.push("/");
+          alert('Sukses')
+          self.$router.push("/");
       }
     },
     onReset() {
