@@ -87,7 +87,6 @@ import {downloadImage} from '../../api/upload/index';
 import product from '../../api/Produk/index';
 import transaksi from '../../api/transaksi/index';
 import kurir from '../../api/kurir/index';
-import diskon from '../../api/diskon/index';
 export default {
   data () {
     return {
