@@ -87,7 +87,7 @@
             </div>
             <div id="padding" class="col-2 q-mx-sm q-mx-auto q-mt-sm" style="min-width:150px; max-width:200px">
               <q-img
-                src="./statics/asics.png"
+                src="./statics/asics.jpg"
               />
             </div>
             <div id="padding" class="col-2 q-mx-sm q-mx-auto q-mt-sm" style="min-width:150px; max-width:200px">

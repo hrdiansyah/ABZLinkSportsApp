@@ -87,11 +87,7 @@ import {downloadImage} from '../../api/upload/index';
 import product from '../../api/Produk/index';
 import transaksi from '../../api/transaksi/index';
 import kurir from '../../api/kurir/index';
-<<<<<<< HEAD
-=======
-import diskon from '../../api/diskon/index';
 import cart from '../../api/cart/index';
->>>>>>> e369cbad9b2431896cfc2884d1352617e2caf64b
 export default {
   data () {
     return {
@@ -108,7 +104,6 @@ export default {
                 diskon : 0,
                 kurir : 0,
                 metode_bayar :'',
-                
             }
         ],
         diskons:[],
