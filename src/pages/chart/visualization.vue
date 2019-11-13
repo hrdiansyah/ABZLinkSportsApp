@@ -1,37 +1,8 @@
-<template>
-    <div class="q-pa-md">
-        Halaman Dashoboard owner
-    
-   
-        <div class="row">
-            
-            <div class="col-4">
-            
-            <chart :chart-data="datacollection" id="coba1"></chart>
-
-            </div>
-            <div class="col-4">
-
-            <chart :chart-data="datacollection" id="coba1"></chart>
-
-            </div>
-            <div class="col-4">
-
-            <chart :chart-data="datacollection" id="coba1"></chart>
-
-            </div>
-        </div>
-    
-    </div>
-</template>
-<style scoped>
- #coba1{
-    
-    width: 400px;
-  }
-</style>
-<script>
-// import Chart from "./../Chart.js";
+ <template>
+              <chart :chart-data="datacollection"></chart>
+    </template>
+    <script>
+    // import Chart from "./../Chart.js";
     import product from '../../api/Produk/index';
     import Chart from '../../api/chart/chart.js';
     export default {
@@ -145,3 +116,6 @@
     }
 }
 </script>
+
+<style>
+</style>

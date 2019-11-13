@@ -22,7 +22,7 @@ export default {
             kuantity : kuantity,
             product_kategory : product_kategory,
             product_desc : product_desc,
-            berat : berat,
+           
             imgurl: 'http://localhost:3000/api/container/images/download/'+ product_name+ '.jpg'
         })
         .then(function(response){
