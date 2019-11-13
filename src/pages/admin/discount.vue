@@ -1,18 +1,71 @@
 <template>
     <div class="q-pa-md q-gutter-md">
       <div class="row">
-          <div class="col" style="align : center">
+      <div class="q-pa-md row items-start" style="max-width: 300px">
+        <form class="q-gutter-md">
+          <q-input
+            filled
+            v-model="nameFile"
+            label="Nama Diskon *"
+          />
+
+          <q-input 
+            filled v-model="discountpotongan" 
+            prefix="DISCOUNT :"
+            suffix="%"
+            >
+            <template v-slot:before>
+              <q-icon name="attach_money" />
+            </template>
+          </q-input>
+
+          <q-input
+            filled
+            mask="#.##"
+            fill-mask="0"
+            reverse-fill-mask
+            hint="Mask: #.##"
+            input-class="text-right"
+            v-model="discountnilai"
+            label="Nilai Diskon *"
+          />
+
+          
+
+          <div class="modal-body">
+                <!--UPLOAD-->
+            <form enctype="multipart/form-data" novalidate v-if="isInitial || isSaving">
+              <div>
+                <input type="file" multiple :name="uploadFieldName" :disabled="isSaving" 
+                  @change="filesChange($event.target.name, $event.target.files); fileCount = $event.target.files.length" accept="image/*" class="dropbox">
+                <p v-if="isInitial">
+                  Drag your Image file(s) into the box to begin
+                </p>
+                <p v-if="isSaving">
+                  Uploading {{ fileCount }} files...
+                </p>
+              </div>
+            </form>
+            <div class="dropbox" v-if="isFailed" @click="$emit('close')">
+              <br>
+              <p v-if="isFailed" style="color: #95D600">Upload Success
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <q-btn label="Submit" type="submit" color="black" @click="submit(waitedFormData)"/>
+            <q-btn label="Reset" type="reset" color="black" flat class="q-ml-sm" @click="reset"/>
+          </div>
+        </form>
+      </div>
     <!-- Qlist awal -->
+    <div class="q-pa-md q-gutter-md col" style="align : center">
     <q-list 
       bordered class="rounded-borders q-mx-auto" 
       style="max-width: auto"
       >
-      <q-item-label header>
-        
-        <q-btn color="blue" icon="add_box"  label="product" class="sp" size="md" @click="add()"/>
-        
-      </q-item-label>
-        
+
         <q-item class="bg-indigo-13 col-0">
         <q-item-section avatar top>
           <q-item-label class="q-mt-sm">ID</q-item-label>
@@ -71,24 +124,12 @@
           </q-item-label>
         </q-item-section>
       </q-item>
-
-      <!-- pagination awal  -->
-      <!-- <div class="bg-indigo-13 q-pa-lg flex flex-center">
-        <q-pagination
-            v-model="current"
-            color="cyan"
-            :max="5"
-            :boundary-links="false"
-          >
-          </q-pagination>
-      </div> -->
-    <!-- pagination Akhir -->
       
     </q-list>
         </div>
             </div>
     <!-- Qlist akhir -->
-
+    
    
   </div>
 </template>
@@ -109,21 +150,21 @@ export default {
       uploadError: null,
       currentStatus: null,
       uploadFieldName: 'photos',
-      name : 'testing',
       string : 'string',
       nameFile : '',
       waitedFormData: '',
       filesImage: '',
-      discountname: '',
       discountpotongan: '',
       discountnilai: '',
       imgurl: '',
        pro: [
-        
+        {
+
+        }
       ],
     };
   },
-    computed: {
+     computed: {
       isInitial() {
         return this.currentStatus === STATUS_INITIAL;
       },
@@ -137,111 +178,47 @@ export default {
         return this.currentStatus === STATUS_FAILED;
       },
       getImage() {
-        uploaddsc.getAllImage(window, this.id).then(function (imagesdsc) {
-          return imagesdsc.config.url;
+        upload.getAllImage(window, this.id).then(function (images) {
+          return images.config.url;
         }).catch(function (err) {
           console.log(err)
         });
       }
     },
-  // Get data dari Api
-  // async mounted(){
-  //   const response = await 
-  //   discounts.getdiscount(window)
-  //       {
-  //         this.Pro=response
-  //         console.log(Pro)
-  //       }
-  //  },
-
-   beforeCreate() {
-    let self=this
-    discounts.getdiscount(window)
-            .then(function (result) {
-              console.log(result);
-              self.pro= result
-              })
-              .catch(function (err) {
-                  console.log(err);
-              });
-     },
-    methods : {
-    // Method untuk delete data By ID
-    onDelete(id){
-      if (confirm('Apakah anda yakin akan menghapus data ini ?')){
-      discounts.deletediscount(window, id)
-      .then((res)=>{
-        discounts.getdiscount(window)
-        .then((res)=>{
-               this.Pro=res.data
-               this.$router.go('/admin/discount')
-           })
-           .catch(()=>{
-               alert('Error load data');
-           })
-        
-      })
-      .catch(()=>{
-        alert('Error load data');
-      })
-      console.log("delete called");
-      }
-    },
-    add(){
-      this.dialog=true
-      this.updateSubmit= false
-
-    },
-    
-    // method untuk Tambah data
-    onSubmit(){
-      discounts.postdiscount(window, this.form.discountname, this.form.discountpotongan, this.form.discountnilai,
-      this.form.discountname+'.png')
-      .then(function(result)
+    async mounted(){
+    const response = await 
+    discounts
+    .getdiscount(window)
         {
-          $router.go('/admin/discount')
-        })
-      .catch(function(err){
-        console.log(err);
-      });
+          this.Pro=response
+          this.reset()
+        }
     },
-    
-    reset() {
+    methods: {
+
+      postDiscount() {
+
+          discounts
+          .postdiscount(window, this.nameFile, this.discountpotongan, this.discountnilai, this.nameFile+'.jpg' )
+          .then(function(result) {
+            return result;
+          })
+          .catch(function(err) {
+            console.log(err);
+          });
+
+      },
+
+        reset() {
         // reset form to initial state
         this.currentStatus = STATUS_INITIAL;
         this.uploadedFiles = [];
         this.uploadError = null;
         this.nameFile = ''
+        this.discountpotongan= ''
+        this.discountnilai= ''
       },
-    
-    edit(discount) {
-      if (confirm('Anda akan di alihkan ke halaman Edit data, Tekan OK untuk lanjut atau Batal untuk kembali')){
-        try {
-            this.dialog=true
-            this.updateSubmit= true
-            this.form.id=product.id
-            this.form.discountname=product.diskon
-            this.form.discountpotongan=product.potongan
-            this.form.discountnilai=product.nilai
-            this.form.url=product.imgurl
-        } catch (error) {
-            console.log(error.message)
-        }
-      }
-    },
-    
-    update(id) {
-      
-        const self=this 
-        products.putproduct(window, self.form.id, self.form.discountname, self.form.discountpotongan,
-        self.form.discountnilai)
-        .then(function(result) {
-            self.$router.go('/admin/discount')
-        })
-        .catch(function(err) {
-            console.log(err);
-        }); 
-      },
+
       save(formData) {
         // upload data to the server
         this.currentStatus = STATUS_SAVING;
@@ -282,12 +259,9 @@ export default {
       submit(waitedFormData) {
         
         this.save(waitedFormData);
-        this.postdiscount();
+        this.postDiscount();
       }
     },
-    mounted() {
-      this.reset();
-    },
-  };
+};
 </script>
 

@@ -7,11 +7,11 @@ const BASE_URL_KSSKS = 'http://localhost:3000/api/containerdsc';
 const BASE_URLS = 'http://localhost:3000/api/containerdsc';
 
 function uploaddsc(formData,id) {
-  const url = `${BASE_URLS}/${id}/uploaddsc`;
-  const containerUrl = `${BASE_URLS}`;
-    return axios.post(containerUrl, { name : id } )
+  const urls = `${BASE_URLS}/${id}/upload`;
+  const containerUrls = `${BASE_URLS}`;
+    return axios.post(containerUrls, { name : id } )
     .then(function (res) {
-      return axios.post(url, formData)
+      return axios.post(urls, formData)
     }).then(x => x.data)
     // add url field
     .then(x => x.map(img => Object.assign({},
@@ -19,8 +19,8 @@ function uploaddsc(formData,id) {
 }
 
 function uploadKSSKdsc(formData) {
-    const url = `${BASE_URL_KSSKS}/imagesdsc/uploaddsc`;
-    return axios.post(url, formData)
+    const urls = `${BASE_URL_KSSKS}/imagesdsc/upload`;
+    return axios.post(urls, formData)
       .then(x => x.data)
       // add url field
       .then(x => x.map(img => Object.assign({},

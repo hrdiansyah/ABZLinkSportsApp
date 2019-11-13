@@ -137,9 +137,7 @@
                 val => val !== null && val !== '' || 'Please enter your product price',
               ]"
             />
-            <!-- <q-radio dense v-model="form.jenisKelamin" val="Laki-laki" label="Laki-laki" />
-            <q-radio dense v-model="form.jenisKelamin" val="Perempuan" label="Perempuan" /> -->
-
+           
             <q-input
               filled
               v-model="form.kuantity"
