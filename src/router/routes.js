@@ -48,6 +48,9 @@ const routes = [
   { 
     path: '/login', component: () => import('pages/Login/Index.vue') 
   },
+  { 
+    path: '/chart', component: () => import('pages/Login/Index.vue') 
+  },
   
   {
   path: '/get', component: () => import('pages/get/get.vue')
@@ -73,6 +76,7 @@ const routes = [
         { path: 'detail_transaksi', component: () => import('pages/transaksi/index.vue')},
         { path: 'pembayaran', component: () => import('pages/customer/pembayaran.vue')},
         { path: 'catalog', component: () => import('pages/customer/catalog.vue')},
+        { path: 'cart', component: () => import('pages/customer/cart.vue')},
         { path: 'transaksi', component: () => import('pages/customer/transaksi.vue')}
       ]
     },
@@ -86,9 +90,9 @@ const routes = [
     
     {
       path: '/commit/',
-      component: () => import('pages/contoh.vue'),
+      component: () => import('pages/chart/visualization.vue'),
     },
-  
+   
     //LOGIN
     { 
       path: '/login', component: () => import('pages/Login/Index.vue') 

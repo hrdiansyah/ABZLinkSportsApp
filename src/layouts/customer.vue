@@ -9,7 +9,7 @@
           </q-toolbar>
 
           <q-toolbar class=" text-white ">
-            <q-tabs v-model="tab" shrink  style="min-width:480px">
+            <q-tabs  shrink  style="min-width:480px">
               <q-tab name="tab1" label="About" />
               <q-tab name="tab2" label="Products" />
               <q-tab name="tab3" label="Men" />
@@ -39,7 +39,7 @@
 
                 </div>
 
-                <q-separator vertical inset class="q-mx-lg" />
+              
 
                 <div class="column items-center">
                   <q-avatar size="72px">
@@ -61,7 +61,9 @@
           </q-btn>
           <!-- akhir account -->
 
-          <q-icon name="add_shopping_cart" class="text-white float-right   cart hide" size="md"/>
+          <q-btn   to="/cust/cart/"> 
+          <q-icon name="add_shopping_cart" class="text-white float-right cart hide" size="md"/>
+          </q-btn> 
           <q-btn class="bg-white float-right mr q-mx-md" size="sm" >Cari</q-btn>
           <q-input type="text" placeholder="Search......!" class="bg-white float-right  mr" style="max-width:200px;max-height:25px" />
         </div>
@@ -184,7 +186,7 @@
           </div>
 
           <div class="col bg-white q-ma-sm" style="max-width:1px ">
-              <q-separator-vertical/>
+              
           </div>
 
           <div class="col " style="max-width:30%">
@@ -203,7 +205,7 @@
           </div>
 
           <div class="col bg-white q-ma-sm" style="max-width:1px ">
-              <q-separator-vertical/>
+            
           </div>
 
           <div class="col flex flex-center " >
@@ -231,6 +233,13 @@ export default{
       drawerLeft: false,
     }
   },
+  batal(){
+        alert = false
+      },
+      beli(){
+        let self = this;
+        self.$router.push("/cust/cart/")
+      },
   // async  mounted(){
   //   let getRole = await localStorage.getItem('role');
   //   if(getRole !='customer' || getRole ==='owner'){

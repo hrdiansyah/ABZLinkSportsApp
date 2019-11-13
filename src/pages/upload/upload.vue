@@ -45,6 +45,8 @@
             lazy-rules
             :rules="[ val => val && val.length > 0 || 'Please type something']"
           />
+
+          
            
           <div class="modal-body">
                 <!--UPLOAD-->
@@ -69,6 +71,9 @@
           <div>
             <q-btn label="Submit" type="submit" color="black" @click="submit(waitedFormData)"/>
             <q-btn label="Reset" type="reset" color="black" flat class="q-ml-sm" @click="reset"/>
+            <q-btn color="black"   label="Cek Barang" size="md" to="/admin/barang"/>
+            <q-btn color="black"   label="Cek Landing" size="md" to="/"/>
+        
           </div>
         </q-form>
       </div>

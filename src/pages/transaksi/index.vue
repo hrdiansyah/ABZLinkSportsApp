@@ -272,7 +272,11 @@
 </style>
 
 <script>
+import containeer from '../../api/get/index';
+import {downloadImage} from '../../api/upload/index';
+import product from '../../api/Produk/index';
 export default {
+      
       data () {
     return {
       slide: 1,

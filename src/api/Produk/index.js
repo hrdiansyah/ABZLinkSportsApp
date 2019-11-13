@@ -6,7 +6,7 @@ export default {
         .get('Products')
         .then(function(response){
             console.log(response)
-            return response.data
+            return response.data.sort((a, b) => new Date(b.createAt) - new Date(a.createAt))
         })
         .catch (function(err){
             console.log(err)
@@ -22,10 +22,9 @@ export default {
             kuantity : kuantity,
             product_kategory : product_kategory,
             product_desc : product_desc,
+           
             imgurl: 'http://localhost:3000/api/container/images/download/'+ product_name+ '.jpg'
         })
-        //     imgurl: 'http://192.168.40.114:3000/api/container/images/download/'+ product_name+ '.jpg'
-        // })
         .then(function(response){
         console.log(response)
         return response.data
@@ -45,7 +44,10 @@ export default {
         console.log(err)
         })
     },
+
+   
     putproduct(window, id, product_name, harga, kuantity, product_kategory, product_desc, imgurl){
+
         return getApiNoAuthLB()
         .put('/Products/' + id ,{
             product_name: product_name,
@@ -79,7 +81,7 @@ export default {
     getproductbyId(window, id){
         
         return getApiNoAuthLB()
-        .get('Products/' + id )
+        .get('/Products/' + id )
         .then(function(response){
             return response.data
         })
@@ -106,4 +108,14 @@ export default {
         console.log(err)
         })
     },
+    getProductByName(window, product_name){
+        return getApiNoAuthLB()
+        .get('/Products/getProductByName?product_name='+product_name)
+        .then(function(response){
+            console.log(response)
+            return response
+        }).catch(function(err){
+            console.log(err)
+        })
+    }
 }
