@@ -1,84 +1,187 @@
 <template>
-<div class="q-pa-mditems-start q-gutter-md">
-    <div class="row">
-        <div class="col bg-red">
-            Transaksi 
-        </div>
-    </div>
-    <div class="row">
-        <div class="col bg-red">
-            <q-card class="my-card" >
-                                <q-card-section >
-                                    <div class="row">
-                                        <div class="col">
-                                            <q-img style="width:200px; height:250px " class="q-mx-auto"
-                                            :src="images.imgurl"
-                                            />
-                                        </div>
-                                        <div class="col">
-                                            <label ><b class="text-center"> {{images.product_desc}}</b></label><br>
-                                            <label> {{images.product_kategory}}</label>
-                                        </div>
-                                        
-                                    </div>
-                                    
-                                     
-                                    <!-- awal desc harga -->
-                                    <div class="row">
-                                        <div class="col q-ma-xs text-black ">
-                                            <hr>
-                                           <label ><b class="text-center"> {{images.product_name}}</b></label><br>
-                                           <label> Rp. {{images.harga}}</label>
-                                            
-                                        </div>
-                                    </div>
-                                    <!-- akhir desc harga -->
+    <div class="q-pa-md">
+        <div class="column" style="height: 100px"/>
+        <div class="row justify-center">
+            <div class="col-1 q-col-gutter-xl"/>
+            <div class="col-6">
+                <div class="column">
+                    <div class="col-1">
+                        <img src="/statics/abzlogo.png" style="height: 90px; width: 110px">
+                    </div>
+                    <div class="col-1" style="height:20px"/>
+                    <div class="col-1" style="height:40px">
+                        <div class="text-left text-h6">Shipping address</div>
+                    </div>
+                    <div class="col">
 
-                                    <!-- awal tombol -->
-                                    <div class="row">
-                                        <div class="col q-ma-xs text-black  ">
-                                            <q-btn class="float-right q-mx-md" color="red" @click="beli()">Order Now</q-btn>
-                                        </div>
-                                        <div class="col q-ma-xs text-black " >
-                                            <q-btn color="red" class="q-mx-md">Batal</q-btn>
-                                        </div>
-                                    </div>
-                                    <!-- akhir tombol -->
-                                </q-card-section>
-                            </q-card>
-        </div>
-        <div class="col bg-blue">
-            <!-- <form @submit="beli()"> -->
+                        <div class="row">
+                            <div class="col-12 q-gutter-xl">
+                                <q-input outlined v-model="Alamat" placeholder="Alamat"/>
+                            </div>
+                        </div>
+                        <div class="row" style="height: 25px"/>
+
+                        <div class="row">
+                            <div class="col-12 q-gutter-xl">
+                                <q-input outlined v-model="Kecamatan" placeholder="Kecamatan"/>
+                            </div>
+                        </div>
+                        <div class="row" style="height: 25px"/>
+
+                        <div class="row">
+                            <div class="col-12 q-gutter-xl">
+                                <q-input outlined v-model="Kota" placeholder="Kota"/>
+                            </div>
+                        </div>
+                        <div class="row" style="height: 25px"/>
+
+                        <div class="row">
+                            <div class="col-3 q-gutter-md">
+                                <q-select outlined v-model="Negara" :options="nega" label="Negara" placeholder="Negara"/>
+                            </div>
+                            <div class="col-1 q-col-gutter-sm"/>
+                            
+                            <div class="col-3 q-gutter-md">
+                                <q-select outlined v-model="Provinsi" :options="prov" label="Provinsi" placeholder="Provinsi"/>
+                            </div>
+                            <div class="col-1 q-col-gutter-sm"/>
+                            
+                            <div class="col-3 q-gutter-md">
+                                <q-input outlined v-model="Kodepos"  placeholder="Kode pos"/>
+                            </div>
+                        </div>
+                        <div class="row" style="height: 25px"/>
+                        
+                        <div class="row">
+                            <div class="col-12 q-gutter-xl">
+                                <q-input outlined v-model="Tlp" placeholder="Phone"/>
+                            </div>
+                        </div>
+
+                        <div class="row" style="height: 25px"/>
+                        
+                        <div class="row">
+                            <div class="col-12 q-gutter-xl">
+                                <q-select outlined v-model="form.Shipping" :options="ship" label="Shipping" placeholder="Shipping"/>
+                            </div>
+                        </div>
+                        <div class="row" style="height: 25px"/>
+                       
+                        
+
+                        <div class="row">
+                            <div class="col-8 q-gutter-md"/>
+                            <div class="col-1 q-gutter-xs"/>
+                            <div class="col-3">
+                                <q-btn style="background: #283b39; color: white" label="Confirm Shipping" size="15px" type="submit" @click="onSubmit()"  />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1 q-gutter-xl" style="width:70px">
+                 <q-separator  color="blue-grey-3" vertical inset />
+            </div>
+            <div class="col">
+            <div class="row">
+                   <div class="col-2 q-gutter-lg">
+                       <q-card>
+                         <q-img :src="images.imgurl"/>
+                       </q-card>
+                    </div>
+                <div class="col-1 q-gutter-lg"/>    
+                <div class="col-3">
+                    <div class="text-overline text-bold"> {{images.product_name}} </div>
+                </div>
+                <div class="col-1 q-gutter-xl"/>    
+                <div class="col-2">
+                    <q-select borderless v-model="form.Ukuruan" :options="size" label="Size"/>
+                </div>
+                <div class="col-1 q-gutter-lg"/>
+                <div class="col-2">
+                    <q-input borderless type="number" v-model="form.Jumlah" label="Jumlah" lazy-rules 
+                    :rules="[ val => val !== null && val !== '' || 'Please Insert Jumlah']"/>
+                </div>
+                <div class="col-1 q-gutter-lg"/>
+
+                <div class="col-2">
+                    <div class="text-overline text-body2 text-bold">Rp. {{images.harga}}</div>
+                </div>
+            </div>
+
+            <div class="column" style="height: 50px"/>
             
-            <div class="q-my-xs">
-                Catatan : <input type="text"  v-model="form.catatan"><br>
+            <div class="column" style="height:20px"/>
+            <div class="row">
+                <div class="col">
+                    <q-separator color="grey-5" />
+                </div>
+            </div>
+            <div class="column" style="height: 30px"/>
+
+            <div class="row">
+                <div class="col-8">
+                    <q-input outlined v-model="form.Diskon"  placeholder="Kode Diskon"/>
+                </div>
+                <div class="col-1 q-gutter-lg"/>
+                <div class="col-1">
+                
+                </div>
+            </div>
+            <div class="column" style="height: 30px"/>
+            <q-separator color="grey-5" />
+            <div class="column" style="height: 30px"/>
+            
+            <div class="row">
+                <div class="col-6">
+                    <div class="text-left text-bold">Subtotal</div>
+                </div>
+                
+                <div class="col-6">
+                    <div class="text-right text-bold">Rp. {{subtotal}}</div>
+                </div>
             </div>
 
-            <div class="q-my-xs">
-                Kuantity : <input type="text"  v-model="form.kuantity"><br>
+            <div class="column" style="height: 30px"/>
+            
+            <div class="row">
+                <div class="col-6">
+                    <div class="text-left text-bold">Discont</div>
+                </div>
+                
+                <div class="col-6">
+                    <div class="text-right text-bold">Rp.{{dis}}</div>
+                </div>
+            </div>
+            <div class="column" style="height: 30px"/>
+            <div class="row">
+                <div class="col-6">
+                    <div class="text-left text-bold">Shipping</div>
+                </div>
+                
+                <div class="col-6">
+                    <div class="text-right text-bold">Rp.{{kurir}}</div>
+                </div>
             </div>
 
-           <div class="q-my-xs">
-               Diskon : <input type="text"  v-model="form.diskon">
-           </div>
-             
-           <div class="q-my-xs">
-               Kurir : <input type="text"  v-model="form.kurir"><input><br>
-           </div>
-           <div class="q-my-xs">
-               total : {{total}}
-           </div>
-           <div class="q-my-xs">
-               Methode Pembayaran : <input type="text"  v-model="form.metode_bayar"><br>
-                Status : {{status}}
-           </div>
+            <div class="column" style="height: 30px"/>
+            <q-separator color="grey-5" />
+            <div class="column" style="height: 30px"/>
 
-           <!-- <q-btn class="float-right q-mx-md" color="red" type="submit" >Order Now</q-btn> -->
-            <!-- </form> -->
-           
+             <div class="row">
+                <div class="col-6">
+                    <div class="text-left text-bold">Total</div>
+                </div>
+                
+                <div class="col-6">
+                    <div class="text-right text-bold">Rp. {{total}}</div> 
+                </div>
+             </div>
         </div>
-    </div>
-</div>
+
+        </div>
+        <div class="column" style="height: 100px"/>
+        </div>
 </template>
 
 <script>
@@ -95,8 +198,13 @@ export default {
     return {
         status : 'menunggu',
         images:[],
+        nega: null,
+        prov: null,
+        ship: null,
+        size: null,
         cart :[],
         img: './statics/supersale2.jpg',
+        
         form: [
             {
                 id_product:'',
@@ -109,6 +217,12 @@ export default {
                 
             }
         ],
+        size:['S','M','L','XL'],
+        nega: ['Indonesia','Zimbabwe'],
+        prov: ['Aceh', 'Bali', 'Bangka Belitung', 'Banten', 'Bengkulu','Gorontalo','Jakarta','Jambi','Jawa Barat'
+        ,'Jawa Tengah','Jawa Timur','Kalimantan Timur',' Kalimantan Utara','Kepulauan Riau','Lampung','Maluku','Maluku Utara','Nusa Tenggara Barat','Nusa Tenggara Timur','Papua','Papua Barat','Riau','Sulawesi Barat','Sulewasi Selatan','Sulawesi Selatan'
+        ,'Sulawesi Tengah','Sulawesi Tenggara','Sulawesi Utara','Sumatra Barat','Sumatra Selatan','Sumatra Selatan','Sumatra Utara','Yogyakarta'],
+        ship:['JNE','TIKI','SICEPAT'],
         diskons:[],
         input_kurir : '',
         kd_diskon:''
