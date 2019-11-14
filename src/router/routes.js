@@ -77,7 +77,8 @@ const routes = [
         { path: 'pembayaran', component: () => import('pages/customer/pembayaran.vue')},
         { path: 'catalog', component: () => import('pages/customer/catalog.vue')},
         { path: 'cart', component: () => import('pages/customer/cart.vue')},
-        { path: 'transaksi', component: () => import('pages/customer/transaksi.vue')}
+        { path: 'transaksi', component: () => import('pages/customer/transaksi.vue')},
+        { path: 'Tabel_transaksi', component: () => import('pages/customer/tabel_transaksi.vue')}
       ]
     },
     {

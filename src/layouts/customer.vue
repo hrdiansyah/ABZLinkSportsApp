@@ -11,13 +11,8 @@
           <q-toolbar class=" text-white ">
             <q-tabs  shrink  style="min-width:240px">
               <q-tab name="tab1" label="About" />
-<<<<<<< HEAD
-              <q-tab name="tab2" label="Products" to="/cust/catalog" />
-              <q-tab name="tab3" label="Contact Us" />
-=======
               <q-tab name="tab2" label="Products" />
               <q-tab name="tab4" label="Contact Us" />
->>>>>>> 38a54d3739f3b5ddd425749bea506fd240d10b0a
             </q-tabs>
             <q-space />
           </q-toolbar>

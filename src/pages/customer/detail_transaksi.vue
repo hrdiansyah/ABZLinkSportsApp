@@ -9,7 +9,7 @@
                 <div class="row"> 
                     <div class="col" style="max-width:28%">
                         <div class="q-ml-xl"> Nama Penerima : </div>
-                        <div class="q-ml-xl text-h4"><b> Hardiansyah </b></div>
+                        <div class="q-ml-xl text-h5"><b> {{images.Nama_customer}} </b></div>
                     </div>
 
                     <div class="col" style="max-width:72%">
@@ -33,7 +33,7 @@
             <div class="col" style="max-width:70%">
                 <q-card style="height:100%">
                     <q-card-section>
-                      <b class="text-h4"> Jersey Manchester United </b> 
+                      <b class="text-h4"> {{images.Nama_product}} </b> 
                       <div class="q-mt-sm text-h6"> Rp. {{images.Harga_barang}} </div>
                       <br>
                       <b class="text-h4"> Metode Pembayaran </b> 

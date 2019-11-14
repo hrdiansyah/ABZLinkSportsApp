@@ -57,15 +57,19 @@ export default {
             console.log(err)
         })
     },
-<<<<<<< HEAD
-    getpayments(window){
-        return getApiNoAuthLB()
-        .get('payments')
-=======
     getpayments(window,Id_product){
         return getApiNoAuthLB()
         .get('/payments/'+Id_product)
->>>>>>> 38a54d3739f3b5ddd425749bea506fd240d10b0a
+        .then(function(response){
+            return response.data
+        })
+        .catch (function(err){
+            console.log(err)
+        })
+    },
+    getpay(window){
+        return getApiNoAuthLB()
+        .get('/payments')
         .then(function(response){
             return response.data
         })
