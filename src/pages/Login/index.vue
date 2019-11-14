@@ -1,15 +1,22 @@
 
 <template>
-<q-card class="my-card text-white m" style="background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)">
+<q-card class="my-card text-white m bg-grey-4" >
    <!-- {{userNoww}} -->
+   <!-- style="background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)" -->
   <div class="row">
-    <div id="form" class="q-mx-auto " style="max-width: 400px">
+    <div id="form" class="q-mx-auto " outlined style="max-width: 400px">
       <q-card style="width :350px" >
         <q-form  @submit="onSubmit" >
-          <q-bar>
-            <q-icon name="eva-lock-outline" />
-            <div>Otentikasi User</div>
-          </q-bar>
+          <div style="height: 70px" class="row bg-grey-6">
+            <div class="col " style="max-width: 100px">
+              <img src="/statics/logo.png" style="height: 50px; width: 80px; margin-left: 10px" class="q-mt-sm"/>
+            </div>
+            <div class="col">
+              <div class="q-mt-lg">Otentikasi User</div>
+            </div>
+            
+           
+          </div>
 
           <q-card-section>
               <q-input outlined 
