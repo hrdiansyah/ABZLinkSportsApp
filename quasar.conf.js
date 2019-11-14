@@ -15,7 +15,8 @@ module.exports = function (ctx) {
     css: [
       'app.sass',
       'margin.css',
-      'upload.css'
+      'upload.css',
+      'landing.sass'
 
     ],
 

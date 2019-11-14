@@ -82,7 +82,7 @@
             <q-btn label="Registration" type="submit" color="black" class ="full-width" size="lg" />
             </div>
             <div>
-            <q-btn label="Reset" type="reset" color="grey-7 text-black" class= "full-width" size="lg" />
+            <q-btn label="Reset or Cancel" type="reset " color="grey-7 text-black" class= "full-width" size="lg" to="/"/>
           </div>
         </q-form>
       </div>

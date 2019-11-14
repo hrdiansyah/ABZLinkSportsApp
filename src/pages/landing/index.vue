@@ -1,10 +1,5 @@
 <template>
  <div class="q-pa-md q-gutter-md">
-   <div>
-    <input type="text" v-model="find_name">
-    <q-btn color="blue" icon="search" label="search" class="sp" size="sm" @click="findByName()" />
-   </div>
-  
     <q-layout class="shadow-2 rounded-borders"> 
      
        <q-header class="bg-grey-3 text-grey-9" reveal height-hint="60">
@@ -17,7 +12,7 @@
 
         <div class="GPLAY__toolbar-input-container row no-wrap" >
           <q-input dense outlined square v-model="search" placeholder="Search" class="bg-white col float-right" />
-          <q-btn class="GPLAY__toolbar-input-btn" color="primary" icon="search" unelevated />
+          <q-btn class="GPLAY__toolbar-input-btn" color="primary" icon="search" unelevated @click="findByName()"/>
         </div>
 
         <q-space />
@@ -103,7 +98,7 @@
           <div class="text-h6">New Products</div>
            <div class="row " >
                 
-              <q-btn id="padding" class="col-2 column q-ma-xs" flat v-for="item in images" :key="item.id" style="min-width:200px; max-width:250px" @click="show(item)">
+              <div id="padding" class="col-2  column q-ma-xs" flat v-for="item in images" :key="item.id" style="min-width:200px; max-width:250px" @click="show(item)">
                     <div class="row">
                       <div class="col">
                           <q-img style="width:200px; height:250px " class="q-mx-auto"
@@ -122,7 +117,7 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col ">
+                      <div class="col align">
                         <q-rating
                           class="q-mx-auto responsive"
                           v-model="ratingModel"
@@ -133,7 +128,7 @@
                         />
                       </div>
                     </div>
-              </q-btn>
+              </div>
            </div>
           </q-card-section>
       </q-card>
@@ -198,59 +193,6 @@
         </div>
 </template>
 
-
-<style lang="sass">
-.GPLAY
-  &__toolbar
-    height: 60px
-  &__logo
-    width: 183px
-    height: 39px
-  &__toolbar-input-container
-    min-width: 100px
-    width: 55%
-  &__toolbar-input-btn
-    border-radius: 0
-    max-width: 60px
-    width: 100%
-  &__drawer-link
-    .q-item__section--avatar
-      margin: -8px 0 -8px -16px
-      padding: 8px 0 8px 16px
-    .q-item__section--main
-      margin: -8px -16px -8px 16px
-      padding: 8px 16px 8px 2px
-      font-size: 18px
-      font-weight: 300
-    &--apps, &--movies, &--music, &--books, &--devices
-      background: #f5f5f5!important
-      &:hover
-        color: #eee !important
-    &--apps:hover
-      background: #43a047!important
-    &--movies:hover
-      background: #e53935!important
-    &--music:hover
-      background: #fb8c00!important
-    &--books:hover
-      background: #1e88e5!important
-    &--devices:hover
-      background: #546e7a!important
-  &__drawer-item
-    padding: 6px 12px 6px 23px
-  &__sticky
-    min-height: 49px
-    border-bottom: 1px solid rgba(0,0,0,0.12)
-  &__sticky-help
-    border: 1px solid #ccc
-    padding-left: 8px
-    padding-right: 8px
-  &__sticky-settings
-    padding-left: 17px
-    padding-right: 17px
-    border: 1px solid #ccc
-</style>
-
 <script>
 import containeer from '../../api/get/index';
 import {downloadImage} from '../../api/upload/index';
@@ -262,7 +204,6 @@ export default {
       ratingModel: 5,
       ratingModel1: 4,
       images:[],
- 
       kuantity:'',
       find_name:''
       }
@@ -284,15 +225,13 @@ export default {
     product.getproduct(window )
                 .then(function (result) {
                     for (let i = 0; i < 5; i++) {
-                    console.log(result);
-                    self.images.push(result[i])
+                      self.images.push(result[i])
                     }
                 })
                 .catch(function (err) {
                     console.log(err);
                 });
      },
-
      methods :{
 
        show(item){
@@ -300,17 +239,19 @@ export default {
        localStorage.setItem('imgurl',item.imgurl)
        this.$router.push('/cust/detail')
       },
-      findByName(find_name) {
+      findByName() {
             try {
+              console.log(this.search)
                 const self = this
-                product.getProductByName(window, self.find_name )
+                product.getProductByName(window, self.search )
                 .then(function (result){
+                  
                 return  self.images=result.data
             })
             } catch (error) {
                 console.log(error.message);
             }
-        }
+        },
      },
      
 }

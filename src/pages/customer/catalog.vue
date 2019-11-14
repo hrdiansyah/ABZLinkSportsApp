@@ -20,7 +20,7 @@
         </div>
 
         <div class="row " >
-            <q-btn id="padding" class="col q-mx-auto  column q-ma-xs" flat v-for="item in images" :key="item.id" style="min-width:200px; max-width:250px" @click="show(item)">
+            <div id="padding" class="col q-mx-auto  column q-ma-xs" flat v-for="item in images" :key="item.id" style="min-width:200px; max-width:250px" @click="show(item)">
                     <div class="row">
                       <div class="col">
                           <q-img style="width:200px; height:250px " class="q-mx-auto"
@@ -39,9 +39,9 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col ">
+                      <div class="col align">
                         <q-rating
-                          class="q-mx-auto responsive"
+                          class=" responsive"
                           v-model="ratingModel"
                           size="1em"
                           color="indigo-10"
@@ -50,7 +50,7 @@
                         />
                       </div>
                     </div>
-              </q-btn>
+              </div>
         </div>
     </div>
 </template>
@@ -68,7 +68,7 @@ export default {
       img: './statics/supersale2.jpg',
       DetailProduk: [],
       getData:'',
-      Jersey_Bola:'jersey bola',
+      Jersey_Bola:'string',
       Jersey_Basket:'jersey basket',
       Bola : 'bola',
       Badminton : 'badminton'
@@ -83,7 +83,6 @@ export default {
 
   beforeCreate() {
        let self=this;
-     
           product.getproduct(window )
                 .then(function (result) {
                     console.log(result);
@@ -103,7 +102,7 @@ export default {
       findByName1() {
             try {
                 const self = this
-                product.getProductByName(window, self.Jersey_Bola )
+                product.getProductByKat(window, self.Jersey_Bola )
                 .then(function (result){
                 return  self.images=result.data
             })
@@ -114,7 +113,7 @@ export default {
         findByName2() {
             try {
                 const self = this
-                product.getProductByName(window, self.Jersey_Basket )
+                product.getProductByKat(window, self.Jersey_Basket )
                 .then(function (result){
                 return  self.images=result.data
             })
@@ -125,7 +124,7 @@ export default {
         findByName3() {
             try {
                 const self = this
-                product.getProductByName(window, self.Bola )
+                product.getProductByKat(window, self.Bola )
                 .then(function (result){
                 return  self.images=result.data
             })
@@ -136,35 +135,14 @@ export default {
         findByName4() {
             try {
                 const self = this
-                product.getProductByName(window, self.Badminton )
+                product.getProductByKat(window, self.Badminton )
                 .then(function (result){
                 return  self.images=result.data
             })
             } catch (error) {
                 console.log(error.message);
             }
-        },
-        all(){
-          product.getproduct(window )
-                .then(function (result) {
-                    console.log(result);
-                   return self.images= result;
-                })
-                .catch(function (err) {
-                    console.log(err);
-                });
-        },
-        findByName5() {
-            try {
-                
-                product.getproduct(window)
-                .then(function (result){
-                return  self.images=result.data
-            })
-            } catch (error) {
-                console.log(error.message);
-            }
-        },
+        }
      },
 }
 </script>

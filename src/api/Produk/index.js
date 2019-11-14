@@ -113,9 +113,19 @@ export default {
         console.log(err)
         })
     },
-    getProductByName(window, product_name){
+    getProductByKat(window, product_kategori){
         return getApiNoAuthLB()
-        .get('/Products/getProductByName?product_name='+product_name)
+        .get('/Products/getProductByKat?product_kategori='+product_kategori)
+        .then(function(response){
+            console.log(response)
+            return response
+        }).catch(function(err){
+            console.log(err)
+        })
+    },
+    getProductByName(window, product_Name){
+        return getApiNoAuthLB()
+        .get('/Products/getProductByName?product_Name='+product_Name)
         .then(function(response){
             console.log(response)
             return response

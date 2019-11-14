@@ -16,45 +16,45 @@
 
                         <div class="row">
                             <div class="col-12 q-gutter-xl">
-                                <q-input outlined v-model="Alamat" placeholder="Alamat"/>
+                                <q-input outlined v-model="form.Alamat" placeholder="Alamat"/>
                             </div>
                         </div>
                         <div class="row" style="height: 25px"/>
 
                         <div class="row">
                             <div class="col-12 q-gutter-xl">
-                                <q-input outlined v-model="Kecamatan" placeholder="Kecamatan"/>
+                                <q-input outlined v-model="form.Kecamatan" placeholder="Kecamatan"/>
                             </div>
                         </div>
                         <div class="row" style="height: 25px"/>
 
                         <div class="row">
                             <div class="col-12 q-gutter-xl">
-                                <q-input outlined v-model="Kota" placeholder="Kota"/>
+                                <q-input outlined v-model="form.Kota" placeholder="Kota"/>
                             </div>
                         </div>
                         <div class="row" style="height: 25px"/>
 
                         <div class="row">
                             <div class="col-3 q-gutter-md">
-                                <q-select outlined v-model="Negara" :options="nega" label="Negara" placeholder="Negara"/>
+                                <q-select outlined v-model="form.Negara" :options="nega" label="Negara" placeholder="Negara"/>
                             </div>
                             <div class="col-1 q-col-gutter-sm"/>
                             
                             <div class="col-3 q-gutter-md">
-                                <q-select outlined v-model="Provinsi" :options="prov" label="Provinsi" placeholder="Provinsi"/>
+                                <q-select outlined v-model="form.Provinsi" :options="prov" label="Provinsi" placeholder="Provinsi"/>
                             </div>
                             <div class="col-1 q-col-gutter-sm"/>
                             
                             <div class="col-3 q-gutter-md">
-                                <q-input outlined v-model="Kodepos"  placeholder="Kode pos"/>
+                                <q-input outlined v-model="form.Kodepos"  placeholder="Kode pos"/>
                             </div>
                         </div>
                         <div class="row" style="height: 25px"/>
                         
                         <div class="row">
                             <div class="col-12 q-gutter-xl">
-                                <q-input outlined v-model="Tlp" placeholder="Phone"/>
+                                <q-input outlined v-model="form.Tlp" placeholder="Phone"/>
                             </div>
                         </div>
 
@@ -67,13 +67,14 @@
                         </div>
                         <div class="row" style="height: 25px"/>
                        
-                        
-
                         <div class="row">
                             <div class="col-8 q-gutter-md"/>
                             <div class="col-1 q-gutter-xs"/>
-                            <div class="col-3">
+                            <!-- <div class="col-3">
                                 <q-btn style="background: #283b39; color: white" label="Confirm Shipping" size="15px" type="submit" @click="onSubmit()"  />
+                            </div> -->
+                            <div class="col-12 q-gutter-xl">
+                                <q-input outlined v-model="form.Catatan" placeholder="Catatan"/>
                             </div>
                         </div>
                     </div>
@@ -95,7 +96,7 @@
                 </div>
                 <div class="col-1 q-gutter-xl"/>    
                 <div class="col-2">
-                    <q-select borderless v-model="form.Ukuruan" :options="size" label="Size"/>
+                    <q-select borderless v-model="form.Ukuran" :options="size" label="Size"/>
                 </div>
                 <div class="col-1 q-gutter-lg"/>
                 <div class="col-2">
@@ -117,11 +118,17 @@
                     <q-separator color="grey-5" />
                 </div>
             </div>
-            <div class="column" style="height: 30px"/>
+            <div class="row" style="height: 10px"/>
+            <div class="row">
+                <div class="col-12 q-gutter-xl">
+                    <q-select outlined v-model="form.metode_pembayaran" :options="metode" label="Payment Method"/>
+                </div>
+                    </div>
+                <div class="row" style="height: 25px"/>
 
             <div class="row">
                 <div class="col-8">
-                    <q-input outlined v-model="form.Diskon"  placeholder="Kode Diskon"/>
+                    <q-input outlined v-model="form.diskon"  placeholder="Kode Diskon"/>
                 </div>
                 <div class="col-1 q-gutter-lg"/>
                 <div class="col-1">
@@ -138,7 +145,7 @@
                 </div>
                 
                 <div class="col-6">
-                    <div class="text-right text-bold">Rp. {{subtotal}}</div>
+                    <div class="text-right text-bold">Rp. {{Sub_total}}</div>
                 </div>
             </div>
 
@@ -150,7 +157,7 @@
                 </div>
                 
                 <div class="col-6">
-                    <div class="text-right text-bold">Rp.{{dis}}</div>
+                    <div class="text-right text-bold">Rp. {{Discont}}</div>
                 </div>
             </div>
             <div class="column" style="height: 30px"/>
@@ -160,7 +167,7 @@
                 </div>
                 
                 <div class="col-6">
-                    <div class="text-right text-bold">Rp.{{kurir}}</div>
+                    <div class="text-right text-bold">Rp. {{Biaya_kirim}}</div>
                 </div>
             </div>
 
@@ -174,7 +181,13 @@
                 </div>
                 
                 <div class="col-6">
-                    <div class="text-right text-bold">Rp. {{total}}</div> 
+                    <div class="text-right text-bold">Rp. {{Total}}</div> 
+                </div>
+             </div>
+
+             <div class="row q-mt-xl ">
+                <div class="col text-center">
+                    <q-btn style="background: #283b39; color: white; width:50%"  label="Confirm Shipping" size="15px" type="submit" @click="beli()"  />
                 </div>
              </div>
         </div>
@@ -188,7 +201,7 @@
 import containeer from '../../api/get/index';
 import {downloadImage} from '../../api/upload/index';
 import product from '../../api/Produk/index';
-import transaksi from '../../api/transaksi/index';
+import payment from '../../api/transaksi/index';
 import kurir from '../../api/kurir/index';
 import cart from '../../api/cart/index';
 
@@ -210,12 +223,12 @@ export default {
                 id_Customer : '',
                 catatan : '',
                 kuantity : 0,
-                diskon : 0,
-                kurir : 0,
+                Jumlah : '',
                 metode_bayar :'',
             }
         ],
         size:['S','M','L','XL'],
+        metode:['COD (Cash On Delivery)','ATM Virtual Account','Transfer Bank','UTANG'],
         nega: ['Indonesia','Zimbabwe'],
         prov: ['Aceh', 'Bali', 'Bangka Belitung', 'Banten', 'Bengkulu','Gorontalo','Jakarta','Jambi','Jawa Barat'
         ,'Jawa Tengah','Jawa Timur','Kalimantan Timur',' Kalimantan Utara','Kepulauan Riau','Lampung','Maluku','Maluku Utara','Nusa Tenggara Barat','Nusa Tenggara Timur','Papua','Papua Barat','Riau','Sulawesi Barat','Sulewasi Selatan','Sulawesi Selatan'
@@ -223,8 +236,7 @@ export default {
         ship:['JNE','TIKI','SICEPAT'],
         diskons:[],
         input_kurir : '',
-        kd_diskon:'',
-        
+        kd_diskon:''
     }
   },
 
@@ -232,30 +244,37 @@ export default {
     getImgs() {
       this.getImg()
     },
-    total:function() {
-        if(this.form.diskon=='baru'){
-            if(this.form.kurir=='JNE'){
-                return ((parseInt(this.images.harga) * parseInt(this.form.kuantity))-parseInt(10000))+parseInt(15000)
-            } else if(this.form.kurir=='JNT'){
-                return ((parseInt(this.images.harga) * parseInt(this.form.kuantity))-parseInt(10000))+parseInt(20000)
-            } else if(this.form.kurir=='GRAB'){
-                return ((parseInt(this.images.harga) * parseInt(this.form.kuantity))-parseInt(10000))+parseInt(30000)
-            }
-             
-        }else if(this.form.diskon=='pertama'){
-            if(this.form.kurir=='JNE'){
-                return ((parseInt(this.images.harga) * parseInt(this.form.kuantity))-parseInt(20000))+parseInt(15000)
-            } else if(this.form.kurir=='JNT'){
-                return ((parseInt(this.images.harga) * parseInt(this.form.kuantity))-parseInt(20000))+parseInt(20000)
-            } else if(this.form.kurir=='GRAB'){
-                return ((parseInt(this.images.harga) * parseInt(this.form.kuantity))-parseInt(20000))+parseInt(30000)
-            }
-        }
+    Total:function() {
+        return parseInt(this.Sub_total) + parseInt(this.Biaya_kirim) -  parseInt(this.Discont)
     },
-    put_kuantity:function(){
-        return parseInt(this.images.kuantity)-(this.form.kuantity)
-    }
     
+    Sub_total:function(){
+        return parseInt(this.images.harga)*this.form.Jumlah
+    },
+    Discont:function(){
+        if(this.form.diskon=='ABZLINKS'){
+           return parseInt(20000)
+       } else if(this.form.diskon=='NOVEMBERCERIA'){
+           return parseInt(50000)
+       }
+       else if(this.form.diskon=='SPORT'){
+           return parseInt(25000)
+       } else {
+           return parseInt(0)
+       }
+    },
+    Biaya_kirim:function(){
+       if(this.form.Shipping=='JNE'){
+           return parseInt(15000)
+       } else if(this.form.Shipping=='TIKI'){
+           return parseInt(20000)
+       }
+       else if(this.form.Shipping=='SICEPAT'){
+           return parseInt(25000)
+       } else {
+           return parseInt(0)
+       }
+    }
   },
 
   beforeCreate() {
@@ -279,15 +298,6 @@ export default {
                             self.put_product.imgurl = result.imgurl,
                             self.put_product.createAt = result.createAt,
                             self.put_product.id = result.id
-
-                            diskon.getDiskon(window)
-                                    .then(function (result) {
-                                    return self.diskons=result;
-                                        console,log('diskon ret', result)
-                                    })
-                                    .catch(function (err) {
-                                        console.log(err);
-                                    });
                         })
                         .catch(function (err) {
                             console.log(err);
@@ -298,16 +308,14 @@ export default {
             console.log(err);
         });
 
-// diskon
-    
-    // diskon.getDiskon(window)
-    //     .then(function (result) {
-    //       return self.diskons=result;
-    //         console,log('diskon ret', result)
-    //     })
-    //     .catch(function (err) {
-    //         console.log(err);
-    //     });
+    diskon.getDiskon(window)
+        .then(function (result) {
+          return self.diskons=result;
+            console,log(self.diskons)
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
     
      },
 
@@ -318,38 +326,30 @@ export default {
             let getIdCustomer= localStorage.getItem('id');
             let self=this;
 
-            // self.put_product.product_name = self.images.product_name,
-            // self.put_product.harga = self.images.harga,
-            // self.put_product.kuantity = 0,
-            // self.put_product.product_kategory = self.images.product_kategory,
-            // self.put_product.product_desc = self.images.product_desc,
-            // self.put_product.berat = self.images.berat,
-            // self.put_product.imgurl = self.images.imgurl,
-            // self.put_product.createAt = self.images.createAt,
-            // self.put_product.id = self.images.id
-
-            transaksi.postTransaksi(window, getIdProduct, getIdCustomer, self.form.catatan, 
-            self.form.kuantity, self.form.diskon, self.form.kurir, self.total, self.form.metode_bayar, self.status)
+            payment.postPayment(window, getIdProduct, getIdCustomer, self.images.harga, self.form.Ukuran, self.form.Jumlah, 
+            self.form.Catatan, self.form.Alamat, self.form.Kecamatan, self.form.Kota, self.form.Negara, self.form.Provinsi,
+            self.form.Kodepos, self.form.Tlp, self.form.Shipping,  self.form.metode_pembayaran,
+            self.Discont, self.Biaya_kirim, self.Sub_total, self.Total, self.images.imgurl )
             .then(function(result)
                 {
                     if(result){
                         cart.deleteCart(window, self.cart.id).then(function(res)
                             {
-                                localStorage.removeItem('id_cart')
-                                self.$router.push('/cust/detail_transaksi');
+                                if(res){
+                                    localStorage.removeItem('id_cart')
+                                    product.putproduct(window, self.put_product.id, self.put_product.product_name, self.put_product.harga, 
+                                            self.put_kuantity, self.put_product.product_kategory,self.put_product.product_desc,self.put_product.berat, 
+                                            self.put_product.imgurl, self.put_product.createAt, self.put_product.id)
+                                                .then(function(result) {
+                                                    self.$router.go('/cust/detail_transaksi')
+                                                })
+                                                .catch(function(err) {
+                                                    console.log(err);
+                                                });
+                                }
+                                
                             })
                             .catch(function(err){
-                                console.log(err);
-                            });
-                            console.log(self.put_kuantity)
-
-                        product.putproduct(window, self.put_product.id, self.put_product.product_name, self.put_product.harga, 
-                        self.put_kuantity, self.put_product.product_kategory,self.put_product.product_desc,self.put_product.berat, 
-                        self.put_product.imgurl, self.put_product.createAt, self.put_product.id)
-                            .then(function(result) {
-                                self.$router.go('/admin/barang')
-                            })
-                            .catch(function(err) {
                                 console.log(err);
                             });
 
@@ -361,15 +361,6 @@ export default {
             .catch(function(err){
                 console.log(err);
             });
-
-            // cart.deleteCart(window, self.cart.id).then(function(res)
-            //     {
-            //         localStorage.removeItem('id_cart')
-            //         self.$router.push('/cust/detail_transaksi');
-            //     })
-            // .catch(function(err){
-            //     console.log(err);
-            // });
         },
         cekDiskon(){
             

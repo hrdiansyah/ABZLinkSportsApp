@@ -22,5 +22,45 @@ export default {
         }).catch(function(err){
             console.log(err)
         })
+    },
+    postPayment(window, Id_product, Id_customer, Harga_barang, Size, Jumlah, 
+        Catatan, Alamat, Kecamatan, Kota, Negara, Provinsi,
+        Kodepos, Phone, Shipping, Metode_pembayaran,
+        Discont, Biaya_kirim, Sub_total, Total,imgurl){
+
+            console.log(Id_product, Id_customer, Harga_barang, Size, Jumlah, 
+                Catatan, Alamat, Kecamatan, Kota, Negara, Provinsi,
+                Kodepos, Phone, Shipping, Metode_pembayaran,
+                Discont, Biaya_kirim, Sub_total, Total,imgurl)
+
+            return getApiNoAuthLB()
+        .post('/payments/',{
+            Id_product : Id_product,
+            Id_customer : Id_customer,
+            Harga_barang:Harga_barang,
+            Size : Size,
+            Jumlah : Jumlah,
+            Catatan : Catatan,
+            Alamat : Alamat,
+            Kecamatan : Kecamatan,
+            Kota : Kota,
+            Negara:Negara,
+            Provinsi :  Provinsi,
+            Kodepos : Kodepos,
+            Phone : Phone,
+            Shipping : Shipping,
+            Metode_pembayaran : Metode_pembayaran,
+            Discont : Discont,
+            Biaya_kirim : Biaya_kirim,
+            Sub_total :  Sub_total,
+            Total :  Total,
+            imgurl : imgurl            
+        })
+        .then(function(response){
+            console.log(response)
+            return response.data
+        }).catch(function(err){
+            console.log(err)
+        })
     }
 }
