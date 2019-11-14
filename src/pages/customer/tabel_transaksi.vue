@@ -5,8 +5,6 @@
                 <q-list bordered class="rounded-borders q-mx-auto" style="max-width: auto">
                     <q-card class=" my-card">
                         <q-card-section>
-                            <div class="text-h6">Keranjang</div>
-                            
                                 <q-item class="bg-indigo-13 col-0">
         <q-item-section avatar top>
           <q-item-label class="q-mt-sm">ID</q-item-label>
