@@ -339,6 +339,8 @@ export default {
                         cart.deleteCart(window, self.cart.id).then(function(res)
                             {
                                 localStorage.removeItem('id_cart')
+                                localStorage.removeItem('imgurl')
+                                localStorage.removeItem('id_product')
                                 
                                 self.$router.push('/cust/detail_transaksi');
                                 product.putproduct(window, self.getIdProduct, self.put_product.product_name, self.put_product.harga, 

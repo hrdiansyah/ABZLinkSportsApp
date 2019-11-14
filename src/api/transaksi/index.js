@@ -56,5 +56,15 @@ export default {
         }).catch(function(err){
             console.log(err)
         })
-    }
+    },
+    getpayments(window,Id_product){
+        return getApiNoAuthLB()
+        .get('/payments/'+Id_product)
+        .then(function(response){
+            return response.data
+        })
+        .catch (function(err){
+            console.log(err)
+        })
+    },
 }
