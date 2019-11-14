@@ -61,8 +61,8 @@
           </q-btn>
           <!-- akhir account -->
 
-          <q-btn   to="/cust/cart/"> 
-          <q-icon name="add_shopping_cart" class="text-white float-right cart hide" size="md"/>
+          <q-btn  class="float-right cart hide" flat to="/cust/cart/" style="height:20px"> 
+          <q-icon name="add_shopping_cart" class="text-white hide  q-mt-none" size="md"/>
           </q-btn> 
           <q-btn class="bg-white float-right mr q-mx-md" size="sm" >Cari</q-btn>
           <q-input type="text" placeholder="Search......!" class="bg-white float-right  mr" style="max-width:200px;max-height:25px" />

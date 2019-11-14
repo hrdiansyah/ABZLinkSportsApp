@@ -283,9 +283,9 @@ export default {
          let self=this;
     product.getproduct(window )
                 .then(function (result) {
+                    for (let i = 0; i < 5; i++) {
                     console.log(result);
-                    for (let i = 0; i < 42; i++) {
-                      self.images.push(result[i])
+                    self.images.push(result[i])
                     }
                 })
                 .catch(function (err) {
@@ -301,7 +301,6 @@ export default {
        this.$router.push('/cust/detail')
       },
       findByName(find_name) {
-          console.log(this.find_name)
             try {
                 const self = this
                 product.getProductByName(window, self.find_name )
