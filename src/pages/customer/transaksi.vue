@@ -181,7 +181,7 @@
                 </div>
                 
                 <div class="col-6">
-                    <div class="text-right text-bold">Rp. {{Total}}</div> 
+                    <div class="text-right text-bold">Rp. {{Total}}{{put_kuantity}}</div> 
                 </div>
              </div>
 
@@ -276,27 +276,27 @@ export default {
        } else {
            return parseInt(0)
        }
+    },
+    put_kuantity:function(){
+        return parseInt(this.images.kuantity)-this.form.Jumlah
     }
   },
 
   beforeCreate() {
     let getIdcart= localStorage.getItem('id_cart');
-    // let getIdproducts= localStorage.getItem('id_products');
     let self=this;
     
     cart.getCartsbyId(window, getIdcart )
         .then(function (result) {
             if(result){
-                // localStorage.setItem('id_products', result.id_product)
                 self.cart=result;
                 product.getproductbyId(window, result.id_product )
                         .then(function (result) {
                             self.images= result;
                             self.put_product.product_name = result.product_name,
                             self.put_product.harga = result.harga,
-                            self.put_product.product_kategory = result.product_kategory,
+                            self.put_product.product_kategory = result.product_kategori,
                             self.put_product.product_desc = result.product_desc,
-                            self.put_product.berat = result.berat,
                             self.put_product.imgurl = result.imgurl,
                             self.put_product.createAt = result.createAt,
                             self.put_product.id = result.id
@@ -335,26 +335,26 @@ export default {
             .then(function(result)
                 {
                     if(result){
+                        localStorage.setItem('id_transaksi', result.id)
                         cart.deleteCart(window, self.cart.id).then(function(res)
                             {
-                                if(res){
-                                    localStorage.removeItem('id_cart')
-                                    product.putproduct(window, self.put_product.id, self.put_product.product_name, self.put_product.harga, 
-                                            self.put_kuantity, self.put_product.product_kategory,self.put_product.product_desc,self.put_product.berat, 
-                                            self.put_product.imgurl, self.put_product.createAt, self.put_product.id)
-                                                .then(function(result) {
-                                                    self.$router.go('/cust/detail_transaksi')
-                                                })
-                                                .catch(function(err) {
-                                                    console.log(err);
-                                                });
-                                }
+                                localStorage.removeItem('id_cart')
                                 
+                                self.$router.push('/cust/detail_transaksi');
+                                product.putproduct(window, self.getIdProduct, self.put_product.product_name, self.put_product.harga, 
+                                        self.put_kuantity, self.put_product.product_kategory,self.put_product.product_desc, 
+                                        self.put_product.imgurl, self.put_product.createAt)
+                                        .then(function(result) {
+                                            // self.$router.push('/cust/detail_transaksi');
+                                        })
+                                        .catch(function(err) {
+                                            console.log(err);
+                                        });
+
                             })
                             .catch(function(err){
                                 console.log(err);
                             });
-
                     } else {
                         alert('Mohon Lengkapi Form');
                     }
@@ -363,13 +363,6 @@ export default {
             .catch(function(err){
                 console.log(err);
             });
-        },
-        cekDiskon(){
-            
-            if(this.kd_diskon=this.diskons.diskon){
-                return this.form.diskon = this.diskons.nilai;
-                console.log(this.diskons.diskon);
-            }
         }
      }
      
