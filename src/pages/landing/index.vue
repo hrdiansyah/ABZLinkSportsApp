@@ -246,7 +246,7 @@ export default {
                 product.getProductByName(window, self.search )
                 .then(function (result){
                   
-                return  self.images=result.data
+                return self.images=result.data
             })
             } catch (error) {
                 console.log(error.message);

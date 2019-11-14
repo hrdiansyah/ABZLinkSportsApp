@@ -5,11 +5,6 @@
             <!-- Qlist awal -->
             <q-list bordered class="rounded-borders q-mx-auto bg-secondary" style="max-width: 1200px">
                 <q-item-label header class="bg-secondary">
-                    <q-btn class="q-mr-md" color="red" icon="add_box" label="asdasd" size="sm" @click="add()">
-                        <q-tooltip content-class="bg-red" anchor="center right" content-style="font-size: 16px" :offset="[10, 10]">
-                            ADD DATA
-                        </q-tooltip>
-                    </q-btn>
                     <div class="float-right">
                         <q-btn class="float-left" color="red" icon="search" size="sm">
                         <q-tooltip content-class="bg-red" anchor="center right" content-style="font-size: 16px" :offset="[10, 10]">
@@ -17,11 +12,9 @@
                         </q-tooltip>
                     </q-btn>
                     <q-input class=" src bg-white"
-                    
                     filled
                     lazy-rules
                     />
-                    
                     </div>
                 </q-item-label>
                 
@@ -35,57 +28,63 @@
                     </q-item-section>
 
                     <q-item-section top class="col-1 gt-sm flex flex-center" style="align : center">
-                        <q-item-label class="q-mt-sm">Tanggal</q-item-label>
+                        <q-item-label class="q-mt-sm">Nama Pelanggan</q-item-label>
                     </q-item-section>
 
                     <q-item-section top class="col-2 gt-xm flex flex-center" style="align : center">
-                        <q-item-label class="q-mt-sm">Nama Pemesan</q-item-label>
+                        <q-item-label class="q-mt-sm">Alamat</q-item-label>
                     </q-item-section>
 
                     <q-item-section top class="col-2 gt-xm flex flex-center" style="align : center">
-                        <q-item-label class="q-mt-sm">Alamat Pemesan</q-item-label>
-                    </q-item-section>
-
-                    <q-item-section top class="col-2 gt-xm flex flex-center">
-                    <q-item-label class="q-mt-sm flex flex-center">Pengiriman</q-item-label>
-                    </q-item-section>
-
-                    <q-item-section top class="col-1 gt-xm flex flex-center">
-                    <q-item-label class="q-mt-sm flex flex-center">Catatan</q-item-label>
+                        <q-item-label class="q-mt-sm">Total</q-item-label>
                     </q-item-section>
 
                     <q-item-section top class="col-2 gt-xm flex flex-center">
                     <q-item-label class="q-mt-sm flex flex-center">Status</q-item-label>
                     </q-item-section>
+
+                     <q-item-section top class="col-2 gt-xm flex flex-center">
+                    <q-item-label class="q-mt-sm flex flex-center">Status</q-item-label>
+                    </q-item-section>
+
+                     <q-item-section top class="col-2 gt-xm flex flex-center">
+                    <q-item-label class="q-mt-sm flex flex-center">Status</q-item-label>
+                    </q-item-section>
                     
                 </q-item>
-                <q-item  v-for="(pemesanan,index ) in cart" :key="pemesanan.id" class="bg-grey-3" line="1">
+                <q-item  v-for="(pemesanan, index ) in product" :key="pemesanan.id" class="bg-grey-3" line="1">
                     <q-item-section avatar top class="col-0 gt-xm flex flex-center">
                         <q-item-label class="q-mt-sm">{{index+1}}</q-item-label>
                     </q-item-section>
 
                     <q-item-section top class="col-2 gt-xm flex flex-center">
-                        <q-item-label class="q-mt-sm">{{pemesanan.nama_barang}}</q-item-label>
+                        <q-item-label class="q-mt-sm">{{pemesanan.Id_customer}}</q-item-label>
+                    </q-item-section>
+
+                    <q-item-section top class="col-2 gt-xm flex flex-center">
+                        <q-item-label class="q-mt-sm">{{pemesanan.Id_product}}</q-item-label>
                     </q-item-section>
 
                     <q-item-section top class="col-1 gt-xm flex flex-center">
-                        <q-item-label class="q-mt-sm">{{pemesanan.createAt}}</q-item-label>
+                        <q-item-label class="q-mt-sm">{{pemesanan.Jumlah}}</q-item-label>
                     </q-item-section>
 
                     <q-item-section top class="col-2 gt-xm flex flex-center">
-                        <q-item-label class="q-mt-sm">{{pemesanan.nama_pemesan}}</q-item-label>
+                        <q-item-label class="q-mt-sm">{{pemesanan.Alamat}}</q-item-label>
                     </q-item-section>
 
                     <q-item-section top class="col-2 gt-xm flex flex-center">
-                        <q-item-label class="q-mt-sm">{{pemesanan.alamat_pemesan}} & {{pemesanan.telp_pemesan}}</q-item-label>
+                        <q-img style="width:20px;"
+                          :src="pemesanan.imgurl"
+                          />
                     </q-item-section>
 
                     <q-item-section top class="col-2 gt-xm flex flex-center">
-                        <q-item-label class="q-mt-sm">{{pemesanan.pengiriman}}</q-item-label>
+                        <q-item-label class="q-mt-sm">{{pemesanan.Total}}</q-item-label>
                     </q-item-section>
 
                     <q-item-section top class="col-1 gt-xm flex flex-center">
-                        <q-item-label class="q-mt-sm">{{pemesanan.catatan}}</q-item-label>
+                        <q-item-label class="q-mt-sm">{{pemesanan.status}}</q-item-label>
                     </q-item-section>
 
                     <q-item-section  top class="col-2 gt-xm flex flex-center">
@@ -124,87 +123,6 @@
       </q-dialog>  
         </div>
     </div>
-        <div class="row">
-        <div class="col" style="align : center">
-            <!-- Qlist awal -->
-            <q-list bordered class="rounded-borders q-mx-auto bg-secondary" style="max-width: 1200px">
-                <q-item-label header class="bg-white">
-                </q-item-label>
-                
-                <q-item class="bg-teal">
-                    <q-item-section avatar top class="col-0 gt-xm flex flex-center" style="align :left">
-                        <q-item-label class="q-mt-sm">No</q-item-label>
-                    </q-item-section>
-
-                    <q-item-section top class="col-2 gt-xm flex flex-center" style="align : center">
-                        <q-item-label class="q-mt-sm">Nama Barang</q-item-label>
-                    </q-item-section>
-
-                    <q-item-section top class="col-1 gt-sm flex flex-center" style="align : center">
-                        <q-item-label class="q-mt-sm">Tanggal</q-item-label>
-                    </q-item-section>
-
-                    <q-item-section top class="col-2 gt-xm flex flex-center" style="align : center">
-                        <q-item-label class="q-mt-sm">Nama Pemesan</q-item-label>
-                    </q-item-section>
-
-                    <q-item-section top class="col-2 gt-xm flex flex-center" style="align : center">
-                        <q-item-label class="q-mt-sm">Alamat Pemesan</q-item-label>
-                    </q-item-section>
-
-                    <q-item-section top class="col-2 gt-xm flex flex-center">
-                    <q-item-label class="q-mt-sm flex flex-center">Pengiriman</q-item-label>
-                    </q-item-section>
-
-                    <q-item-section top class="col-1 gt-xm flex flex-center">
-                    <q-item-label class="q-mt-sm flex flex-center">Catatan</q-item-label>
-                    </q-item-section>
-
-                    <q-item-section top class="col-2 gt-xm flex flex-center">
-                    <q-item-label class="q-mt-sm flex flex-center">Status</q-item-label>
-                    </q-item-section>
-                    
-                </q-item>
-                <q-item  v-for="(pemesanan_fnl1,index ) in pemesanan_fnl" :key="pemesanan_fnl1.id" class="bg-grey-3" line="1">
-                    <q-item-section avatar top class="col-0 gt-xm flex flex-center">
-                        <q-item-label class="q-mt-sm">{{index+1}}</q-item-label>
-                    </q-item-section>
-
-                    <q-item-section top class="col-2 gt-xm flex flex-center">
-                        <q-item-label class="q-mt-sm">{{pemesanan_fnl1.nama_barang}}</q-item-label>
-                    </q-item-section>
-
-                    <q-item-section top class="col-1 gt-xm flex flex-center">
-                        <q-item-label class="q-mt-sm">{{pemesanan_fnl1.createAt}}</q-item-label>
-                    </q-item-section>
-
-                    <q-item-section top class="col-2 gt-xm flex flex-center">
-                        <q-item-label class="q-mt-sm">{{pemesanan_fnl1.nama_pemesan}}</q-item-label>
-                    </q-item-section>
-
-                    <q-item-section top class="col-2 gt-xm flex flex-center">
-                        <q-item-label class="q-mt-sm">{{pemesanan_fnl1.alamat_pemesan}} & {{pemesanan_fnl1.telp_pemesan}}</q-item-label>
-                    </q-item-section>
-
-                    <q-item-section top class="col-2 gt-xm flex flex-center">
-                        <q-item-label class="q-mt-sm">{{pemesanan_fnl1.pengiriman}}</q-item-label>
-                    </q-item-section>
-
-                    <q-item-section top class="col-1 gt-xm flex flex-center">
-                        <q-item-label class="q-mt-sm">{{pemesanan_fnl1.catatan}}</q-item-label>
-                    </q-item-section>
-
-                    <q-item-section v-if="pemesanan_fnl1.status" top class="col-2 gt-xm flex flex-center">
-                        <q-item-label class="q-mt-sm">Approve</q-item-label>
-                    </q-item-section>
-
-                    <q-item-section v-if="!pemesanan_fnl1.status" top class="col-2 gt-xm flex flex-center">
-                        <q-item-label class="q-mt-sm">Reject</q-item-label>
-                    </q-item-section>
-                </q-item>
-            </q-list>
-        </div>
-    </div> 
 </div>
 
 </template>
@@ -217,12 +135,21 @@
 
 <script>
 import cart from '../../api/cart/index.js'
+import payments from '../../api/transaksi/index.js'
+import products from '../../api/Produk/index.js'
 export default {
     data() {
         return {
             cart: [{}],
             pemesanan_fnl:[{}],
-            
+            pay: [
+                {
+
+                }
+            ],
+            product: [{
+
+            }],
             dialog: false,
             form:{
                 nama_barang:'',
@@ -233,7 +160,6 @@ export default {
                 pengiriman:'',
                 catatan:'',
                 status:'',
-                createAt:'',
                 id:''            
             },
             columns: [
@@ -339,25 +265,19 @@ export default {
             ],
         }
     },
-    async mounted() {
-        const response = await
-        cart.getCart(window) 
-          {
-            this.cart = response
-        }
-    },
-    // beforeCreate(){
-    //   let self=this;
-    //   pemesanaan.getStatusPemesanan(window).then(function(result){
-    //     self.pemesanans=result
-    //   })
-    // },
-    beforeCreate(){
-      let self=this;
-      approval.getPemesananFnl(window).then(function(result){
-        self.pemesanan_fnl=result
-      })
-        },
+    
+    // Get data dari Api
+
+    beforeCreate() {
+        let self=this;
+        payments.getpayments(window )
+                .then(function (result) 
+                 {
+                   self.product=result
+                   console.log(self.product)
+                })
+            },
+                                
     methods : {
         update() {
             const self = this
@@ -371,7 +291,8 @@ export default {
             .catch(function (err) {
                 console.log(err);
             });
-            pemesanaan.putPemesanan(window, self.form.nama_barang, self.form.tanggal,
+            pemesanaan
+            .putPemesanan(window, self.form.nama_barang, self.form.tanggal,
             self.form.nama_pemesan, self.form.alamat_pemesan, self.form.telp_pemesan, self.form.pengiriman,
             self.form.catatan, 'approve', self.form.createAt, self.form.id)
             .then(function (result) {
@@ -382,7 +303,7 @@ export default {
                 console.log(err);
             });
         },
-     reject() {
+        reject() {
             const self = this
             approval.approvalFinal(window, self.form.nama_barang, self.form.tanggal,
             self.form.nama_pemesan, self.form.alamat_pemesan, self.form.telp_pemesan, self.form.pengiriman,

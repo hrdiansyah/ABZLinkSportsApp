@@ -181,7 +181,7 @@
                 </div>
                 
                 <div class="col-6">
-                    <div class="text-right text-bold">Rp. {{Total}}{{put_kuantity}}</div> 
+                    <div class="text-right text-bold">Rp. {{Total}}{{product_Name}}</div> 
                 </div>
              </div>
 
@@ -204,11 +204,13 @@ import product from '../../api/Produk/index';
 import payment from '../../api/transaksi/index';
 import kurir from '../../api/kurir/index';
 import cart from '../../api/cart/index';
+import cust from '../../api/customer/index';
 
 export default {
   data () {
     return {
         status : 'menunggu',
+        cust :[],
         images:[],
         nega: null,
         prov: null,
@@ -277,11 +279,19 @@ export default {
     },
     put_kuantity:function(){
         return parseInt(this.images.kuantity)-this.form.Jumlah
-    }
+    },
+    cust_Name:function(){
+        return (this.cust.firstName)+" "+(this.cust.lastName)
+    },
+    product_Name:function(){
+        return (this.cust.firstName)
+    },
+
   },
 
   beforeCreate() {
     let getIdcart= localStorage.getItem('id_cart');
+    let getIdcust= localStorage.getItem('id');
     let self=this;
     
     cart.getCartsbyId(window, getIdcart )
@@ -289,34 +299,34 @@ export default {
             if(result){
                 self.cart=result;
                 product.getproductbyId(window, result.id_product )
-                        .then(function (result) {
-                            self.images= result;
-                            self.put_product.product_name = result.product_name,
-                            self.put_product.harga = result.harga,
-                            self.put_product.product_kategory = result.product_kategori,
-                            self.put_product.product_desc = result.product_desc,
-                            self.put_product.imgurl = result.imgurl,
-                            self.put_product.createAt = result.createAt,
-                            self.put_product.id = result.id
-                        })
-                        .catch(function (err) {
-                            console.log(err);
-                        });
+                    .then(function (result) {
+                        self.images= result;
+                        self.put_product.product_name = result.product_name,
+                        self.put_product.harga = result.harga,
+                        self.put_product.product_kategory = result.product_kategori,
+                        self.put_product.product_desc = result.product_desc,
+                        self.put_product.imgurl = result.imgurl,
+                        self.put_product.createAt = result.createAt,
+                        self.put_product.id = result.id
+                    })
+                    .catch(function (err) {
+                        console.log(err);
+                    });
             }
         })
         .catch(function (err) {
             console.log(err);
         });
 
-    diskon.getDiskon(window)
+    cust.getCustbyId(window, getIdcust )
         .then(function (result) {
-          return self.diskons=result;
-            console,log(self.diskons)
+            self.cust= result;
+            console.log('cust', result)
         })
         .catch(function (err) {
             console.log(err);
         });
-    
+
      },
 
      methods : {
@@ -326,7 +336,7 @@ export default {
             let getIdCustomer= localStorage.getItem('id');
             let self=this;
 
-            payment.postPayment(window, getIdProduct, getIdCustomer, self.images.harga, self.form.Ukuran, self.form.Jumlah, 
+            payment.postPayment(window, self.images.product_name, self.cust_Name, self.images.harga, self.form.Ukuran, self.form.Jumlah, 
             self.form.Catatan, self.form.Alamat, self.form.Kecamatan, self.form.Kota, self.form.Negara, self.form.Provinsi,
             self.form.Kodepos, self.form.Tlp, self.form.Shipping,  self.form.metode_pembayaran,
             self.Discont, self.Biaya_kirim, self.Sub_total, self.Total, self.images.imgurl )
@@ -348,7 +358,6 @@ export default {
                                         .catch(function(err) {
                                             console.log(err);
                                         });
-
                             })
                             .catch(function(err){
                                 console.log(err);

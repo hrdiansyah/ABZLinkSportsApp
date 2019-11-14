@@ -1,13 +1,13 @@
 import { getApiNoAuthLB } from "../utils"
 
 export default {
-        postTransaksi(window, id_product, id_customer, catatan,
+        postTransaksi(window, Nama_product, Nama_customer, catatan,
             kuantity, diskon, kurir, total, metode_bayar, status){
-            console.log(id_product, id_customer, catatan, kuantity, diskon, kurir, total, status )
+            console.log(Nama_product, Nama_customer, catatan, kuantity, diskon, kurir, total, status )
         return getApiNoAuthLB()
         .post('/transaksis/' ,{
-            id_product : id_product,
-            id_customer : id_customer,
+            Nama_product : Nama_product,
+            Nama_customer : Nama_customer,
             catatan : catatan,
             kuantity : kuantity,
             diskon : diskon,
@@ -23,14 +23,14 @@ export default {
             console.log(err)
         })
     },
-    postPayment(window, Id_product, Id_customer, Harga_barang, Size, Jumlah, 
+    postPayment(window, Nama_product, Nama_customer, Harga_barang, Size, Jumlah, 
         Catatan, Alamat, Kecamatan, Kota, Negara, Provinsi,
         Kodepos, Phone, Shipping, Metode_pembayaran,
         Discont, Biaya_kirim, Sub_total, Total,imgurl){
             return getApiNoAuthLB()
         .post('/payments/',{
-            Id_product : Id_product,
-            Id_customer : Id_customer,
+            Nama_product : Nama_product,
+            Nama_customer : Nama_customer,
             Harga_barang:Harga_barang,
             Size : Size,
             Jumlah : Jumlah,
@@ -56,5 +56,15 @@ export default {
         }).catch(function(err){
             console.log(err)
         })
-    }
+    },
+    getpayments(window){
+        return getApiNoAuthLB()
+        .get('payments')
+        .then(function(response){
+            return response.data
+        })
+        .catch (function(err){
+            console.log(err)
+        })
+    },
 }

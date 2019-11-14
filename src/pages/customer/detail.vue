@@ -124,9 +124,8 @@ export default {
 
   beforeCreate() {
         let getId= localStorage.getItem('id_product');
-        console.log(getId)
-         let self=this;
-    product.getproductbyId(window, getId )
+        let self=this;
+        product.getproductbyId(window, getId )
                 .then(function (result) {
                     console.log(result);
                     self.images= result;
