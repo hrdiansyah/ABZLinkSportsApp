@@ -46,8 +46,6 @@
             :rules="[ val => val && val.length > 0 || 'Please type something']"
           />
 
-          
-           
           <div class="modal-body">
                 <!--UPLOAD-->
             <form enctype="multipart/form-data" novalidate v-if="isInitial || isSaving">
@@ -108,6 +106,7 @@ export default {
       productName: '',
       qty: '',
       category: '',
+      berat:'',
       desc: '',
       harga: '',
       imgurl: '',

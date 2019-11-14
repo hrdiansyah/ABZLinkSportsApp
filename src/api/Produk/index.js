@@ -14,7 +14,7 @@ export default {
     },
     
     postproduct(window, product_name, harga,
-        kuantity, product_kategory, product_desc, imgurl){
+        kuantity, product_kategory, product_desc,berat, imgurl){
         return getApiNoAuthLB()
         .post('/Products/' ,{
             product_name : product_name,
@@ -46,7 +46,7 @@ export default {
     },
 
    
-    putproduct(window, id, product_name, harga, kuantity, product_kategory, product_desc, imgurl){
+    putproduct(window, id, product_name, harga, kuantity, product_kategory, product_desc, berat, imgurl, createAt){
 
         return getApiNoAuthLB()
         .put('/Products/' + id ,{
@@ -55,7 +55,10 @@ export default {
             kuantity : kuantity,
             product_kategory : product_kategory,
             product_desc : product_desc,
-            imgurl: imgurl
+            berat : berat,
+            imgurl: imgurl,
+            createAt : createAt
+
 
         })
         .then (function(response){
@@ -79,11 +82,12 @@ export default {
         })
     },
     getproductbyId(window, id){
-        
+        console.log(id)
         return getApiNoAuthLB()
         .get('/Products/' + id )
         .then(function(response){
-            return response.data
+            return response.data;
+            console.log(response)
         })
         .catch (function(err){
             console.log(err)
