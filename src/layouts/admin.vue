@@ -73,7 +73,7 @@
                                       </q-item-section>
                                     </q-item>
                                   
-                                    <q-item  clickable >
+                                    <q-item clickable>
                                       <q-btn @click='logout()' flat >
                                           <q-item-section avatar>
                                             <q-icon name="logout" />

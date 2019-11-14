@@ -24,6 +24,17 @@ export default {
             console.log(err)
         })
     },
+    getCart(window){
+        return getApiNoAuthLB()
+        .get('Products')
+        .then(function(response){
+            console.log(response)
+            return response.data
+        })
+        .catch (function(err){
+            console.log(err)
+        })
+    },
     
     getCartByCustomer(window, id_customer){
         return getApiNoAuthLB()

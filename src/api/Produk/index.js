@@ -22,10 +22,10 @@ export default {
             kuantity : kuantity,
             product_kategory : product_kategory,
             product_desc : product_desc,
-            imgurl: 'http://192.168.40.114:3000/api/container/images/download/'+ product_name+ '.jpg'
-        })
-        //     imgurl: 'http://localhost:3000/api/container/images/download/'+ product_name+ '.jpg'
+        //     imgurl: 'http://192.168.40.120:3000/api/container/images/download/'+ product_name+ '.jpg'
         // })
+            imgurl: 'http://localhost:3000/api/container/images/download/'+ product_name+ '.jpg'
+        })
         .then(function(response){
         console.log(response)
         return response.data

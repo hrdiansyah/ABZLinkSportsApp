@@ -9,7 +9,7 @@
           <q-input
             filled
             v-model="nameFile"
-            label="Nama Product"
+            label="Product Name"
             lazy-rules
             :rules="[ val => val && val.length > 0 || 'Please type something']"
           />
@@ -33,7 +33,7 @@
           <q-input
             filled
             v-model="harga"
-            label="Harga"
+            label="Price"
             lazy-rules
             :rules="[ val => val && val.length > 0 || 'Please type something']"
           />
@@ -41,6 +41,7 @@
           <q-input
             filled
             v-model="desc"
+            type="textarea"
             label="Product Deskripsi"
             lazy-rules
             :rules="[ val => val && val.length > 0 || 'Please type something']"
@@ -54,7 +55,7 @@
               <div>
                 <input type="file" multiple :name="uploadFieldName" :disabled="isSaving" @change="filesChange($event.target.name, $event.target.files); fileCount = $event.target.files.length" accept="image/*" class="dropbox">
                 <p v-if="isInitial">
-                  Drag your Image file(s) into the box to begin
+                    Drag your Image file(s) into the box to begin 
                 </p>
                 <p v-if="isSaving">
                   Uploading {{ fileCount }} files...
@@ -68,11 +69,11 @@
             </div>
           </div>
 
-          <div>
+          <div class="q-gutter-md">
             <q-btn label="Submit" type="submit" color="black" @click="submit(waitedFormData)"/>
             <q-btn label="Reset" type="reset" color="black" flat class="q-ml-sm" @click="reset"/>
-            <q-btn color="black"   label="Cek Barang" size="md" to="/admin/barang"/>
-            <q-btn color="black"   label="Cek Landing" size="md" to="/"/>
+            <q-btn color="black" label="Cek Barang" size="md" to="/admin/barang"/>
+            <q-btn color="black" label="Cek Landing" size="md" to="/"/>
         
           </div>
         </q-form>

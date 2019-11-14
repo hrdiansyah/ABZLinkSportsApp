@@ -9,25 +9,75 @@
             </div>
             <div class="col-1 q-col-gutter-xl"/>
             <div class="col-4">
-                <div class="text-left text-overline">TG PROJECT</div>
+                <div class="text-left text-overline">ABZLinkSports</div>
                 <div style="height: 10px"/>
-                <div class="text-left text-h4 ">{{images.productname}}</div>
+                <div class="text-left text-h3 ">{{images.product_name}}</div>
                 <div style="height: 10px"/>
-                <div class="text-left text-body1">Rp. {{images.harga}}</div>
+                <div class="row">
+                      <div class="col">
+                          <div class="row "> 
+                              <div class="col" style="max-width:170px">
+                                    <div class="text-blue-14 text-body1"> 5.0  
+                                    <q-rating
+                                    class="q-mx-auto responsive"
+                                    v-model="ratingModel"
+                                    size="1.5em"
+                                    color="indigo-10"
+                                    :max="5"
+                                    readonly
+                                    />
+                                    </div>
+                                </div>
+                                
+                                <div class="col q-ma-none bg-black" style="max-width:1px">
+                                   <q-separator vertical style="max-height: 5px" />
+                                   
+                                </div>
+                                <div class="col text-subtitle1 q-ml-md" style="max-width:125px">
+                                  <a><u> 306 </u></a>
+                                  Penilaian
+                                </div>
+                                 <div class="col q-ma-none bg-black" style="max-width:1px">
+                                   <q-separator vertical style="max-height: 5px" />
+                                </div>
+                                <div class="col text-subtitle1 q-ml-md" >
+                                  <a><u> 20 </u></a>
+                                  Terjual
+                                </div>
+                            </div> 
+                        <div style="height: 10px"/>
+                         <div class="col-4 ">
+                        </div>
+                  </div>
+                   
+                </div>
+                <br>
+                <br>
+                <q-card class="my-card">
+                <q-card-section class="bg-grey-3">
+                    <div class="text-left text-blue-14 text-h4">Rp. {{images.harga}}</div>
+                </q-card-section>
+                </q-card>
                 <div style="height: 30px"/>
                 <q-separator color="blue-grey-3" inset />
                 <div style="height: 30px"/>
-                <div class="text-left text-body2">{{images.productdesc}}</div>
+                <b text-subtitle1> Product Description : </b>
+                <div style="height: 30px"/>
+                <div class="text-left text-body2">{{images.product_desc}}</div>
                 <div style="height: 20px"/>
 
                 <div style="height: 40px"/>
-                
-                
-                <q-btn outline color="primary" label="Masukan Keranjang" class="full-width" />
-                <div style="height: 20px"/>
-                <q-btn style="background: #283b39; color: white" label="Beli Sekarang" 
-                class="full-width" @click="show(images)"/>
-
+                <div class="row">
+                    <div class="col q-mr-sm">
+                        <q-btn style="background: #283b39; color: white" label="Beli Sekarang" 
+                        class="full-width q-mb-sm" @click="add()"/>
+                    </div>
+                    <div class="col">
+                        <q-btn outline color="primary" label="Batal" class="full-width" />
+                        <div style="height: 20px"/>
+   
+                    </div>
+                </div>
             </div> 
         </div>
         <div class="column" style="height: 50px"/>
@@ -43,7 +93,8 @@ export default {
   data () {
     return {
       images:[],
-      img: './statics/supersale2.jpg'
+      img: './statics/supersale2.jpg',
+      ratingModel: 5
       }
   },
 

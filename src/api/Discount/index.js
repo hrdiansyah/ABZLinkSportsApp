@@ -19,9 +19,9 @@ export default {
             diskon : diskon,
             potongan : potongan,
             nilai : nilai,
-            // imgurl: 'http://localhost:3000/api/containerdsc/imagesdsc/download/'+ diskon + '.jpg' })
-            imgurl: 'http://192.168.40.114:3000/api/containerdsc/imagesdsc/download/'+ diskon+ '.jpg'
-        })
+            imgurl: 'http://localhost:3000/api/containerdsc/imagesdsc/download/'+ diskon + '.jpg' })
+        //     imgurl: 'http://192.168.40.120:3000/api/containerdsc/imagesdsc/download/'+ diskon+ '.jpg'
+        // })
         .then(function(response){
         console.log(response)
         return response.data

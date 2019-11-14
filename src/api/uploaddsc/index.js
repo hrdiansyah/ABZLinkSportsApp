@@ -4,8 +4,8 @@ import { getApiNoAuthLB } from "../utils"
 
 
 const BASE_URL_KSSKS = 'http://localhost:3000/api/containerdsc';
-const BASE_URLS = 'http://192.168.40.116:3000/api/containerdsc';
-// const BASE_URLS = 'http://localhost:3000/api/containerdsc';
+// const BASE_URLS = 'http://192.168.40.120:3000/api/containerdsc';
+const BASE_URLS = 'http://localhost:3000/api/containerdsc';
 function uploaddsc(formData,id) {
   const urls = `${BASE_URLS}/${id}/upload`;
   const containerUrls = `${BASE_URLS}`;

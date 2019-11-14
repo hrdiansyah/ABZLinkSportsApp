@@ -24,7 +24,7 @@
 
         <div>
           <q-btn class="q-ml-sm" outline color="light-blue-13" label="Login" size="md" to="/login"/>
-          <q-btn  class="q-ml-sm" color="light-blue-13" label="Daftar" size="md"/>
+          <q-btn  class="q-ml-sm" color="light-blue-13" label="Signup" size="md" to="/reg"/>
         </div>
       </q-toolbar>
     </q-header>
@@ -103,7 +103,7 @@
           <div class="text-h6">New Products</div>
            <div class="row " >
                 
-              <q-btn id="padding" class="col-2  column q-ma-xs" flat v-for="item in images" :key="item.id" style="min-width:200px; max-width:250px" @click="show(item)">
+              <q-btn id="padding" class="col-2 column q-ma-xs" flat v-for="item in images" :key="item.id" style="min-width:200px; max-width:250px" @click="show(item)">
                     <div class="row">
                       <div class="col">
                           <q-img style="width:200px; height:250px " class="q-mx-auto"
