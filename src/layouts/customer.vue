@@ -9,12 +9,10 @@
           </q-toolbar>
 
           <q-toolbar class=" text-white ">
-            <q-tabs  shrink  style="min-width:480px">
+            <q-tabs  shrink  style="min-width:240px">
               <q-tab name="tab1" label="About" />
-              <q-tab name="tab2" label="Products" />
-              <q-tab name="tab3" label="Men" />
-              <q-tab name="tab4" label="Woman" />
-              <q-tab name="tab4" label="Contact Us" />
+              <q-tab name="tab2" label="Products" to="/cust/catalog" />
+              <q-tab name="tab3" label="Contact Us" />
             </q-tabs>
             <q-space />
           </q-toolbar>
@@ -38,8 +36,6 @@
                   <div class="q-mb-md">Tagihan</div>
 
                 </div>
-
-              
 
                 <div class="column items-center">
                   <q-avatar size="72px">

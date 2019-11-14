@@ -18,7 +18,7 @@
           <q-item-label class="q-mt-sm">ID</q-item-label>
         </q-item-section>
 
-        <q-item-section top class="col-0 gt-sm flex-center">
+        <q-item-section top class="col-1 gt-sm flex-center">
           <q-item-label class="q-mt-sm">Nama Produk</q-item-label>
         </q-item-section>
 
@@ -27,7 +27,7 @@
           </q-item-label>
         </q-item-section>
 
-        <q-item-section top class="col-2 gt-sm flex-center">
+        <q-item-section top class="col-1 gt-sm flex-center">
           <q-item-label class="q-mt-sm">Jumlah Produk
           </q-item-label>
         </q-item-section>
@@ -46,11 +46,6 @@
           </q-item-label>
         </q-item-section>
 
-        <q-item-section top class="col-2 gt-sm flex-center">
-          <q-item-label class="q-mt-sm">Image
-          </q-item-label>
-        </q-item-section>
-
         <q-item-section top class="col-1 gt-sm flex-center"> 
           <q-item-label class="q-mt-sm">Action
           </q-item-label>
@@ -64,7 +59,7 @@
           <q-item-label class="q-mt-sm col-0">{{index+1}}</q-item-label>
         </q-item-section>
 
-        <q-item-section top class="gt-sm flex flex-center">
+        <q-item-section top class="gt-sm flex flex-center col-1 gt-sm">
           <q-item-label class="q-mt-sm">{{product.product_name}}</q-item-label>
         </q-item-section>
 
@@ -74,7 +69,7 @@
           </q-item-label>
         </q-item-section>
 
-        <q-item-section top class="col-2 gt-sm flex flex-center">
+        <q-item-section top class="col-1 gt-sm flex flex-center">
           <q-item-label lines="1">
             <span class="text-weight-medium">{{product.kuantity}}</span>
           </q-item-label>

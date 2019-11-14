@@ -90,15 +90,15 @@
             </q-item>
 
             <q-separator inset class="q-my-sm" />
-          <div class="q-mt-md">
-            <div class="flex flex-center q-gutter-xs">
-              <a class="GNL__drawer-footer-link" href="javascript:void(0)" aria-label="Privacy">Privacy</a>
-              <span> · </span>
-              <a class="GNL__drawer-footer-link" href="javascript:void(0)" aria-label="Terms">Terms</a>
-              <span> · </span>
-              <a class="GNL__drawer-footer-link" href="javascript:void(0)" aria-label="About">About AbzLinkSports</a>
+            <div class="q-mt-md">
+              <div class="flex flex-center q-gutter-xs">
+                <a class="GNL__drawer-footer-link" href="javascript:void(0)" aria-label="Privacy">Privacy</a>
+                <span> · </span>
+                <a class="GNL__drawer-footer-link" href="javascript:void(0)" aria-label="Terms">Terms</a>
+                <span> · </span>
+                <a class="GNL__drawer-footer-link" href="javascript:void(0)" aria-label="About">About AbzLinkSports</a>
+              </div>
             </div>
-          </div>
         </q-list>
       </q-scroll-area>
     </q-drawer>
@@ -130,6 +130,7 @@ export default {
         { icon: 'confirmation_number', text: 'Confirmation', route: "/admin/konfirmasi" }
       ],
       links2: [
+        { icon: 'add_shopping_cart', text: 'Upload Product', route: "/upload" },
         { icon: 'attach_money', text: 'Discount', route: "/admin/discount" },
         { icon: 'directions_car', text: 'Courier' },
         { icon: 'person_add', text: 'Add admin' },

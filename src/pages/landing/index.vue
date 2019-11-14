@@ -224,7 +224,7 @@ export default {
          let self=this;
     product.getproduct(window )
                 .then(function (result) {
-                    for (let i = 0; i < 5; i++) {
+                    for (let i = 0; i < 4; i++) {
                       self.images.push(result[i])
                     }
                 })

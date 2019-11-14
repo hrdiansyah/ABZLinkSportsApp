@@ -2,7 +2,7 @@
     <div class="q-pa-md">
         <div class="column" style="height: 30px"/>
         <div class="row justify-center">
-            <div class="col-5">
+            <div class="col-6">
             <q-card class="my-card newitem">
             <q-img :src="images.imgurl"/>
             </q-card>
@@ -73,11 +73,28 @@
                         class="full-width q-mb-sm" @click="add()"/>
                     </div>
                     <div class="col">
-                        <q-btn outline color="primary" label="Batal" class="full-width" />
-                        <div style="height: 20px"/>
+                        <q-btn outline color="primary" label="Masukakan Keranjang" class="full-width" @click="dialog=true" />
+                        <div style="height: 20px" />
    
                     </div>
                 </div>
+                 <q-dialog
+                    v-model="dialog">
+                    <q-card style="width: 700px; max-width: 80vw;">
+                        <q-card-section>
+                        <div class="text-h6">Selamat, barang anda telah masuk ke keranjang</div>
+                        </q-card-section>
+
+                        <q-card-section>
+                            Apakah ingin melanjutkan berbelanja?
+                        </q-card-section>
+
+                        <q-card-actions align="right" class="bg-white text-teal">
+                            <q-btn flat label="Lanjut Berbelanja" to="/cust/catalog" />
+                            <q-btn flat label="TIDAK" v-close-popup />
+                        </q-card-actions>
+                    </q-card>
+                </q-dialog>
             </div> 
         </div>
         <div class="column" style="height: 50px"/>
@@ -94,7 +111,8 @@ export default {
     return {
       images:[],
       img: './statics/supersale2.jpg',
-      ratingModel: 5
+      ratingModel: 5,
+      dialog: false
       }
   },
 
@@ -139,7 +157,24 @@ export default {
             .catch(function(err){
                 console.log(err);
             });
-        }
+        },
+        // dialog(){
+        //     let getIdProduct= localStorage.getItem('id_product');
+        //     let getIdCustomer= localStorage.getItem('id');
+        //     let getimgurl =localStorage.getItem('imgurl')
+        //     let self=this;
+        //     cart.postCart(window, getIdProduct, getIdCustomer,getimgurl)
+        //     .then(function(result)
+        //         {
+        //             if(result){
+        //                 localStorage.setItem("id_cart", result.id)
+        //                 this.dialog=true
+        //             } 
+        //         })
+        //     .catch(function(err){
+        //         console.log(err);
+        //     });
+        // }
      }
      
 }
