@@ -3,18 +3,18 @@
         <div class="row">
             <div class="col">
 
-                <input type="hidden" class="float-right" v-model="Jersey_Bola">
-                <q-btn color="blue" label="Jersey Bola" class="sp float-right q-my-md q-mx-sm" size="sm"  @click="findByName1()"/>
+                <input type="hidden" class="float-right" v-model="Jersey">
+                <q-btn color="blue" label="Jersey" class="sp float-right q-my-md q-mx-sm" size="sm"  @click="findByName1()"/>
                 
-                <input type="hidden" class="float-right"  v-model="Jersey_Basket">
-                <q-btn color="blue"  label="Jersey Basket" class="sp float-right q-my-md" size="sm" @click="findByName2()" />
+                <input type="hidden" class="float-right"  v-model="Sepatu">
+                <q-btn color="blue"  label="Sepatu" class="sp float-right q-my-md" size="sm" @click="findByName2()" />
 
-                <input type="hidden" class="float-right" v-model="Bola">
-                <q-btn color="blue" label="Bola" class="sp float-right q-my-md q-mx-sm" size="sm"  @click="findByName3()"/>
+                <input type="hidden" class="float-right" v-model="Aksesoris">
+                <q-btn color="blue" label="Aksesoris" class="sp float-right q-my-md q-mx-sm" size="sm"  @click="findByName3()"/>
                 
-                <input type="hidden" class="float-right"  v-model="Badminton">
-                <q-btn color="blue"  label="Badminton" class="sp float-right q-my-md" size="sm" @click="findByName4()" />
-                <q-btn color="blue" type="replace" label="All" class="sp float-right q-my-md q-mx-sm" size="sm" @click="findByName5()"/>
+                <input type="hidden" class="float-right"  v-model="Alat">
+                <q-btn color="blue"  label="Alat" class="sp float-right q-my-md" size="sm" @click="findByName4()" />
+                
                 <label class="sp float-right q-my-md q-mx-sm">Filter :</label>
             </div>
         </div>
@@ -68,10 +68,10 @@ export default {
       img: './statics/supersale2.jpg',
       DetailProduk: [],
       getData:'',
-      Jersey_Bola:'string',
-      Jersey_Basket:'jersey basket',
-      Bola : 'bola',
-      Badminton : 'badminton'
+      Jersey:'Jersey',
+      Sepatu:'Sepatu',
+      Aksesoris : 'bola',
+      Alat : 'Alat'
       }
   },
 
@@ -102,7 +102,7 @@ export default {
       findByName1() {
             try {
                 const self = this
-                product.getProductByKat(window, self.Jersey_Bola )
+                product.getProductByKat(window, self.Jersey )
                 .then(function (result){
                 return  self.images=result.data
             })
@@ -113,7 +113,7 @@ export default {
         findByName2() {
             try {
                 const self = this
-                product.getProductByKat(window, self.Jersey_Basket )
+                product.getProductByKat(window, self.Sepatu )
                 .then(function (result){
                 return  self.images=result.data
             })
@@ -124,7 +124,7 @@ export default {
         findByName3() {
             try {
                 const self = this
-                product.getProductByKat(window, self.Bola )
+                product.getProductByKat(window, self.Aksesoris )
                 .then(function (result){
                 return  self.images=result.data
             })
@@ -135,7 +135,7 @@ export default {
         findByName4() {
             try {
                 const self = this
-                product.getProductByKat(window, self.Badminton )
+                product.getProductByKat(window, self.Alat )
                 .then(function (result){
                 return  self.images=result.data
             })

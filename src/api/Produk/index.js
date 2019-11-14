@@ -14,16 +14,16 @@ export default {
     },
     
     postproduct(window, product_name, harga,
-        kuantity, product_kategory, product_desc,berat, imgurl){
+        kuantity, product_kategori, product_desc,imgurl){
+            console.log(product_name, harga,
+                kuantity, product_kategori, product_desc,imgurl)
         return getApiNoAuthLB()
         .post('/Products/' ,{
             product_name : product_name,
             harga : harga,
             kuantity : kuantity,
-            product_kategory : product_kategory,
+            product_kategori : product_kategori,
             product_desc : product_desc,
-        //     imgurl: 'http://192.168.40.120:3000/api/container/images/download/'+ product_name+ '.jpg'
-        // })
             imgurl: 'http://localhost:3000/api/container/images/download/'+ product_name+ '.jpg'
         })
         .then(function(response){
@@ -47,20 +47,17 @@ export default {
     },
 
    
-    putproduct(window, id, product_name, harga, kuantity, product_kategory, product_desc, berat, imgurl, createAt){
-
+    putproduct(window,id, product_name, harga, kuantity, product_kategori, product_desc,imgurl , createAt){
+        concole('api', id, product_name, harga, kuantity, product_kategori, product_desc, imgurl, createAt)
         return getApiNoAuthLB()
         .put('/Products/' + id ,{
             product_name: product_name,
             harga: harga,
             kuantity : kuantity,
-            product_kategory : product_kategory,
+            product_kategori : product_kategori,
             product_desc : product_desc,
-            berat : berat,
             imgurl: imgurl,
             createAt : createAt
-
-
         })
         .then (function(response){
             console.log(response);

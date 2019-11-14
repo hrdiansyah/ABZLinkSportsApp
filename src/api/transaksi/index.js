@@ -27,12 +27,6 @@ export default {
         Catatan, Alamat, Kecamatan, Kota, Negara, Provinsi,
         Kodepos, Phone, Shipping, Metode_pembayaran,
         Discont, Biaya_kirim, Sub_total, Total,imgurl){
-
-            console.log(Id_product, Id_customer, Harga_barang, Size, Jumlah, 
-                Catatan, Alamat, Kecamatan, Kota, Negara, Provinsi,
-                Kodepos, Phone, Shipping, Metode_pembayaran,
-                Discont, Biaya_kirim, Sub_total, Total,imgurl)
-
             return getApiNoAuthLB()
         .post('/payments/',{
             Id_product : Id_product,
