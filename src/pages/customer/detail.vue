@@ -1,97 +1,37 @@
 <template>
-<div class="q-pa-md row items-start q-gutter-md">
-    <q-card class="my-card q-mx-auto text-white" style="background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)">
-        <q-card-section>
-            <template>
-                <div class="q-pa-md" style="max-width: 700px">
-                    <label ><H4 class="text-center q-mt-none q-mb-md"> <q-icon  name="record_voice_over" class="q-mr-md"/> Product Detail</H4></label>
-                    <hr >
-                   <div class="row">
-                       <div class="col q-ma-xs" style="width: 900px">
-                            <q-card class="my-card" >
-                                <q-card-section >
-                                    <q-img style="width:200px; height:250px " class="q-mx-auto"
-                                    :src="images.imgurl"
-                                    />
-                                     
-                                    <!-- awal gambar kecil -->
-                                    <div class="row">
-                                        
-                                        <div class="col q-ma-xs">
-                                            <q-img
-                                            src="./statics/11.jpg"
-                                            style="width: 100%"
-                                            />
-                                            
-                                        </div>
-                                        <div class="col q-ma-xs">
-                                            <q-img
-                                            src="./statics/11.jpg"
-                                            style="width: 100%"
-                                            />
-                                        </div>
-                                        <div class="col q-ma-xs">
-                                            <q-img
-                                            src="./statics/11.jpg"
-                                            style="width: 100%"
-                                            />
-                                        </div>
-                                    </div>
-                                    <!-- awal gambar kecil -->
+    <div class="q-pa-md">
+        <div class="column" style="height: 30px"/>
+        <div class="row justify-center">
+            <div class="col-5">
+            <q-card class="my-card newitem">
+            <q-img :src="images.imgurl"/>
+            </q-card>
+            </div>
+            <div class="col-1 q-col-gutter-xl"/>
+            <div class="col-4">
+                <div class="text-left text-overline">TG PROJECT</div>
+                <div style="height: 10px"/>
+                <div class="text-left text-h4 ">{{images.productname}}</div>
+                <div style="height: 10px"/>
+                <div class="text-left text-body1">Rp. {{images.harga}}</div>
+                <div style="height: 30px"/>
+                <q-separator color="blue-grey-3" inset />
+                <div style="height: 30px"/>
+                <div class="text-left text-body2">{{images.productdesc}}</div>
+                <div style="height: 20px"/>
 
-                                    <!-- awal desc harga -->
-                                    <div class="row">
-                                        <div class="col q-ma-xs text-black ">
-                                            <hr>
-                                           <label ><b class="text-center"> {{images.product_name}}</b></label><br>
-                                           <label> Rp. {{images.harga}}</label>
-                                            
-                                        </div>
-                                    </div>
-                                    <!-- akhir desc harga -->
+                <div style="height: 40px"/>
+                
+                
+                <q-btn outline color="primary" label="Masukan Keranjang" class="full-width" />
+                <div style="height: 20px"/>
+                <q-btn style="background: #283b39; color: white" label="Beli Sekarang" 
+                class="full-width" @click="show(images)"/>
 
-                                    <!-- awal tombol -->
-                                    <div class="row">
-                                        <div class="col q-ma-xs text-black  ">
-                                            <q-btn class="float-right q-mx-md" color="red" @click="add()">Order</q-btn>
-                                        </div>
-                                        <div class="col q-ma-xs text-black " >
-                                            <q-btn color="red" class="q-mx-md">Batal</q-btn>
-                                        </div>
-                                    </div>
-                                    <!-- akhir tombol -->
-                                </q-card-section>
-                            </q-card>
-                       </div>
-
-                       <div class="col q-ma-xs">
-                          <q-card class="my-card">
-                                <q-card-section class="text-red">
-                                    <Label ><u><b>Descripsi</b></u></Label><br>
-                                    {{images.product_desc}}
-                                </q-card-section>
-                            </q-card>
-                       </div>
-                   </div>
-
-                   <!-- awal ulasan -->
-                   <div class="row q-mx-xs q-mt-sm">
-                       <div class="col text-black">
-                           <q-card class="my-card text-center">
-                                <q-card-section class="text-black">
-                                <label >Ulasan</label>
-                                <hr>
-                                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                                </q-card-section>
-                            </q-card>
-                       </div>
-                   </div>
-                   <!-- akhir ulasan -->
-                </div>
-            </template>
-        </q-card-section>
-    </q-card>
-</div>
+            </div> 
+        </div>
+        <div class="column" style="height: 50px"/>
+    </div>
 </template>
 
 <script>

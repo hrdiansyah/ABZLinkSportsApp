@@ -18,7 +18,7 @@
           <q-item-label class="q-mt-sm">ID</q-item-label>
         </q-item-section>
 
-        <q-item-section top class="col-2 gt-sm flex-center">
+        <q-item-section top class="col-0 gt-sm flex-center">
           <q-item-label class="q-mt-sm">Nama Produk</q-item-label>
         </q-item-section>
 
@@ -39,6 +39,11 @@
 
         <q-item-section top class="col-2 gt-sm flex-center">
           <q-item-label class="q-mt-sm">Produk deskripsi
+          </q-item-label>
+        </q-item-section>
+
+        <q-item-section top class="col-2 gt-sm flex-center">
+          <q-item-label class="q-mt-sm">Image
           </q-item-label>
         </q-item-section>
 
@@ -79,13 +84,16 @@
 
         <q-item-section top class="col-2 gt-sm flex flex-center">
           <q-item-label lines="1">
-            <span class="text-weight-medium">{{product.imgurl}}</span>
+            <span class="text-weight-medium">{{product.product_desc}}</span>
           </q-item-label>
         </q-item-section>
          <q-item-section top class="col-2 gt-sm flex flex-center">
-          <q-item-label lines="1">
-            <span class="text-weight-medium">{{product.imgurl}}</span>
-          </q-item-label>
+          
+            <q-img 
+            style="width:50px;"
+            :src="product.imgurl"
+            />
+          
         </q-item-section>
 
         <q-item-section top class="col-1 gt-sm flex flex-center">

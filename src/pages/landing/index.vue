@@ -87,7 +87,7 @@
             </div>
             <div id="padding" class="col-2 q-mx-sm q-mx-auto q-mt-sm" style="min-width:150px; max-width:200px">
               <q-img
-                src="./statics/asics.jpg"
+                src="./statics/asics.png"
               />
             </div>
             <div id="padding" class="col-2 q-mx-sm q-mx-auto q-mt-sm" style="min-width:150px; max-width:200px">
@@ -103,7 +103,7 @@
           <div class="text-h6">New Products</div>
            <div class="row " >
                 
-              <q-btn id="padding" class="col q-mx-auto  column q-ma-xs" flat v-for="item in images" :key="item.id" style="min-width:200px; max-width:250px" @click="show(item)">
+              <q-btn id="padding" class="col-2  column q-ma-xs" flat v-for="item in images" :key="item.id" style="min-width:200px; max-width:250px" @click="show(item)">
                     <div class="row">
                       <div class="col">
                           <q-img style="width:200px; height:250px " class="q-mx-auto"
@@ -262,7 +262,7 @@ export default {
       ratingModel: 5,
       ratingModel1: 4,
       images:[],
-      img: './statics/supersale2.jpg',
+ 
       kuantity:'',
       find_name:''
       }
@@ -284,7 +284,7 @@ export default {
     product.getproduct(window )
                 .then(function (result) {
                     console.log(result);
-                    for (let i = 0; i < 3; i++) {
+                    for (let i = 0; i < 42; i++) {
                       self.images.push(result[i])
                     }
                 })

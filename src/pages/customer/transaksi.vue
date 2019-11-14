@@ -88,6 +88,7 @@ import product from '../../api/Produk/index';
 import transaksi from '../../api/transaksi/index';
 import kurir from '../../api/kurir/index';
 import cart from '../../api/cart/index';
+
 export default {
   data () {
     return {
