@@ -5,7 +5,7 @@ export default {
         return getApiNoAuthLB()
         .get('/diskons')
         .then(function(response){
-            console.log(response)
+            console.log('diskon',response)
             return response.data
         }).catch(function(err){
             console.log(err)

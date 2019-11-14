@@ -49,7 +49,7 @@
           <q-input
             filled
             v-model="berat"
-            label="Product Deskripsi"
+            label="Berat"
             lazy-rules
             :rules="[ val => val && val.length > 0 || 'Please type something']"
           />
@@ -114,6 +114,7 @@ export default {
       productName: '',
       qty: '',
       category: '',
+      berat:'',
       desc: '',
       harga: '',
       imgurl: '',
@@ -150,7 +151,7 @@ export default {
       postProduct() {
 
           product
-          .postproduct(window, this.nameFile, this.harga, this.qty, this.category, this.desc, this.nameFile+'.jpg' )
+          .postproduct(window, this.nameFile, this.harga, this.qty, this.category, this.desc,this.berat, this.nameFile+'.jpg' )
           .then(function(result) {
             return result;
           })
