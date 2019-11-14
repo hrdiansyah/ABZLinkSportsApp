@@ -6,24 +6,28 @@
    </div>
   
     <q-layout class="shadow-2 rounded-borders"> 
-     <q-header elevated class="bg-black">
-        <q-toolbar>
-          <q-btn flat round dense icon="assignment_ind" />
+     
+       <q-header class="bg-grey-3 text-grey-9" reveal height-hint="60">
+        <q-toolbar class="GPLAY__toolbar text-grey-6">
+        <div class="q-pr-lg" v-if="$q.screen.gt.xs" >
+          <img src="/statics/logo.png" style="height: 60px">
+        </div>
 
-          <q-space />
+        <q-space />
 
-          <q-btn flat round dense icon="sim_card" class="q-mr-xs" />
-          <q-btn flat round dense icon="gamepad" />
-        </q-toolbar>
+        <div class="GPLAY__toolbar-input-container row no-wrap" >
+          <q-input dense outlined square v-model="search" placeholder="Search" class="bg-white col float-right" />
+          <q-btn class="GPLAY__toolbar-input-btn" color="primary" icon="search" unelevated />
+        </div>
 
-        <!-- <q-toolbar inset>
-          <q-breadcrumbs active-color="white" style="font-size: 16px">
-            <q-breadcrumbs-el label="Home" icon="home" />
-            <q-breadcrumbs-el label="Components" icon="widgets" />
-            <q-breadcrumbs-el label="Toolbar" />
-          </q-breadcrumbs>
-        </q-toolbar> -->
-      </q-header>
+        <q-space />
+
+        <div>
+          <q-btn class="q-ml-sm" outline color="light-blue-13" label="Login" size="md" to="/login"/>
+          <q-btn  class="q-ml-sm" color="light-blue-13" label="Daftar" size="md"/>
+        </div>
+      </q-toolbar>
+    </q-header>
     <q-carousel
       animated
       v-model="slide"
@@ -42,10 +46,6 @@
           <div class="text-center text-h1 text-white">
             <br>First stop
             </div>
-          <div class="text-center text-subtitle2 text-white">
-           <!-- <q-btn class="btn-fixed-width" outline style="color: white;" label="Login/Register Now" /> -->
-           <q-btn push color="white" text-color="primary" label="Login/Register Now" />
-          </div>
         </div>
       </q-carousel-slide>
       <q-carousel-slide class="responsive" name="second" img-src="./statics/awe.jpg">
@@ -103,7 +103,7 @@
           <div class="text-h6">New Products</div>
            <div class="row " >
                 
-              <q-btn id="padding" class="col q-mx-auto  column q-ma-xs" flat v-for="item in images" :key="item.id" style="min-width:200px; max-width:250px" @click="show(item)">
+              <q-btn id="padding" class="col-2  column q-ma-xs" flat v-for="item in images" :key="item.id" style="min-width:200px; max-width:250px" @click="show(item)">
                     <div class="row">
                       <div class="col">
                           <q-img style="width:200px; height:250px " class="q-mx-auto"
@@ -198,20 +198,57 @@
         </div>
 </template>
 
-<style scoped>
-  .size {
-    height:20px;
-    width: 60px;
-  }
-  .trans {
-    opacity : 0.8;
-  }
-  #padding {
-    padding:10px;
-  }
-  .align {
-    text-align: center;
-  }
+
+<style lang="sass">
+.GPLAY
+  &__toolbar
+    height: 60px
+  &__logo
+    width: 183px
+    height: 39px
+  &__toolbar-input-container
+    min-width: 100px
+    width: 55%
+  &__toolbar-input-btn
+    border-radius: 0
+    max-width: 60px
+    width: 100%
+  &__drawer-link
+    .q-item__section--avatar
+      margin: -8px 0 -8px -16px
+      padding: 8px 0 8px 16px
+    .q-item__section--main
+      margin: -8px -16px -8px 16px
+      padding: 8px 16px 8px 2px
+      font-size: 18px
+      font-weight: 300
+    &--apps, &--movies, &--music, &--books, &--devices
+      background: #f5f5f5!important
+      &:hover
+        color: #eee !important
+    &--apps:hover
+      background: #43a047!important
+    &--movies:hover
+      background: #e53935!important
+    &--music:hover
+      background: #fb8c00!important
+    &--books:hover
+      background: #1e88e5!important
+    &--devices:hover
+      background: #546e7a!important
+  &__drawer-item
+    padding: 6px 12px 6px 23px
+  &__sticky
+    min-height: 49px
+    border-bottom: 1px solid rgba(0,0,0,0.12)
+  &__sticky-help
+    border: 1px solid #ccc
+    padding-left: 8px
+    padding-right: 8px
+  &__sticky-settings
+    padding-left: 17px
+    padding-right: 17px
+    border: 1px solid #ccc
 </style>
 
 <script>
@@ -225,14 +262,14 @@ export default {
       ratingModel: 5,
       ratingModel1: 4,
       images:[],
-      img: './statics/supersale2.jpg',
+ 
       kuantity:'',
       find_name:''
       }
   },
 
   computed: {
-    getImgs() {
+    getImg() {
       this.getImg()
     },
     cek(){
@@ -246,7 +283,12 @@ export default {
          let self=this;
     product.getproduct(window )
                 .then(function (result) {
+<<<<<<< HEAD
                     for (let i = 0; i < 5; i++) {
+=======
+                    console.log(result);
+                    for (let i = 0; i <42; i++) {
+>>>>>>> 9860c9c1abfa2bc331c8558105dcf81974ef18c3
                       self.images.push(result[i])
                     }
                 })

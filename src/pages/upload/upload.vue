@@ -46,6 +46,7 @@
             :rules="[ val => val && val.length > 0 || 'Please type something']"
           />
 
+<<<<<<< HEAD
           <q-input
             filled
             v-model="berat"
@@ -53,6 +54,9 @@
             lazy-rules
             :rules="[ val => val && val.length > 0 || 'Please type something']"
           />
+=======
+          
+>>>>>>> 9860c9c1abfa2bc331c8558105dcf81974ef18c3
            
           <div class="modal-body">
                 <!--UPLOAD-->
@@ -215,8 +219,5 @@ export default {
     mounted() {
       this.reset();
     },
-
-
-
 };
 </script>

@@ -18,7 +18,7 @@
           <q-item-label class="q-mt-sm">ID</q-item-label>
         </q-item-section>
 
-        <q-item-section top class="col-2 gt-sm flex-center">
+        <q-item-section top class="col-0 gt-sm flex-center">
           <q-item-label class="q-mt-sm">Nama Produk</q-item-label>
         </q-item-section>
 
@@ -39,6 +39,10 @@
 
         <q-item-section top class="col-2 gt-sm flex-center">
           <q-item-label class="q-mt-sm">Produk deskripsi
+          </q-item-label>
+        </q-item-section>
+        <q-item-section top class="col-2 gt-sm flex-center">
+          <q-item-label class="q-mt-sm">Image
           </q-item-label>
         </q-item-section>
 
@@ -79,13 +83,14 @@
 
         <q-item-section top class="col-2 gt-sm flex flex-center">
           <q-item-label lines="1">
-            <span class="text-weight-medium">{{product.imgurl}}</span>
+            <span class="text-weight-medium">{{product.product_desc}}</span>
           </q-item-label>
         </q-item-section>
          <q-item-section top class="col-2 gt-sm flex flex-center">
-          <q-item-label lines="1">
-            <span class="text-weight-medium">{{product.imgurl}}</span>
-          </q-item-label>
+          
+           <q-img style="width:50px;"
+                          :src="product.imgurl"
+                          />
         </q-item-section>
 
         <q-item-section top class="col-1 gt-sm flex flex-center">
@@ -142,13 +147,12 @@
                 val => val !== null && val !== '' || 'Please enter your product price',
               ]"
             />
-            <!-- <q-radio dense v-model="form.jenisKelamin" val="Laki-laki" label="Laki-laki" />
-            <q-radio dense v-model="form.jenisKelamin" val="Perempuan" label="Perempuan" /> -->
-
+           
             <q-input
               filled
               v-model="form.kuantity"
               label="Jumlah barang "
+              type="integer"
               lazy-rules
               :rules="[
                 val => val !== null && val !== '' || 'Please enter your product qty',
@@ -166,8 +170,8 @@
 
                 <q-input
                   filled
-                  v-model="form.url"
-                  label="url "
+                  v-model="form.productdesc"
+                  label="Produk Deskripsi"
                   type="textarea"
                   lazy-rules
                   :rules="[
@@ -179,7 +183,7 @@
                   filled
                   v-model="form.imgurl"
                   label="Upload Ulang Gambar"
-                  type="textarea"
+                  type="image"
                   lazy-rules
                   :rules="[
                     val => val !== null && val !== '' || '',
@@ -223,7 +227,8 @@ export default {
         productname : '',
         harga : '',
         kuantity : '',
-        productkategory : ''
+        productkategory : '',
+        productdesc:' '
       }
     }
   },
@@ -268,7 +273,7 @@ export default {
     onSubmit(){
       const self=this
       products.postproduct(window, self.form.productname, self.form.harga, self.form.kuantity, 
-      self.form.productkategory, self.form.productdesc
+      self.form.productkategory, self.form.productdesc,
     )
       .then(function(result)
         {
@@ -289,6 +294,8 @@ export default {
             this.form.harga=product.harga
             this.form.kuantity=product.kuantity
             this.form.productkategory=product.product_kategory
+            this.form.productdesc=product.productdesc
+            this.form.imgurl=product.imgurl
 
         } catch (error) {
             console.log(error.message)
@@ -303,7 +310,7 @@ export default {
       
         const self=this 
         products.putproduct(window, self.form.id, self.form.productname, self.form.harga,
-        self.form.kuantity, self.form.productkategory, self.form.productdesc)
+        self.form.kuantity, self.form.productkategory, self.form.productdesc,self.form.imgurl)
         .then(function(result) {
             self.$router.go('/admin/barang')
         })

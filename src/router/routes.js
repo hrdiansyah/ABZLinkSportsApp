@@ -18,13 +18,14 @@ const routes = [
     // admin
     {
       path: '/admin/',
-      component: () => import('layouts/admin.vue'),
+      component: () => import('layouts/admins.vue'),
       // beforeEnter: requireAuth,
       children: [
         { path: '', component: () => import('pages/admin/dash.vue') },
         { path: 'barang', component: () => import('pages/admin/barang.vue') },
         { path: 'penjualan', component: () => import('pages/admin/penjualan.vue') },
-        { path: 'konfirmasi', component: () => import('pages/admin/konfirmasi.vue') }
+        { path: 'konfirmasi', component: () => import('pages/admin/konfirmasi.vue') },
+        { path: 'discount', component: () => import('pages/admin/discount.vue') }
         
       ]
     },
@@ -89,9 +90,12 @@ const routes = [
     
     {
       path: '/commit/',
-      component: () => import('pages/chart/index.vue'),
+      component: () => import('pages/chart/visualization.vue'),
     },
-  
+    {
+      path: '/get/',
+      component: () => import('pages/get/get.vue'),
+    },
     //LOGIN
     { 
       path: '/login', component: () => import('pages/Login/Index.vue') 
