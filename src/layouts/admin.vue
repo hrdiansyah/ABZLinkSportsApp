@@ -111,24 +111,27 @@ export default{
   },
   
   
-  // async  mounted(){
-  //   let getRole = await localStorage.getItem('role');
-  //   if(getRole !='admin' || getRole ==='owner'){
-  //        this.$router.push('/owner/')
-  //     }
-  //      if(getRole !='admin' || getRole ==='customer'){
-  //        this.$router.push('/cust/dash')
-  //     } else {
-  //       alert('anda login sebagai admin')
-  //     }  
-  //   },
-  //   methods :{
-  //     logout(){
-  //       localStorage.removeItem('role');
-  //       localStorage.removeItem('email');
-  //       this.$router.push('/login');
-  //     }
-  //   }
+  async  mounted(){
+    let getRole = await localStorage.getItem('role');
+    if(getRole ==='owner'){
+         this.$router.push('/owner/')
+      }
+      else if(getRole ==='customer'){
+         this.$router.push('/cust/dash')
+      }   
+    },
+    methods :{
+      logout(){
+        localStorage.removeItem('role');
+        localStorage.removeItem('email');
+        localStorage.removeItem('imgurl');
+        localStorage.removeItem('id_cart');
+        localStorage.removeItem('id');
+        localStorage.removeItem('id_product');
+        localStorage.removeItem('id_transaksi');
+        this.$router.push('/login');
+      }
+    }
   }
   
       

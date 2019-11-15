@@ -131,13 +131,15 @@ export default {
                 self.$router.push('/admin/')
               } else if (result.role=='owner'){
                 self.$router.push('/owner/')
-              } else {
+              } else if (result.role=='customer') {
+                self.$router.push('/cust/dash')
                 if(result.role=='customer' && localStorage.getItem('id_product') != null){
                     self.$router.push('/cust/detail')
                 } else {
                     self.$router.push('/cust/dash')
                 }
-                
+              } else {
+                self.$router.push('/login')
               }
             }
         })

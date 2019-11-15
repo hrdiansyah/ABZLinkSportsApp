@@ -137,6 +137,15 @@ export default {
       ]
     }
   },
+  async  mounted(){
+    let getRole = await localStorage.getItem('role');
+    if(getRole ==='owner'){
+         this.$router.push('/owner/')
+      }
+      else if(getRole ==='customer'){
+         this.$router.push('/cust/dash')
+      }   
+    },
   methods: {
     onClear () {
       this.exactPhrase = ''

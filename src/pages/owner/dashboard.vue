@@ -2,7 +2,83 @@
     <div class="q-pa-md">
         Halaman Dashoboard owner
     
-   
+        <div class="row">
+            
+            <div class="col-4">
+            
+            <div class="col-1 q-col-gutter-xl"/>
+
+            <div class="col-3 q-col-gutter-md q-gutter-xl">
+                <q-card >
+                        <div class="row ">
+                            <div class="col-6">
+                                <q-icon color="teal-4" name="supervisor_account" size="60px"/>
+                            </div>
+                            <div class="col-1">
+                                <div class="column justify-center">
+                                    <div class="col-1">
+                                        <div class="text-right text-overline">Pengguna</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-right text-overline">data akun</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </q-card>
+            </div>
+
+            <div class="col-1 q-col-gutter-xl"/>
+
+            </div>
+            <div class="col-4">
+
+            <div class="col-3 q-col-gutter-md q-gutter-xl">
+                <q-card >
+                        <div class="row ">
+                            <div class="col-6">
+                                <q-icon color="teal-4" name="supervisor_account" size="60px"/>
+                            </div>
+                            <div class="col-1">
+                                <div class="column justify-center">
+                                    <div class="col-1">
+                                        <div class="text-right text-overline">Pengguna</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-right text-overline">data akun</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </q-card>
+            </div>
+
+            </div>
+            <div class="col-4">
+
+            <div class="col-3 q-col-gutter-md q-gutter-xl">
+                <q-card >
+                        <div class="row ">
+                            <div class="col-6">
+                                <q-icon color="teal-4" name="supervisor_account" size="60px"/>
+                            </div>
+                            <div class="col-1">
+                                <div class="column justify-center">
+                                    <div class="col-1">
+                                        <div class="text-right text-overline">Pengguna</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-right text-overline">data akun</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </q-card>
+            </div>
+
+            </div>
+        </div>
+
         <div class="row">
             
             <div class="col-4">

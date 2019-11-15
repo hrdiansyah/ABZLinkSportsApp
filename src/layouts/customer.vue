@@ -4,14 +4,14 @@
       <div class="row">
         <div class="col bg-grey-10 hide" >
           <q-toolbar class=" text-white  " >
-            <q-btn flat label="Homepage" />
+            <q-btn flat label="Homepage" @click="$router.replace('/cust/dash')" />
             <q-space />
           </q-toolbar>
 
           <q-toolbar class=" text-white ">
             <q-tabs  shrink  style="min-width:240px">
               <q-tab name="tab1" label="About" />
-              <q-tab name="tab2" label="Products" />
+              <q-tab name="tab2" label="Products" @click="$router.replace('/cust/catalog')"/>
               <q-tab name="tab4" label="Contact Us" />
             </q-tabs>
             <q-space />
@@ -29,20 +29,13 @@
             <q-icon name="account_circle" size="md"/>
             <q-menu>
               <div class="row no-wrap q-pa-md">
-                <div class="column">
-                  <div class="text-h6 q-mb-md">Settings</div>
-                  <hr/>
-                  <div class="q-mb-md">Transaksi</div>
-                  <div class="q-mb-md">Tagihan</div>
-
-                </div>
 
                 <div class="column items-center">
                   <q-avatar size="72px">
                     <img src="https://cdn.quasar.dev/img/avatar4.jpg">
                   </q-avatar>
 
-                  <div class="text-subtitle1 q-mt-md q-mb-xs">John Doe</div>
+                  <div class="text-subtitle1 q-mt-md q-mb-xs">{{cust.firstName}}</div>
 
                   <q-btn
                     color="primary"
@@ -60,8 +53,8 @@
           <q-btn  class="float-right cart hide" flat to="/cust/cart/" style="height:20px"> 
           <q-icon name="add_shopping_cart" class="text-white hide  q-mt-none" size="md"/>
           </q-btn>  
-          <q-btn class="bg-white float-right mr q-mx-md" size="sm" >Cari</q-btn>
-          <q-input type="text" placeholder="Search......!" class="bg-white float-right  mr" style="max-width:200px;max-height:25px" />
+          <!-- <q-btn class="bg-white float-right mr q-mx-md" size="sm" >Cari</q-btn>
+          <q-input type="text" placeholder="Search......!" class="bg-white float-right  mr" style="max-width:200px;max-height:25px" /> -->
         </div>
           
       </div>
@@ -85,7 +78,7 @@
             <q-card class="my-card bg-grey-10" flat tyle="max-height:100%">
                 <q-card-section>
                     <q-list>
-                      <q-item-label header class="text-white text-center " size="md"> Welcome Admin </q-item-label>
+                      <q-item-label header class="text-white text-center " size="md"> Welcome {{Admin}} </q-item-label>
                       <hr class="text-white"/>
                       <q-item clickable tag="a" href="/#/admin">
                         <q-item-section avatar>
@@ -223,10 +216,12 @@
 </template>
 
 <script>
+import cust from '../api/customer/index';
 export default{
   data(){
     return{
       drawerLeft: false,
+      cust:[{}]
     }
   },
   batal(){
@@ -236,21 +231,40 @@ export default{
         let self = this;
         self.$router.push("/cust/cart/")
       },
-  // async  mounted(){
-  //   let getRole = await localStorage.getItem('role');
-  //   if(getRole !='customer' || getRole ==='owner'){
-  //        this.$router.push('/owner/')
-  //     }
-  //      else if(getRole !='customer' || getRole ==='admin'){
-  //        this.$router.push('/admin')
-  //     } else {
-  //       alert(' anda login sebagai customer')
-  //     } 
-  //   },
+  beforeCreate(){
+
+      let getRole =  localStorage.getItem('role');
+      let getid =  localStorage.getItem('id');
+
+      if(getRole !='customer' || getRole ==='owner')
+          {
+            this.$router.push('/owner/')
+          }
+      else if(getRole !='customer' || getRole ==='admin')
+          {
+            this.$router.push('/admin')
+          } 
+  
+      cust.getCustbyId(window, getid)
+          .then(function (result) {
+          self.cust = result;
+          console.log('cust', result)
+          })
+          .catch(function (err) {
+          console.log(err);
+          });
+    },
+
     methods :{
+
       logout(){
         localStorage.removeItem('role');
         localStorage.removeItem('email');
+        localStorage.removeItem('imgurl');
+        localStorage.removeItem('id_cart');
+        localStorage.removeItem('id');
+        localStorage.removeItem('id_product');
+        localStorage.removeItem('id_transaksi');
         this.$router.push('/login');
       }
     }
